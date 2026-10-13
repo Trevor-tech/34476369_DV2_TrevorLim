@@ -30,8 +30,6 @@ js/main.js            one vegaEmbed call per chart + the shared chart theme
 charts/*.vg.json      13 chart specifications, pretty-printed (2-space indent), $schema first
 data/*.csv            5 source CSVs (unchanged) + 3 small reference tables made for this project
 data/*.topojson       world (Natural Earth 1:110m) and Australian states (ABS ASGS 2021, simplified)
-rationale.md          what / why / how for every chart (Munzner)
-sketch_brief.md       one-page brief for the hand-drawn layout sketch
 ```
 
 | File | Chart | Idiom | Library |
