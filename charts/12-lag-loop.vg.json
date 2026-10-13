@@ -1,0 +1,706 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "description": "Connected scatterplot of two seasonal patterns. Horizontal position is the seasonal index of Australia's toy, game and sporting-goods imports (each month divided by its calendar year's monthly average, averaged over 2023–2025; 100 = an average month). Vertical position is the same index for discretionary household spending (averaged over 2013–2025). The twelve months are joined in calendar order and form a loop: imports peak in October (148.5) while spending is barely above average; spending peaks in December (121.2) when imports have already fallen back to 93.5. Note: the ABS spending series is all discretionary spending, not toy spending.",
+  "title": {
+    "text": "The two-month lag: toys land in October, shoppers buy in December",
+    "subtitle": [
+      "Seasonal index for each calendar month (100 = an average month), joined January → December",
+      "Across: toy imports (2023–2025). Up: discretionary household spending, not toy spending (2013–2025)."
+    ],
+    "anchor": "start",
+    "frame": "group"
+  },
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "height": 470,
+  "signals": [
+    {
+      "name": "width",
+      "init": "isFinite(containerSize()[0]) ? containerSize()[0] : 800",
+      "on": [
+        {
+          "events": "window:resize",
+          "update": "isFinite(containerSize()[0]) ? containerSize()[0] : 800"
+        }
+      ]
+    }
+  ],
+  "data": [
+    {
+      "name": "toys",
+      "url": "data/toys_imports_monthly.csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "month": "string",
+          "value_k": "number"
+        }
+      },
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": [
+            "month"
+          ],
+          "fields": [
+            "value_k"
+          ],
+          "ops": [
+            "sum"
+          ],
+          "as": [
+            "total_k"
+          ]
+        },
+        {
+          "type": "formula",
+          "expr": "toNumber(substring(datum.month, 0, 4))",
+          "as": "yr"
+        },
+        {
+          "type": "formula",
+          "expr": "toNumber(substring(datum.month, 5, 7))",
+          "as": "mo"
+        },
+        {
+          "type": "joinaggregate",
+          "groupby": [
+            "yr"
+          ],
+          "fields": [
+            "total_k",
+            "total_k"
+          ],
+          "ops": [
+            "count",
+            "mean"
+          ],
+          "as": [
+            "months_in_year",
+            "year_mean_k"
+          ]
+        },
+        {
+          "type": "filter",
+          "expr": "datum.months_in_year == 12"
+        },
+        {
+          "type": "formula",
+          "expr": "100 * datum.total_k / datum.year_mean_k",
+          "as": "ratio"
+        },
+        {
+          "type": "aggregate",
+          "groupby": [
+            "mo"
+          ],
+          "fields": [
+            "ratio"
+          ],
+          "ops": [
+            "mean"
+          ],
+          "as": [
+            "toy_index"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "spend",
+      "url": "data/household_spending_monthly.csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "month": "string",
+          "spend_aud_millions": "number"
+        }
+      },
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.category == 'Discretionary'"
+        },
+        {
+          "type": "formula",
+          "expr": "toNumber(substring(datum.month, 0, 4))",
+          "as": "yr"
+        },
+        {
+          "type": "formula",
+          "expr": "toNumber(substring(datum.month, 5, 7))",
+          "as": "mo"
+        },
+        {
+          "type": "joinaggregate",
+          "groupby": [
+            "yr"
+          ],
+          "fields": [
+            "spend_aud_millions",
+            "spend_aud_millions"
+          ],
+          "ops": [
+            "count",
+            "mean"
+          ],
+          "as": [
+            "months_in_year",
+            "year_mean_m"
+          ]
+        },
+        {
+          "type": "filter",
+          "expr": "datum.months_in_year == 12"
+        },
+        {
+          "type": "formula",
+          "expr": "100 * datum.spend_aud_millions / datum.year_mean_m",
+          "as": "ratio"
+        },
+        {
+          "type": "aggregate",
+          "groupby": [
+            "mo"
+          ],
+          "fields": [
+            "ratio"
+          ],
+          "ops": [
+            "mean"
+          ],
+          "as": [
+            "spend_index"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "loop",
+      "source": "toys",
+      "transform": [
+        {
+          "type": "lookup",
+          "from": "spend",
+          "key": "mo",
+          "fields": [
+            "mo"
+          ],
+          "values": [
+            "spend_index"
+          ]
+        },
+        {
+          "type": "collect",
+          "sort": {
+            "field": "mo"
+          }
+        },
+        {
+          "type": "formula",
+          "expr": "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][datum.mo - 1]",
+          "as": "month_name"
+        },
+        {
+          "type": "formula",
+          "expr": "substring(datum.month_name, 0, 3)",
+          "as": "month_short"
+        },
+        {
+          "type": "window",
+          "sort": {
+            "field": "mo"
+          },
+          "ops": [
+            "lead",
+            "lead",
+            "first_value",
+            "first_value"
+          ],
+          "fields": [
+            "toy_index",
+            "spend_index",
+            "toy_index",
+            "spend_index"
+          ],
+          "as": [
+            "lead_x",
+            "lead_y",
+            "first_x",
+            "first_y"
+          ],
+          "frame": [
+            null,
+            null
+          ]
+        },
+        {
+          "type": "formula",
+          "expr": "datum.mo == 12 ? datum.first_x : datum.lead_x",
+          "as": "next_x"
+        },
+        {
+          "type": "formula",
+          "expr": "datum.mo == 12 ? datum.first_y : datum.lead_y",
+          "as": "next_y"
+        },
+        {
+          "type": "formula",
+          "expr": "[18, -14, -20, -4, -30, -20, 6, 0, -8, 22, 8, -4][datum.mo - 1]",
+          "as": "label_dx"
+        },
+        {
+          "type": "formula",
+          "expr": "[4, 12, 0, 14, 3, 0, -12, 14, -13, 0, -12, -15][datum.mo - 1]",
+          "as": "label_dy"
+        }
+      ]
+    },
+    {
+      "name": "source_note",
+      "values": [
+        {
+          "line": 0,
+          "text": "Sources: DFAT Merchandise Trade Statistical Pivot Tables, SITC 894 monthly imports, all origins (CC BY 4.0); ABS Monthly Household Spending"
+        },
+        {
+          "line": 1,
+          "text": "Indicator, Discretionary, original series, $ million (CC BY 4.0). Only complete calendar years are used. Index = month ÷ that year’s monthly average × 100."
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "linear",
+      "domain": [
+        65,
+        155
+      ],
+      "nice": false,
+      "zero": false,
+      "range": "width"
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "domain": [
+        85,
+        125
+      ],
+      "nice": false,
+      "zero": false,
+      "range": "height"
+    }
+  ],
+  "axes": [
+    {
+      "orient": "bottom",
+      "scale": "x",
+      "title": "Toy imports, seasonal index (100 = average month)",
+      "values": [
+        70,
+        80,
+        90,
+        100,
+        110,
+        120,
+        130,
+        140,
+        150
+      ],
+      "grid": true,
+      "gridColor": "#EFEAE1",
+      "domain": false,
+      "ticks": false,
+      "labelPadding": 6
+    },
+    {
+      "orient": "left",
+      "scale": "y",
+      "title": "Discretionary spending, seasonal index",
+      "values": [
+        85,
+        90,
+        95,
+        100,
+        105,
+        110,
+        115,
+        120,
+        125
+      ],
+      "grid": true,
+      "gridColor": "#EFEAE1",
+      "domain": false,
+      "ticks": false,
+      "labelPadding": 6
+    }
+  ],
+  "marks": [
+    {
+      "type": "rule",
+      "description": "Reference lines at 100 on both axes.",
+      "encode": {
+        "update": {
+          "x": {
+            "scale": "x",
+            "value": 100
+          },
+          "y": {
+            "value": 0
+          },
+          "y2": {
+            "signal": "height"
+          },
+          "stroke": {
+            "value": "#B8B2A8"
+          },
+          "strokeWidth": {
+            "value": 1.2
+          }
+        }
+      }
+    },
+    {
+      "type": "rule",
+      "encode": {
+        "update": {
+          "y": {
+            "scale": "y",
+            "value": 100
+          },
+          "x": {
+            "value": 0
+          },
+          "x2": {
+            "signal": "width"
+          },
+          "stroke": {
+            "value": "#B8B2A8"
+          },
+          "strokeWidth": {
+            "value": 1.2
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "description": "Quadrant hint labels.",
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "width - 4"
+          },
+          "y": {
+            "signal": "height - 6"
+          },
+          "align": {
+            "value": "right"
+          },
+          "baseline": {
+            "value": "bottom"
+          },
+          "text": {
+            "value": "More toys arriving than usual →"
+          },
+          "fill": {
+            "value": "#7A7268"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontStyle": {
+            "value": "italic"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "update": {
+          "x": {
+            "value": 6
+          },
+          "y": {
+            "value": 4
+          },
+          "align": {
+            "value": "left"
+          },
+          "baseline": {
+            "value": "top"
+          },
+          "text": {
+            "value": "↑ Shoppers spending more than usual"
+          },
+          "fill": {
+            "value": "#7A7268"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontStyle": {
+            "value": "italic"
+          }
+        }
+      }
+    },
+    {
+      "type": "line",
+      "description": "The loop: months joined in calendar order, closed from December back to January.",
+      "from": {
+        "data": "loop"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "scale": "x",
+            "field": "toy_index"
+          },
+          "y": {
+            "scale": "y",
+            "field": "spend_index"
+          },
+          "stroke": {
+            "value": "#337F6F"
+          },
+          "strokeWidth": {
+            "value": 2.5
+          },
+          "strokeJoin": {
+            "value": "round"
+          },
+          "interpolate": {
+            "value": "linear-closed"
+          }
+        }
+      }
+    },
+    {
+      "type": "symbol",
+      "description": "Arrowheads halfway along each segment, pointing to the next month.",
+      "from": {
+        "data": "loop"
+      },
+      "encode": {
+        "update": {
+          "shape": {
+            "value": "triangle-right"
+          },
+          "size": {
+            "value": 70
+          },
+          "fill": {
+            "value": "#337F6F"
+          },
+          "x": {
+            "signal": "(scale('x', datum.toy_index) + scale('x', datum.next_x)) / 2"
+          },
+          "y": {
+            "signal": "(scale('y', datum.spend_index) + scale('y', datum.next_y)) / 2"
+          },
+          "angle": {
+            "signal": "atan2(scale('y', datum.next_y) - scale('y', datum.spend_index), scale('x', datum.next_x) - scale('x', datum.toy_index)) * 180 / PI"
+          }
+        }
+      }
+    },
+    {
+      "type": "symbol",
+      "name": "points",
+      "description": "One point per calendar month; October and December are emphasised.",
+      "from": {
+        "data": "loop"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "scale": "x",
+            "field": "toy_index"
+          },
+          "y": {
+            "scale": "y",
+            "field": "spend_index"
+          },
+          "size": {
+            "signal": "datum.mo == 10 || datum.mo == 12 ? 170 : 70"
+          },
+          "fill": {
+            "signal": "datum.mo == 10 || datum.mo == 12 ? '#1F1B16' : '#FBF8F3'"
+          },
+          "stroke": {
+            "value": "#1F1B16"
+          },
+          "strokeWidth": {
+            "value": 1.5
+          },
+          "tooltip": {
+            "signal": "{'Month': datum.month_name, 'Toy imports index': format(datum.toy_index, '.1f'), 'Discretionary spending index': format(datum.spend_index, '.1f')}"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "description": "Month labels, offset by hand so none sits on the line.",
+      "from": {
+        "data": "loop"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "scale": "x",
+            "field": "toy_index",
+            "offset": {
+              "field": "label_dx"
+            }
+          },
+          "y": {
+            "scale": "y",
+            "field": "spend_index",
+            "offset": {
+              "field": "label_dy"
+            }
+          },
+          "align": {
+            "value": "center"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "text": {
+            "field": "month_short"
+          },
+          "fontSize": {
+            "value": 13
+          },
+          "fontWeight": {
+            "signal": "datum.mo == 10 || datum.mo == 12 ? 'bold' : 'normal'"
+          },
+          "fill": {
+            "value": "#1F1B16"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "description": "Annotation for the October import peak.",
+      "from": {
+        "data": "loop"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "scale": "x",
+            "field": "toy_index",
+            "offset": 6
+          },
+          "y": {
+            "scale": "y",
+            "field": "spend_index",
+            "offset": 78
+          },
+          "align": {
+            "value": "right"
+          },
+          "baseline": {
+            "value": "top"
+          },
+          "text": {
+            "signal": "datum.mo == 10 ? ['October: imports peak at ' + format(datum.toy_index, '.1f') + ',', 'while spending is only ' + format(datum.spend_index, '.1f')] : ''"
+          },
+          "fontSize": {
+            "value": 13
+          },
+          "lineHeight": {
+            "value": 17
+          },
+          "fill": {
+            "value": "#1F1B16"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "description": "Annotation for the December spending peak.",
+      "from": {
+        "data": "loop"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "scale": "x",
+            "field": "toy_index",
+            "offset": -18
+          },
+          "y": {
+            "scale": "y",
+            "field": "spend_index",
+            "offset": 2
+          },
+          "align": {
+            "value": "right"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "text": {
+            "signal": "datum.mo == 12 ? ['December: spending peaks at ' + format(datum.spend_index, '.1f') + ',', 'imports already back to ' + format(datum.toy_index, '.1f')] : ''"
+          },
+          "fontSize": {
+            "value": 13
+          },
+          "lineHeight": {
+            "value": 17
+          },
+          "fill": {
+            "value": "#1F1B16"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "description": "Source lines under the x-axis title.",
+      "from": {
+        "data": "source_note"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "value": 0
+          },
+          "y": {
+            "signal": "height + 52 + datum.line * 15"
+          },
+          "align": {
+            "value": "left"
+          },
+          "baseline": {
+            "value": "top"
+          },
+          "text": {
+            "field": "text"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "fill": {
+            "value": "#7A7268"
+          }
+        }
+      }
+    }
+  ],
+  "usermeta": {
+    "source": "DFAT Merchandise Trade Statistical Pivot Tables, SITC 894 monthly imports (CC BY 4.0); ABS 5682.0 Monthly Household Spending Indicator, Discretionary, original series (CC BY 4.0)."
+  }
+}

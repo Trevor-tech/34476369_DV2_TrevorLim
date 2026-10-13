@@ -1,0 +1,350 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Slope graph comparing each country's share of the value of Australia's toy, game and sporting-goods imports in calendar year 2006 (left) and 2025 (right). Vietnam rises from 0.3% to 7.2%; the United States falls from 10.0% to 6.5%; Taiwan falls from 5.5% to 3.1%; Hong Kong falls from 2.3% to 0.2%; Japan rises from 1.8% to 2.8%. China (65.5% to 68.3%) is far above this scale and is noted in text rather than drawn.",
+  "title": {
+    "text": "Who gained and who lost ground, 2006 → 2025",
+    "subtitle": "Share of the value of Australia’s toy imports, every named country except China (calendar years)"
+  },
+  "width": "container",
+  "height": 440,
+  "data": {
+    "url": "data/toys_imports_country_year.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "value_k": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.year == 2006 || datum.year == 2025"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "value_k",
+          "as": "total_k"
+        }
+      ],
+      "groupby": [
+        "year"
+      ]
+    },
+    {
+      "calculate": "datum.value_k / datum.total_k",
+      "as": "share"
+    },
+    {
+      "filter": "datum.origin != 'China' && datum.origin != 'Rest of world'"
+    },
+    {
+      "calculate": "datum.origin == 'Vietnam' ? 'Vietnam' : datum.origin == 'Japan' ? 'Japan' : 'Other named countries'",
+      "as": "group"
+    },
+    {
+      "calculate": "datum.origin == 'Hong Kong (SAR of China)' ? 'Hong Kong' : datum.origin",
+      "as": "origin_short"
+    },
+    {
+      "calculate": "indexof(['Vietnam', 'Japan', 'United States', 'Taiwan', 'Hong Kong (SAR of China)'], datum.origin) >= 0",
+      "as": "labelled"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "title": null,
+      "scale": {
+        "domain": [
+          2006,
+          2025
+        ]
+      },
+      "axis": {
+        "values": [
+          2006,
+          2025
+        ],
+        "format": "d",
+        "grid": false,
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 15,
+        "labelFontWeight": "bold",
+        "labelColor": "#1F1B16",
+        "orient": "top",
+        "labelPadding": 10
+      }
+    },
+    "y": {
+      "field": "share",
+      "type": "quantitative",
+      "title": null,
+      "scale": {
+        "domain": [
+          0,
+          0.11
+        ],
+        "nice": false
+      },
+      "axis": null
+    },
+    "detail": {
+      "field": "origin",
+      "type": "nominal"
+    }
+  },
+  "layer": [
+    {
+      "description": "Grey slopes for countries that are not labelled.",
+      "transform": [
+        {
+          "filter": "!datum.labelled"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 1.2,
+        "color": "#D3CEC6"
+      },
+      "encoding": {
+        "opacity": {
+          "condition": {
+            "param": "hover",
+            "empty": true,
+            "value": 1
+          },
+          "value": 0.3
+        }
+      }
+    },
+    {
+      "description": "Labelled slopes: Vietnam red, Japan blue, the United States, Taiwan and Hong Kong in dark grey.",
+      "transform": [
+        {
+          "filter": "datum.labelled"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3,
+        "strokeCap": "round"
+      },
+      "encoding": {
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Vietnam",
+              "Japan",
+              "Other named countries"
+            ],
+            "range": [
+              "#E0442B",
+              "#2E6DB4",
+              "#8F897F"
+            ]
+          },
+          "legend": null
+        },
+        "opacity": {
+          "condition": {
+            "param": "hover",
+            "empty": true,
+            "value": 1
+          },
+          "value": 0.3
+        }
+      }
+    },
+    {
+      "description": "End points; hovering one highlights that country's slope.",
+      "params": [
+        {
+          "name": "hover",
+          "select": {
+            "type": "point",
+            "fields": [
+              "origin"
+            ],
+            "on": "pointerover",
+            "clear": "pointerout"
+          }
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 70,
+        "stroke": "#FBF8F3",
+        "strokeWidth": 1.5,
+        "opacity": 1
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "datum.labelled",
+            "field": "group",
+            "type": "nominal"
+          },
+          "value": "#C9C4BB"
+        },
+        "tooltip": [
+          {
+            "field": "origin_short",
+            "type": "nominal",
+            "title": "Origin"
+          },
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Calendar year"
+          },
+          {
+            "field": "share",
+            "type": "quantitative",
+            "title": "Share of imports",
+            "format": ".1%"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Left labels (2006).",
+      "transform": [
+        {
+          "filter": "datum.labelled && datum.year == 2006"
+        },
+        {
+          "calculate": "datum.origin_short + '  ' + format(datum.share, '.1%')",
+          "as": "label"
+        },
+        {
+          "calculate": "{'Hong Kong (SAR of China)': -4, 'Japan': 5}[datum.origin] || 0",
+          "as": "nudge"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -12,
+        "baseline": "middle",
+        "fontSize": 13,
+        "color": "#1F1B16",
+        "dy": {
+          "expr": "datum.nudge"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "Right labels (2025).",
+      "transform": [
+        {
+          "filter": "datum.labelled && datum.year == 2025"
+        },
+        {
+          "calculate": "format(datum.share, '.1%') + '  ' + datum.origin_short",
+          "as": "label"
+        },
+        {
+          "calculate": "{'Taiwan': -6, 'Japan': 6, 'Vietnam': -5, 'United States': 5}[datum.origin] || 0",
+          "as": "nudge"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "baseline": "middle",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "color": "#1F1B16",
+        "dy": {
+          "expr": "datum.nudge"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "Note for China, which is off the top of this scale.",
+      "data": {
+        "values": [
+          {
+            "text": "China is off the top of this scale: 65.5% in 2006 → 68.3% in 2025."
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "top",
+        "fontSize": 13,
+        "fontStyle": "italic",
+        "color": "#5A534A"
+      },
+      "encoding": {
+        "text": {
+          "field": "text",
+          "type": "nominal"
+        },
+        "x": {
+          "value": {
+            "expr": "width / 2"
+          }
+        },
+        "y": {
+          "value": 4
+        }
+      }
+    },
+    {
+      "description": "Source line.",
+      "data": {
+        "values": [
+          {
+            "text": "Source: DFAT Merchandise Trade Statistical Pivot Tables, SITC 894 total imports by country of origin, calendar years (CC BY 4.0). Shares are of the total including China."
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 11,
+        "color": "#7A7268"
+      },
+      "encoding": {
+        "text": {
+          "field": "text",
+          "type": "nominal"
+        },
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": {
+            "expr": "height + 12"
+          }
+        }
+      }
+    }
+  ],
+  "usermeta": {
+    "source": "DFAT Merchandise Trade Statistical Pivot Tables, SITC 894 total imports by country of origin, calendar years (CC BY 4.0)."
+  }
+}

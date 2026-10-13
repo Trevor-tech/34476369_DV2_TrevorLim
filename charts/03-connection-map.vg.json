@@ -1,0 +1,488 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Connection map, Equal Earth projection centred on 150°E. Each line joins a country of origin to the main port of the Australian state or territory where the goods were unloaded, for one financial year chosen from a menu (default 2024–25). Line width shows import value. Lines are straight on the map, not shipping routes. 'Rest of world' has no location and is not drawn.",
+  "title": {
+    "text": {
+      "expr": "'From factory to port, financial year ' + fy"
+    },
+    "subtitle": "Each line joins a country of origin to the main port of the state where its toys were unloaded. Thicker line = more value."
+  },
+  "width": "container",
+  "height": 470,
+  "params": [
+    {
+      "name": "fy",
+      "value": "2024-25",
+      "bind": {
+        "input": "select",
+        "options": [
+          "2015-16",
+          "2016-17",
+          "2017-18",
+          "2018-19",
+          "2019-20",
+          "2020-21",
+          "2021-22",
+          "2022-23",
+          "2023-24",
+          "2024-25"
+        ],
+        "name": "Financial year "
+      }
+    }
+  ],
+  "projection": {
+    "type": "equalEarth",
+    "rotate": [
+      -150,
+      0,
+      0
+    ]
+  },
+  "layer": [
+    {
+      "description": "Base map: every country except Antarctica.",
+      "data": {
+        "url": "data/world-110m.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.id != '010'"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#E9E4DB",
+        "stroke": "#FBF8F3",
+        "strokeWidth": 0.5
+      }
+    },
+    {
+      "description": "Flow lines from origin centroid to state port, widest drawn first so thin lines stay visible.",
+      "data": {
+        "url": "data/toys_imports_state_country.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "year": "string",
+            "value_k": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.year == fy && datum.origin != 'Rest of world'"
+        },
+        {
+          "calculate": "datum.value_k / 1000",
+          "as": "value_m"
+        },
+        {
+          "lookup": "origin",
+          "from": {
+            "data": {
+              "url": "data/origin_iso.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "iso_numeric": "string",
+                  "lat": "number",
+                  "lon": "number"
+                }
+              }
+            },
+            "key": "origin",
+            "fields": [
+              "lat",
+              "lon"
+            ]
+          },
+          "as": [
+            "origin_lat",
+            "origin_lon"
+          ]
+        },
+        {
+          "lookup": "state",
+          "from": {
+            "data": {
+              "url": "data/state_ports.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "lat": "number",
+                  "lon": "number"
+                }
+              }
+            },
+            "key": "state",
+            "fields": [
+              "port",
+              "lat",
+              "lon"
+            ]
+          },
+          "as": [
+            "port",
+            "port_lat",
+            "port_lon"
+          ]
+        },
+        {
+          "calculate": "datum.origin == 'Vietnam' ? 'Vietnam' : datum.origin == 'Japan' ? 'Japan' : datum.origin == 'China' ? 'China' : 'Other named countries'",
+          "as": "group"
+        },
+        {
+          "calculate": "datum.origin == 'Hong Kong (SAR of China)' ? 'Hong Kong' : datum.origin",
+          "as": "origin_short"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "strokeCap": "round",
+        "opacity": 0.7
+      },
+      "encoding": {
+        "longitude": {
+          "field": "origin_lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "origin_lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "port_lon"
+        },
+        "latitude2": {
+          "field": "port_lat"
+        },
+        "strokeWidth": {
+          "field": "value_m",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              1700
+            ],
+            "range": [
+              0,
+              16
+            ]
+          },
+          "legend": {
+            "title": "Import value (A$ million)",
+            "values": [
+              10,
+              100,
+              500,
+              1500
+            ],
+            "orient": "none",
+            "symbolType": "stroke",
+            "symbolStrokeColor": "#8C8279",
+            "legendX": {
+              "expr": "width * 0.78"
+            },
+            "legendY": {
+              "expr": "height * 0.62"
+            }
+          }
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "China",
+              "Vietnam",
+              "Japan",
+              "Other named countries"
+            ],
+            "range": [
+              "#8C8279",
+              "#E0442B",
+              "#2E6DB4",
+              "#B8B2A8"
+            ]
+          },
+          "legend": {
+            "title": "Country of origin",
+            "orient": "none",
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 4,
+            "legendX": {
+              "expr": "width * 0.62"
+            },
+            "legendY": {
+              "expr": "height * 0.62"
+            }
+          }
+        },
+        "order": {
+          "field": "value_m",
+          "type": "quantitative",
+          "sort": "descending"
+        },
+        "tooltip": [
+          {
+            "field": "origin_short",
+            "type": "nominal",
+            "title": "From"
+          },
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "Unloaded in"
+          },
+          {
+            "field": "port",
+            "type": "nominal",
+            "title": "Port on map"
+          },
+          {
+            "field": "year",
+            "type": "nominal",
+            "title": "Financial year"
+          },
+          {
+            "field": "value_m",
+            "type": "quantitative",
+            "title": "Value (A$ million)",
+            "format": ",.1f"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Origin dots, sized by that origin's total for the year.",
+      "data": {
+        "url": "data/toys_imports_state_country.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "year": "string",
+            "value_k": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.year == fy && datum.origin != 'Rest of world'"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "value_k",
+              "as": "total_k"
+            }
+          ],
+          "groupby": [
+            "origin"
+          ]
+        },
+        {
+          "calculate": "datum.total_k / 1000",
+          "as": "total_m"
+        },
+        {
+          "lookup": "origin",
+          "from": {
+            "data": {
+              "url": "data/origin_iso.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "iso_numeric": "string",
+                  "lat": "number",
+                  "lon": "number"
+                }
+              }
+            },
+            "key": "origin",
+            "fields": [
+              "lat",
+              "lon"
+            ]
+          }
+        },
+        {
+          "calculate": "datum.origin == 'Hong Kong (SAR of China)' ? 'Hong Kong' : datum.origin",
+          "as": "origin_short"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 26,
+        "color": "#1F1B16",
+        "opacity": 0.9,
+        "stroke": "#FBF8F3",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "origin_short",
+            "type": "nominal",
+            "title": "Origin"
+          },
+          {
+            "field": "total_m",
+            "type": "quantitative",
+            "title": "All states (A$ million)",
+            "format": ",.1f"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Labels for the four origins the story follows.",
+      "data": {
+        "url": "data/origin_iso.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "iso_numeric": "string",
+            "lat": "number",
+            "lon": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "indexof(['China', 'Vietnam', 'Japan', 'United States'], datum.origin) >= 0"
+        },
+        {
+          "calculate": "{'China': 'right', 'Vietnam': 'right', 'Japan': 'left', 'United States': 'left'}[datum.origin]",
+          "as": "align"
+        },
+        {
+          "calculate": "{'China': -8, 'Vietnam': -8, 'Japan': 8, 'United States': 8}[datum.origin]",
+          "as": "dx"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "color": "#1F1B16",
+        "baseline": "middle",
+        "align": {
+          "expr": "datum.align"
+        },
+        "dx": {
+          "expr": "datum.dx"
+        }
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "origin",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "Port dots where lines end.",
+      "data": {
+        "url": "data/state_ports.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "lat": "number",
+            "lon": "number"
+          }
+        }
+      },
+      "mark": {
+        "type": "circle",
+        "size": 22,
+        "color": "#1F1B16",
+        "stroke": "#FBF8F3",
+        "strokeWidth": 1,
+        "opacity": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State or territory"
+          },
+          {
+            "field": "port",
+            "type": "nominal",
+            "title": "Port on map"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Source line.",
+      "data": {
+        "values": [
+          {
+            "text": [
+              "Source: DFAT Merchandise Trade Statistical Pivot Tables, SITC 894 imports by state of destination and origin (CC BY 4.0).",
+              "Port locations: Wikipedia port articles (see README). Lines are straight on the map, not shipping routes. “Rest of world” is not drawn."
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 11,
+        "lineHeight": 15,
+        "color": "#7A7268"
+      },
+      "encoding": {
+        "text": {
+          "field": "text",
+          "type": "nominal"
+        },
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": {
+            "expr": "height + 10"
+          }
+        }
+      }
+    }
+  ],
+  "usermeta": {
+    "source": "DFAT Merchandise Trade Statistical Pivot Tables, SITC 894, imports by state of destination and country of origin, financial years (CC BY 4.0)."
+  }
+}

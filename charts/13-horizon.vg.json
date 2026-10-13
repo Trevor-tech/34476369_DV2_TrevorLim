@@ -1,0 +1,496 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Horizon chart, one row per country of origin, January 2024 to August 2026. For each month it compares that country's toy, game and sporting-goods imports with its own average over the previous 12 months. Teal bands mean above that average and ochre bands below; each band is 50 percentage points, so darker teal means more than 50% or 100% above. Vietnam is above its previous-year average in almost every month, consistent with fast growth; China's teal appears mostly in September–October.",
+  "title": {
+    "text": "Who is running hot? Each month against the year before it",
+    "subtitle": [
+      "Each month’s imports compared with that country’s own average over the previous 12 months, January 2024 – August 2026.",
+      "Teal = above that average, ochre = below. Each shade is 50 percentage points, so darker means further from normal."
+    ]
+  },
+  "width": "container",
+  "height": 418,
+  "data": {
+    "url": "data/toys_imports_monthly.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "month": "string",
+        "value_k": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "indexof(['China', 'Vietnam', 'United States', 'Taiwan', 'Japan', 'Thailand', 'Indonesia', 'India', 'United Kingdom', 'Germany', 'Rest of world'], datum.origin) >= 0"
+    },
+    {
+      "calculate": "toNumber(substring(datum.month, 0, 4))",
+      "as": "yr"
+    },
+    {
+      "calculate": "toNumber(substring(datum.month, 5, 7))",
+      "as": "mo"
+    },
+    {
+      "calculate": "datetime(datum.yr, datum.mo - 1, 1)",
+      "as": "date"
+    },
+    {
+      "window": [
+        {
+          "op": "sum",
+          "field": "value_k",
+          "as": "sum13_k"
+        },
+        {
+          "op": "count",
+          "as": "n13"
+        }
+      ],
+      "groupby": [
+        "origin"
+      ],
+      "sort": [
+        {
+          "field": "date",
+          "order": "ascending"
+        }
+      ],
+      "frame": [
+        -12,
+        0
+      ]
+    },
+    {
+      "calculate": "datum.n13 - 1",
+      "as": "prev12_n"
+    },
+    {
+      "filter": "datum.prev12_n == 12"
+    },
+    {
+      "calculate": "(datum.sum13_k - datum.value_k) / 12",
+      "as": "prev12_mean_k"
+    },
+    {
+      "calculate": "datum.value_k / datum.prev12_mean_k - 1",
+      "as": "dev"
+    },
+    {
+      "calculate": "indexof(['China', 'Vietnam', 'United States', 'Taiwan', 'Japan', 'Thailand', 'Indonesia', 'India', 'United Kingdom', 'Germany', 'Rest of world'], datum.origin)",
+      "as": "row"
+    },
+    {
+      "calculate": "max(datum.dev, 0)",
+      "as": "above"
+    },
+    {
+      "calculate": "max(-datum.dev, 0)",
+      "as": "below"
+    },
+    {
+      "calculate": "datum.row + 0.92",
+      "as": "base"
+    },
+    {
+      "calculate": "datum.base - 0.84 * clamp(datum.above / 0.5, 0, 1)",
+      "as": "above_1"
+    },
+    {
+      "calculate": "datum.base - 0.84 * clamp((datum.above - 0.5) / 0.5, 0, 1)",
+      "as": "above_2"
+    },
+    {
+      "calculate": "datum.base - 0.84 * clamp((datum.above - 1) / 0.5, 0, 1)",
+      "as": "above_3"
+    },
+    {
+      "calculate": "datum.base - 0.84 * clamp(datum.below / 0.5, 0, 1)",
+      "as": "below_1"
+    },
+    {
+      "calculate": "datum.base - 0.84 * clamp((datum.below - 0.5) / 0.5, 0, 1)",
+      "as": "below_2"
+    },
+    {
+      "calculate": "datum.value_k / 1000",
+      "as": "value_m"
+    },
+    {
+      "calculate": "datum.prev12_mean_k / 1000",
+      "as": "prev12_mean_m"
+    },
+    {
+      "calculate": "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][datum.mo - 1] + ' ' + datum.yr",
+      "as": "month_name"
+    },
+    {
+      "calculate": "datum.row + 0.5",
+      "as": "row_mid"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "title": null,
+      "axis": {
+        "format": "%b %Y",
+        "values": [
+          {
+            "year": 2024,
+            "month": 1,
+            "date": 1
+          },
+          {
+            "year": 2024,
+            "month": 7,
+            "date": 1
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "date": 1
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "date": 1
+          },
+          {
+            "year": 2026,
+            "month": 1,
+            "date": 1
+          },
+          {
+            "year": 2026,
+            "month": 7,
+            "date": 1
+          }
+        ],
+        "grid": true,
+        "gridColor": "#EFEAE1",
+        "domain": false,
+        "tickColor": "#C9C2B6",
+        "labelFontSize": 12
+      }
+    }
+  },
+  "layer": [
+    {
+      "description": "Band 1 above: 0–50% above the previous-12-month average.",
+      "mark": {
+        "type": "area",
+        "interpolate": "linear"
+      },
+      "encoding": {
+        "y": {
+          "field": "base",
+          "type": "quantitative",
+          "title": null,
+          "scale": {
+            "domain": [
+              0,
+              11
+            ],
+            "reverse": true,
+            "nice": false
+          },
+          "axis": {
+            "values": [
+              0.5,
+              1.5,
+              2.5,
+              3.5,
+              4.5,
+              5.5,
+              6.5,
+              7.5,
+              8.5,
+              9.5,
+              10.5
+            ],
+            "labelExpr": "['China', 'Vietnam', 'United States', 'Taiwan', 'Japan', 'Thailand', 'Indonesia', 'India', 'United Kingdom', 'Germany', 'Rest of world'][floor(datum.value)]",
+            "grid": false,
+            "domain": false,
+            "ticks": false,
+            "labelFontSize": 13,
+            "labelPadding": 8
+          }
+        },
+        "y2": {
+          "field": "above_1"
+        },
+        "detail": {
+          "field": "origin",
+          "type": "nominal"
+        },
+        "color": {
+          "datum": "Up to 50% above",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Up to 50% above",
+              "50–100% above",
+              "Over 100% above",
+              "Up to 50% below",
+              "50–100% below"
+            ],
+            "range": [
+              "#A9D4C7",
+              "#4E9C8A",
+              "#12554A",
+              "#EBCB9C",
+              "#B9822F"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top",
+            "direction": "horizontal",
+            "symbolType": "square",
+            "symbolSize": 150,
+            "symbolStrokeWidth": 0,
+            "labelFontSize": 12
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "area",
+        "interpolate": "linear"
+      },
+      "encoding": {
+        "y": {
+          "field": "base",
+          "type": "quantitative"
+        },
+        "y2": {
+          "field": "above_2"
+        },
+        "detail": {
+          "field": "origin",
+          "type": "nominal"
+        },
+        "color": {
+          "datum": "50–100% above",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "area",
+        "interpolate": "linear"
+      },
+      "encoding": {
+        "y": {
+          "field": "base",
+          "type": "quantitative"
+        },
+        "y2": {
+          "field": "above_3"
+        },
+        "detail": {
+          "field": "origin",
+          "type": "nominal"
+        },
+        "color": {
+          "datum": "Over 100% above",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "area",
+        "interpolate": "linear"
+      },
+      "encoding": {
+        "y": {
+          "field": "base",
+          "type": "quantitative"
+        },
+        "y2": {
+          "field": "below_1"
+        },
+        "detail": {
+          "field": "origin",
+          "type": "nominal"
+        },
+        "color": {
+          "datum": "Up to 50% below",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "area",
+        "interpolate": "linear"
+      },
+      "encoding": {
+        "y": {
+          "field": "base",
+          "type": "quantitative"
+        },
+        "y2": {
+          "field": "below_2"
+        },
+        "detail": {
+          "field": "origin",
+          "type": "nominal"
+        },
+        "color": {
+          "datum": "50–100% below",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "Row baselines.",
+      "data": {
+        "values": [
+          {
+            "row": 0
+          },
+          {
+            "row": 1
+          },
+          {
+            "row": 2
+          },
+          {
+            "row": 3
+          },
+          {
+            "row": 4
+          },
+          {
+            "row": 5
+          },
+          {
+            "row": 6
+          },
+          {
+            "row": 7
+          },
+          {
+            "row": 8
+          },
+          {
+            "row": 9
+          },
+          {
+            "row": 10
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "datum.row + 0.92",
+          "as": "base"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#D9D3C8",
+        "strokeWidth": 0.8
+      },
+      "encoding": {
+        "y": {
+          "field": "base",
+          "type": "quantitative"
+        },
+        "x": {
+          "value": 0
+        },
+        "x2": {
+          "value": {
+            "expr": "width"
+          }
+        }
+      }
+    },
+    {
+      "description": "Invisible hover targets for tooltips.",
+      "mark": {
+        "type": "square",
+        "size": 260,
+        "opacity": 0
+      },
+      "encoding": {
+        "y": {
+          "field": "row_mid",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "origin",
+            "type": "nominal",
+            "title": "Origin"
+          },
+          {
+            "field": "month_name",
+            "type": "nominal",
+            "title": "Month"
+          },
+          {
+            "field": "value_m",
+            "type": "quantitative",
+            "title": "Imports (A$ million)",
+            "format": ",.1f"
+          },
+          {
+            "field": "prev12_mean_m",
+            "type": "quantitative",
+            "title": "Previous 12-month average (A$m)",
+            "format": ",.1f"
+          },
+          {
+            "field": "dev",
+            "type": "quantitative",
+            "title": "Difference",
+            "format": "+.0%"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Source line.",
+      "data": {
+        "values": [
+          {
+            "text": "Source: DFAT Merchandise Trade Statistical Pivot Tables, SITC 894 monthly imports by country of origin (CC BY 4.0). 2023 is used only to build the first 12-month averages."
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 11,
+        "color": "#7A7268"
+      },
+      "encoding": {
+        "text": {
+          "field": "text",
+          "type": "nominal"
+        },
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": {
+            "expr": "height + 30"
+          }
+        }
+      }
+    }
+  ],
+  "usermeta": {
+    "source": "DFAT Merchandise Trade Statistical Pivot Tables, SITC 894, monthly imports by country of origin (CC BY 4.0)."
+  }
+}

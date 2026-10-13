@@ -1,0 +1,421 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Streamgraph of the value of Australia's toy, game and sporting-goods imports by country of origin, calendar years 2006 to 2025. Bands are stacked around a centre line, so the stream's thickness is the yearly total: A$2.07 billion in 2006 and A$5.63 billion in 2025. China is the wide stone-coloured band, Vietnam the red band along the bottom edge, Japan the blue band; all other countries are grey.",
+  "title": {
+    "text": "The toy box keeps getting bigger",
+    "subtitle": "Value of imports each calendar year, by country of origin. The stream’s thickness is the year’s total."
+  },
+  "width": "container",
+  "height": 400,
+  "data": {
+    "url": "data/toys_imports_country_year.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "value_k": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datum.value_k / 1000",
+      "as": "value_m"
+    },
+    {
+      "calculate": "datum.origin == 'Vietnam' ? 'Vietnam' : datum.origin == 'Japan' ? 'Japan' : datum.origin == 'China' ? 'China' : datum.origin == 'Rest of world' ? 'Rest of world' : 'Other named countries'",
+      "as": "group"
+    },
+    {
+      "calculate": "datum.origin == 'Vietnam' ? 0 : datum.origin == 'China' ? 1 : datum.origin == 'Japan' ? 2 : datum.origin == 'Rest of world' ? 4 : 3",
+      "as": "band_order"
+    },
+    {
+      "calculate": "datum.origin == 'Hong Kong (SAR of China)' ? 'Hong Kong' : datum.origin",
+      "as": "origin_short"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "value_m",
+          "as": "year_total_m"
+        }
+      ],
+      "groupby": [
+        "year"
+      ]
+    },
+    {
+      "calculate": "datum.value_m / datum.year_total_m",
+      "as": "share"
+    },
+    {
+      "stack": "value_m",
+      "groupby": [
+        "year"
+      ],
+      "offset": "center",
+      "sort": [
+        {
+          "field": "band_order",
+          "order": "ascending"
+        },
+        {
+          "field": "origin",
+          "order": "ascending"
+        }
+      ],
+      "as": [
+        "y0",
+        "y1"
+      ]
+    },
+    {
+      "calculate": "(datum.y0 + datum.y1) / 2",
+      "as": "y_mid"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "title": null,
+      "scale": {
+        "domain": [
+          2006,
+          2025
+        ]
+      },
+      "axis": {
+        "format": "d",
+        "values": [
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022,
+          2025
+        ],
+        "grid": false,
+        "domain": false,
+        "tickColor": "#C9C2B6",
+        "labelFontSize": 12
+      }
+    }
+  },
+  "layer": [
+    {
+      "description": "One band per origin.",
+      "mark": {
+        "type": "area",
+        "interpolate": "monotone",
+        "stroke": "#FBF8F3",
+        "strokeWidth": 0.6
+      },
+      "encoding": {
+        "y": {
+          "field": "y0",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "zero": false
+          }
+        },
+        "y2": {
+          "field": "y1"
+        },
+        "detail": {
+          "field": "origin",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "China",
+              "Vietnam",
+              "Japan",
+              "Other named countries",
+              "Rest of world"
+            ],
+            "range": [
+              "#8C8279",
+              "#E0442B",
+              "#2E6DB4",
+              "#C9C4BB",
+              "#DDD8CF"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top",
+            "direction": "horizontal",
+            "symbolType": "square",
+            "symbolSize": 150,
+            "symbolStrokeWidth": 0,
+            "labelFontSize": 13
+          }
+        },
+        "opacity": {
+          "condition": {
+            "param": "hover",
+            "empty": true,
+            "value": 1
+          },
+          "value": 0.35
+        }
+      }
+    },
+    {
+      "description": "Invisible hover targets at each year and band, for tooltips and highlighting one origin.",
+      "params": [
+        {
+          "name": "hover",
+          "select": {
+            "type": "point",
+            "fields": [
+              "origin"
+            ],
+            "on": "pointerover",
+            "clear": "pointerout"
+          }
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 180,
+        "opacity": 0
+      },
+      "encoding": {
+        "y": {
+          "field": "y_mid",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "origin_short",
+            "type": "nominal",
+            "title": "Origin"
+          },
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Calendar year"
+          },
+          {
+            "field": "value_m",
+            "type": "quantitative",
+            "title": "Value (A$ million)",
+            "format": ",.1f"
+          },
+          {
+            "field": "share",
+            "type": "quantitative",
+            "title": "Share of that year",
+            "format": ".1%"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Direct labels at the 2025 end of the three story bands.",
+      "transform": [
+        {
+          "filter": "datum.year == 2025 && indexof(['China', 'Vietnam', 'Japan'], datum.origin) >= 0"
+        },
+        {
+          "calculate": "datum.origin + ' ' + format(datum.share, '.1%')",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "color": "#1F1B16"
+      },
+      "encoding": {
+        "y": {
+          "field": "y_mid",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "Year totals above the stream at the start and the end.",
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "max",
+              "field": "y1",
+              "as": "top"
+            },
+            {
+              "op": "sum",
+              "field": "value_m",
+              "as": "total_m"
+            }
+          ],
+          "groupby": [
+            "year"
+          ]
+        },
+        {
+          "filter": "datum.year == 2006 || datum.year == 2025"
+        },
+        {
+          "calculate": "'A$' + format(datum.total_m / 1000, '.2f') + 'bn'",
+          "as": "label"
+        },
+        {
+          "calculate": "datum.year == 2006 ? 'left' : datum.year == 2025 ? 'right' : 'center'",
+          "as": "align"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "baseline": "bottom",
+        "dy": -8,
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "color": "#1F1B16",
+        "align": {
+          "expr": "datum.align"
+        }
+      },
+      "encoding": {
+        "y": {
+          "field": "top",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "Anomaly note: the United Kingdom band bulges in 2015 and 2016.",
+      "transform": [
+        {
+          "joinaggregate": [
+            {
+              "op": "max",
+              "field": "y1",
+              "as": "year_top"
+            }
+          ],
+          "groupby": [
+            "year"
+          ]
+        },
+        {
+          "filter": "datum.origin == 'United Kingdom' && datum.year == 2016"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "bottom",
+        "dx": -4,
+        "dy": -18,
+        "fontSize": 12,
+        "fontStyle": "italic",
+        "color": "#5A534A",
+        "text": [
+          "UK bump in 2015 and 2016 (4.2%, 4.6%): probably a",
+          "shipping-route quirk, not British-made toys. Back to ~1% since."
+        ]
+      },
+      "encoding": {
+        "y": {
+          "field": "year_top",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "description": "Leader line for the UK note.",
+      "transform": [
+        {
+          "joinaggregate": [
+            {
+              "op": "max",
+              "field": "y1",
+              "as": "year_top"
+            }
+          ],
+          "groupby": [
+            "year"
+          ]
+        },
+        {
+          "filter": "datum.origin == 'United Kingdom' && datum.year == 2016"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#5A534A",
+        "strokeWidth": 1,
+        "y2Offset": -14
+      },
+      "encoding": {
+        "y": {
+          "field": "y_mid",
+          "type": "quantitative"
+        },
+        "y2": {
+          "field": "year_top"
+        }
+      }
+    },
+    {
+      "description": "Source line.",
+      "data": {
+        "values": [
+          {
+            "text": "Source: DFAT Merchandise Trade Statistical Pivot Tables, SITC 894 total imports by country of origin, calendar years (CC BY 4.0)."
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 11,
+        "color": "#7A7268"
+      },
+      "encoding": {
+        "text": {
+          "field": "text",
+          "type": "nominal"
+        },
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": {
+            "expr": "height + 30"
+          }
+        }
+      }
+    }
+  ],
+  "usermeta": {
+    "source": "DFAT Merchandise Trade Statistical Pivot Tables, SITC 894 total imports by country of origin, calendar years (CC BY 4.0)."
+  }
+}

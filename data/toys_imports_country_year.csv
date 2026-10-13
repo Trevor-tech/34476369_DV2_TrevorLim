@@ -1,0 +1,421 @@
+year,origin,value_k
+2006,Canada,13455
+2006,China,1354775
+2006,Czech Republic,4552
+2006,Denmark,19299
+2006,Germany,18022
+2006,Hong Kong (SAR of China),47183
+2006,Hungary,4955
+2006,India,25532
+2006,Indonesia,10881
+2006,Italy,16665
+2006,Japan,37637
+2006,Malaysia,14993
+2006,Mexico,3482
+2006,Republic of Korea,7711
+2006,Rest of world,95658
+2006,Singapore,12179
+2006,Taiwan,114015
+2006,Thailand,23343
+2006,United Kingdom,32351
+2006,United States,206989
+2006,Vietnam,5367
+2007,Canada,7995
+2007,China,1457572
+2007,Czech Republic,8779
+2007,Denmark,29185
+2007,Germany,17036
+2007,Hong Kong (SAR of China),48378
+2007,Hungary,5024
+2007,India,24452
+2007,Indonesia,13793
+2007,Italy,19974
+2007,Japan,51647
+2007,Malaysia,16741
+2007,Mexico,6343
+2007,Republic of Korea,9361
+2007,Rest of world,102935
+2007,Singapore,8663
+2007,Taiwan,94435
+2007,Thailand,23453
+2007,United Kingdom,31670
+2007,United States,198376
+2007,Vietnam,6142
+2008,Canada,9603
+2008,China,1992151
+2008,Czech Republic,13958
+2008,Denmark,37728
+2008,Germany,17338
+2008,Hong Kong (SAR of China),53657
+2008,Hungary,3218
+2008,India,23741
+2008,Indonesia,15137
+2008,Italy,22526
+2008,Japan,62940
+2008,Malaysia,13835
+2008,Mexico,5302
+2008,Republic of Korea,9935
+2008,Rest of world,101792
+2008,Singapore,8072
+2008,Taiwan,96250
+2008,Thailand,28938
+2008,United Kingdom,39962
+2008,United States,188212
+2008,Vietnam,7181
+2009,Canada,9916
+2009,China,2128124
+2009,Czech Republic,25771
+2009,Denmark,42402
+2009,Germany,12376
+2009,Hong Kong (SAR of China),42280
+2009,Hungary,3770
+2009,India,22999
+2009,Indonesia,18230
+2009,Italy,22296
+2009,Japan,36102
+2009,Malaysia,14374
+2009,Mexico,6162
+2009,Republic of Korea,8582
+2009,Rest of world,80069
+2009,Singapore,7215
+2009,Taiwan,84675
+2009,Thailand,25474
+2009,United Kingdom,35338
+2009,United States,188502
+2009,Vietnam,8948
+2010,Canada,13302
+2010,China,1869980
+2010,Czech Republic,25461
+2010,Denmark,52310
+2010,Germany,15503
+2010,Hong Kong (SAR of China),34968
+2010,Hungary,6488
+2010,India,24673
+2010,Indonesia,18162
+2010,Italy,27541
+2010,Japan,30802
+2010,Malaysia,16813
+2010,Mexico,6296
+2010,Republic of Korea,9018
+2010,Rest of world,80341
+2010,Singapore,7641
+2010,Taiwan,86689
+2010,Thailand,25949
+2010,United Kingdom,35497
+2010,United States,168994
+2010,Vietnam,8524
+2011,Canada,11834
+2011,China,1680688
+2011,Czech Republic,29868
+2011,Denmark,49938
+2011,Germany,17812
+2011,Hong Kong (SAR of China),28065
+2011,Hungary,6039
+2011,India,22565
+2011,Indonesia,18057
+2011,Italy,20934
+2011,Japan,26008
+2011,Malaysia,16036
+2011,Mexico,7014
+2011,Republic of Korea,9649
+2011,Rest of world,81400
+2011,Singapore,15059
+2011,Taiwan,87865
+2011,Thailand,27960
+2011,United Kingdom,30453
+2011,United States,153349
+2011,Vietnam,11370
+2012,Canada,13527
+2012,China,1612896
+2012,Czech Republic,16787
+2012,Denmark,68008
+2012,Germany,13334
+2012,Hong Kong (SAR of China),31798
+2012,Hungary,7556
+2012,India,21761
+2012,Indonesia,26838
+2012,Italy,19079
+2012,Japan,28303
+2012,Malaysia,18427
+2012,Mexico,13349
+2012,Republic of Korea,8650
+2012,Rest of world,74050
+2012,Singapore,6985
+2012,Taiwan,100714
+2012,Thailand,30949
+2012,United Kingdom,27571
+2012,United States,162962
+2012,Vietnam,12933
+2013,Canada,22135
+2013,China,1675268
+2013,Czech Republic,7782
+2013,Denmark,42302
+2013,Germany,27926
+2013,Hong Kong (SAR of China),31889
+2013,Hungary,8175
+2013,India,24219
+2013,Indonesia,27273
+2013,Italy,21429
+2013,Japan,28826
+2013,Malaysia,18186
+2013,Mexico,36373
+2013,Republic of Korea,8641
+2013,Rest of world,74400
+2013,Singapore,3471
+2013,Taiwan,105589
+2013,Thailand,40699
+2013,United Kingdom,28980
+2013,United States,195537
+2013,Vietnam,15489
+2014,Canada,12409
+2014,China,1970949
+2014,Czech Republic,17780
+2014,Denmark,66941
+2014,Germany,18717
+2014,Hong Kong (SAR of China),37730
+2014,Hungary,10260
+2014,India,27484
+2014,Indonesia,28359
+2014,Italy,19020
+2014,Japan,30252
+2014,Malaysia,22126
+2014,Mexico,26990
+2014,Republic of Korea,10887
+2014,Rest of world,78973
+2014,Singapore,3056
+2014,Taiwan,123414
+2014,Thailand,44160
+2014,United Kingdom,47133
+2014,United States,228911
+2014,Vietnam,18189
+2015,Canada,16307
+2015,China,2091818
+2015,Czech Republic,61397
+2015,Denmark,48317
+2015,Germany,20052
+2015,Hong Kong (SAR of China),47152
+2015,Hungary,16310
+2015,India,30912
+2015,Indonesia,31996
+2015,Italy,16041
+2015,Japan,34279
+2015,Malaysia,22716
+2015,Mexico,15016
+2015,Republic of Korea,12585
+2015,Rest of world,100039
+2015,Singapore,5914
+2015,Taiwan,130088
+2015,Thailand,46298
+2015,United Kingdom,132209
+2015,United States,237668
+2015,Vietnam,27539
+2016,Canada,13799
+2016,China,2113461
+2016,Czech Republic,40833
+2016,Denmark,34521
+2016,Germany,27460
+2016,Hong Kong (SAR of China),22476
+2016,Hungary,14443
+2016,India,32644
+2016,Indonesia,31634
+2016,Italy,21790
+2016,Japan,33688
+2016,Malaysia,23624
+2016,Mexico,9043
+2016,Republic of Korea,11360
+2016,Rest of world,104007
+2016,Singapore,1864
+2016,Taiwan,130984
+2016,Thailand,46781
+2016,United Kingdom,143125
+2016,United States,242650
+2016,Vietnam,34262
+2017,Canada,12644
+2017,China,2404898
+2017,Czech Republic,15157
+2017,Denmark,19440
+2017,Germany,42287
+2017,Hong Kong (SAR of China),22798
+2017,Hungary,17981
+2017,India,29178
+2017,Indonesia,31713
+2017,Italy,20568
+2017,Japan,38090
+2017,Malaysia,23839
+2017,Mexico,14189
+2017,Republic of Korea,14362
+2017,Rest of world,103211
+2017,Singapore,3225
+2017,Taiwan,105138
+2017,Thailand,43225
+2017,United Kingdom,47254
+2017,United States,210086
+2017,Vietnam,57154
+2018,Canada,9975
+2018,China,2600107
+2018,Czech Republic,17498
+2018,Denmark,12861
+2018,Germany,30015
+2018,Hong Kong (SAR of China),17258
+2018,Hungary,11299
+2018,India,32441
+2018,Indonesia,38262
+2018,Italy,24478
+2018,Japan,42650
+2018,Malaysia,24090
+2018,Mexico,13174
+2018,Republic of Korea,12547
+2018,Rest of world,124621
+2018,Singapore,2962
+2018,Taiwan,99891
+2018,Thailand,42582
+2018,United Kingdom,31628
+2018,United States,230222
+2018,Vietnam,58879
+2019,Canada,10507
+2019,China,2621287
+2019,Czech Republic,15560
+2019,Denmark,8392
+2019,Germany,35624
+2019,Hong Kong (SAR of China),12855
+2019,Hungary,16424
+2019,India,33570
+2019,Indonesia,31678
+2019,Italy,25284
+2019,Japan,44621
+2019,Malaysia,26958
+2019,Mexico,12704
+2019,Republic of Korea,20177
+2019,Rest of world,127010
+2019,Singapore,10133
+2019,Taiwan,94988
+2019,Thailand,46492
+2019,United Kingdom,39918
+2019,United States,218924
+2019,Vietnam,88426
+2020,Canada,8234
+2020,China,3050091
+2020,Czech Republic,21005
+2020,Denmark,14143
+2020,Germany,38374
+2020,Hong Kong (SAR of China),11624
+2020,Hungary,13437
+2020,India,30393
+2020,Indonesia,34089
+2020,Italy,27217
+2020,Japan,63194
+2020,Malaysia,25606
+2020,Mexico,6645
+2020,Republic of Korea,16570
+2020,Rest of world,128584
+2020,Singapore,8256
+2020,Taiwan,100158
+2020,Thailand,56420
+2020,United Kingdom,33726
+2020,United States,195721
+2020,Vietnam,129472
+2021,Canada,13943
+2021,China,3406762
+2021,Czech Republic,23622
+2021,Denmark,13539
+2021,Germany,48630
+2021,Hong Kong (SAR of China),14317
+2021,Hungary,14521
+2021,India,41300
+2021,Indonesia,38662
+2021,Italy,36373
+2021,Japan,62984
+2021,Malaysia,30053
+2021,Mexico,10859
+2021,Republic of Korea,34080
+2021,Rest of world,149321
+2021,Singapore,8741
+2021,Taiwan,129506
+2021,Thailand,62815
+2021,United Kingdom,52524
+2021,United States,256826
+2021,Vietnam,164703
+2022,Canada,13079
+2022,China,3803907
+2022,Czech Republic,18552
+2022,Denmark,11904
+2022,Germany,42798
+2022,Hong Kong (SAR of China),17046
+2022,Hungary,19400
+2022,India,49251
+2022,Indonesia,42592
+2022,Italy,30753
+2022,Japan,58237
+2022,Malaysia,30235
+2022,Mexico,24217
+2022,Republic of Korea,32567
+2022,Rest of world,157141
+2022,Singapore,34518
+2022,Taiwan,127706
+2022,Thailand,76482
+2022,United Kingdom,50430
+2022,United States,268494
+2022,Vietnam,196729
+2023,Canada,10240
+2023,China,3324279
+2023,Czech Republic,19340
+2023,Denmark,7675
+2023,Germany,46406
+2023,Hong Kong (SAR of China),9315
+2023,Hungary,23596
+2023,India,46925
+2023,Indonesia,56177
+2023,Italy,35934
+2023,Japan,60851
+2023,Malaysia,34049
+2023,Mexico,23851
+2023,Republic of Korea,33816
+2023,Rest of world,152933
+2023,Singapore,56968
+2023,Taiwan,137809
+2023,Thailand,68731
+2023,United Kingdom,44034
+2023,United States,272697
+2023,Vietnam,182250
+2024,Canada,5722
+2024,China,3505517
+2024,Czech Republic,15861
+2024,Denmark,5527
+2024,Germany,43301
+2024,Hong Kong (SAR of China),11309
+2024,Hungary,33378
+2024,India,52195
+2024,Indonesia,54755
+2024,Italy,38696
+2024,Japan,96441
+2024,Malaysia,37752
+2024,Mexico,19283
+2024,Republic of Korea,23137
+2024,Rest of world,152538
+2024,Singapore,23427
+2024,Taiwan,112980
+2024,Thailand,80857
+2024,United Kingdom,55631
+2024,United States,278948
+2024,Vietnam,233939
+2025,Canada,9033
+2025,China,3839910
+2025,Czech Republic,19954
+2025,Denmark,4138
+2025,Germany,50736
+2025,Hong Kong (SAR of China),8967
+2025,Hungary,24613
+2025,India,57549
+2025,Indonesia,61167
+2025,Italy,38462
+2025,Japan,156797
+2025,Malaysia,36856
+2025,Mexico,32426
+2025,Republic of Korea,21102
+2025,Rest of world,164235
+2025,Singapore,7404
+2025,Taiwan,174094
+2025,Thailand,91585
+2025,United Kingdom,59923
+2025,United States,363764
+2025,Vietnam,402977

@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Great Toy Reroute</title>
+  <meta name="description" content="Australia buys more toys than ever — so why are fewer of them coming from China? A data story built with Vega-Lite.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect x=%222%22 y=%2214%22 width=%2212%22 height=%2216%22 rx=%223%22 fill=%22%238C8279%22/%3E%3Crect x=%2216%22 y=%226%22 width=%2214%22 height=%2224%22 rx=%223%22 fill=%22%23E0442B%22/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400..700&family=Figtree:ital,wght@0,400..800;1,400&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vega@6.4.0/build/vega.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.3/build/vega-lite.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@7.2.0/build/vega-embed.min.js"></script>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="wrap">
+      <p class="kicker">A data story about Australia’s toy box</p>
+      <h1>The Great Toy <span class="accent">Reroute</span></h1>
+      <p class="standfirst">Australia buys more toys than ever — so why are fewer of them coming from China?</p>
+      <p class="byline">By [Your name] · [Student ID] · FIT3179 Data Visualisation 2 · Published 25 October 2026</p>
+
+      <ul class="stats" aria-label="Key numbers">
+        <li><span class="stat-num">A$5.63bn</span><span class="stat-label">of toys, games and sporting goods imported in 2025 — 2.7 times 2006</span></li>
+        <li><span class="stat-num k-china-text">68.3%</span><span class="stat-label">came from China in 2025, down from a peak of 76.0% in 2020</span></li>
+        <li><span class="stat-num k-vietnam-text">#2</span><span class="stat-label">Vietnam’s rank as a supplier in 2025, up from 17th in 2006</span></li>
+        <li><span class="stat-num">Oct → Dec</span><span class="stat-label">toys land in October, two months before shoppers spend</span></li>
+      </ul>
+
+      <p class="legend-line">Colours used on every chart:
+        <span class="k k-china">China</span>
+        <span class="k k-vietnam">Vietnam</span>
+        <span class="k k-japan">Japan</span>
+        <span class="k k-other">everyone else</span>
+      </p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================== BEAT 1 ===================== -->
+    <section class="beat" id="toy-box">
+      <div class="wrap">
+        <p class="beat-number">1 · The toy box</p>
+        <h2>Australia now imports A$5.6 billion of toys a year</h2>
+        <div class="prose">
+          <p>In 2006 Australia imported A$2.07 billion worth of toys, games and sporting goods.<a class="fn" href="#note-sitc">1</a> By 2025 the bill had reached <strong>A$5.63 billion — 2.7 times as much</strong>. The steepest climb came between 2019 and 2022, when it rose from A$3.54 billion to A$5.11 billion.</p>
+          <p>These are dollar values, not counts of toys, and they are not adjusted for inflation.</p>
+        </div>
+
+        <figure class="chart">
+          <div class="vis" id="c05"></div>
+          <figcaption><strong>Figure 1.</strong> Hover over a band to pick out one country. The stream is drawn around a centre line, so only its thickness matters, not how high it sits. Grey bands are the 17 other named countries; the palest band is “Rest of world”.</figcaption>
+        </figure>
+
+        <figure class="chart">
+          <div class="vis" id="c11"></div>
+          <figcaption><strong>Figure 2.</strong> Read left to right: start with 2006’s total, add each country’s change, and you arrive at 2025’s total. <span class="k k-china">China</span> alone added A$2.49 billion — about seven in every ten extra dollars. <span class="k k-vietnam">Vietnam</span> added A$398 million, more than the United States and <span class="k k-japan">Japan</span> combined. Hong Kong shrank the most, down A$38 million.</figcaption>
+        </figure>
+
+        <aside class="callout" aria-labelledby="afford-title">
+          <h3 id="afford-title">Why can households afford all these toys?</h3>
+          <p>Recreation — toys, games, sport, hobbies, holidays and entertainment — has taken a remarkably steady slice of the household budget: between <strong>11.8% and 13.2%</strong> of spending in every ABS Household Expenditure Survey from 1984 to 2015–16. In dollars, the average household’s weekly recreation spend went from A$43.13 to A$171.85 over those 32 years.</p>
+          <p>What changed is what that slice buys. From 1993–94 to 2015–16, prices for recreation and culture rose <strong>28.5%</strong>, while prices across the whole economy rose about <strong>76%</strong>.<a class="fn" href="#note-cpi">2</a> Compared with everything else, recreation got roughly <strong>27% cheaper</strong> — so the same share of the budget stretches a lot further.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===================== BEAT 2 ===================== -->
+    <section class="beat" id="one-country">
+      <div class="wrap">
+        <p class="beat-number">2 · One country’s toy box</p>
+        <h2>For twenty years, two in every three toy dollars went to China</h2>
+        <div class="prose">
+          <p>Older Australians may remember toys stamped “Made in Japan” or “Made in England”. That era is real, but its records are patchy: consistent trade figures for this category only start in 2006, so it stays a story here rather than a chart.</p>
+          <p>From 2006 the picture is simple. <span class="k k-china">China</span> supplied <strong>65.5%</strong> of Australia’s toy imports by value in 2006, climbed to a peak of <strong>76.0% in 2020</strong>, and still supplied <strong>68.3%</strong> in 2025.</p>
+        </div>
+
+        <figure class="chart">
+          <div class="vis" id="c01"></div>
+          <figcaption><strong>Figure 3.</strong> Drag the slider to see any year from 2006 to 2025. Darker teal means a bigger share. <span class="k k-vietnam">Vietnam</span> is outlined in red and <span class="k k-japan">Japan</span> in blue. Hong Kong and Singapore are too small to draw at this scale, so they appear as dots. Hover over a country for its exact share.</figcaption>
+        </figure>
+
+        <figure class="chart chart-fixed">
+          <div class="vis" id="c02"></div>
+          <figcaption><strong>Figure 4.</strong> Four snapshots with the same colour scale, so a darker shade always means a bigger share. China stays in the darkest class throughout; watch <span class="k k-vietnam">Vietnam</span> (outlined in red) darken from under 0.5% to 5–10%.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== BEAT 3 ===================== -->
+    <section class="beat" id="reroute">
+      <div class="wrap">
+        <p class="beat-number">3 · The reroute</p>
+        <h2>The grip is loosening — and Vietnam is the story</h2>
+        <div class="prose">
+          <p>China’s share peaked in 2020 and has slipped back since. Over the same years <span class="k k-vietnam">Vietnam</span> surged. In 2006 it supplied <strong>0.3%</strong> of Australia’s toy imports and ranked 17th. In 2024 it supplied <strong>4.8%</strong>. One year later it supplied <strong>7.2%</strong> — enough to overtake the United States for second place.</p>
+          <p>Vietnam is not alone. Together, five South-East Asian countries — Vietnam, Thailand, Indonesia, Malaysia and Singapore — went from <strong>3.2%</strong> of the market in 2006 to <strong>10.7%</strong> in 2025.</p>
+          <p><span class="k k-japan">Japan</span> is the quieter comeback: <strong>1.1%</strong> in 2022, <strong>2.8%</strong> in 2025. The trade figures can’t see inside the category, but the timing fits the boom in collectible trading cards and figures — a reminder that “toys” here also means games and collections.</p>
+        </div>
+
+        <figure class="chart">
+          <div class="vis" id="c06"></div>
+          <figcaption><strong>Figure 5.</strong> Hover over any line to follow one country. <span class="k k-china">China</span> is first every year. <span class="k k-vietnam">Vietnam</span> climbs from 17th to 2nd. <span class="k k-japan">Japan</span> slid as low as 9th in the early 2010s and is back to 5th.</figcaption>
+        </figure>
+
+        <figure class="chart">
+          <div class="vis" id="c07"></div>
+          <figcaption><strong>Figure 6.</strong> Each line runs from a country’s 2006 share (left) to its 2025 share (right). China is left off because it would sit far above everyone else, and its share barely moved. Below it, <span class="k k-vietnam">Vietnam</span> rose steeply while the United States, Taiwan and Hong Kong fell. Hover over a dot to see any country.</figcaption>
+        </figure>
+
+        <figure class="chart">
+          <div class="vis" id="c13"></div>
+          <figcaption><strong>Figure 7.</strong> How to read it: each row is one country. When a month’s imports beat that country’s own average for the previous twelve months, the row fills teal; when they fall short, ochre. Each darker shade means another 50 percentage points. <span class="k k-vietnam">Vietnam</span> beat its own recent average in 26 of these 32 months. <span class="k k-japan">Japan</span>’s tallest spike is September 2025, when it shipped more than three and a half times its usual monthly amount.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== BEAT 4 ===================== -->
+    <section class="beat" id="where-when">
+      <div class="wrap">
+        <p class="beat-number">4 · Where and when they land</p>
+        <h2>Toys don’t arrive where — or when — you’d think</h2>
+
+        <h3 class="sub">Where: ports, not playrooms</h3>
+        <div class="prose">
+          <p>This part of the data records the state or territory where imports were <em>unloaded</em>, not where the toys end up. It is a map of ports and warehouses.<a class="fn" href="#note-ports">3</a> In the 2024–25 financial year, Victoria took in <strong>45%</strong> of Australia’s toy imports by value and New South Wales <strong>37%</strong>. Victoria alone received <strong>58%</strong> of the toys from Vietnam.</p>
+          <p>The ACT recorded just <strong>A$13 thousand</strong> and Tasmania <strong>A$1.07 million</strong>. That isn’t because few children live there: the ACT has no seaport at all, and goods bound for both are mostly unloaded in other states first.</p>
+          <p class="note-inline">The charts in this part use <strong>financial years</strong> (July to June). Every other chart on the page uses calendar years.</p>
+        </div>
+
+        <figure class="chart">
+          <div class="vis" id="c03"></div>
+          <figcaption><strong>Figure 8.</strong> Pick a financial year from the menu. Line width shows value; lines are drawn straight on the map, not along real shipping lanes. Almost every line ends in Melbourne, Sydney or Brisbane. Choose 2015–16 and a thick line from the United Kingdom to Sydney appears; see <a href="#note-uk">note 4</a> on why that is probably not British toys.</figcaption>
+        </figure>
+
+        <figure class="chart">
+          <div class="vis" id="c04"></div>
+          <figcaption><strong>Figure 9.</strong> Circles sit at each state’s main container port (the ACT’s at Canberra Airport, as it has no seaport). States are deliberately left unshaded: colouring a whole state by where cargo is unloaded would wrongly suggest that is where the toys are bought or played with.</figcaption>
+        </figure>
+
+        <figure class="chart">
+          <div class="vis" id="c10"></div>
+          <figcaption><strong>Figure 10.</strong> Rows are countries and columns are states, both sorted biggest first. Numbers in cells are A$ million. Hover over a cell to see its share of that state’s toy imports and of that country’s toys sent to Australia.</figcaption>
+        </figure>
+
+        <h3 class="sub">When: October, not December</h3>
+        <div class="prose">
+          <p>Toy imports have a strong yearly rhythm. Using every complete year in the monthly data (2023–2025), an average October brings in <strong>148.5%</strong> of an average month’s imports, and an average March just <strong>72.0%</strong> — a 2.1-fold swing.</p>
+          <p>Shoppers have a rhythm too, but a different one. Discretionary household spending — everything from toys to takeaway to travel — peaks in <strong>December at 121.2%</strong> of an average month and bottoms out in February at 88.2%. By December, when spending peaks, toy imports have already fallen back to <strong>93.5%</strong>.</p>
+          <p>Put the two rhythms on one chart and they draw a loop rather than a line. That loop is the <strong>two-month lag</strong>: toys land in spring and wait in warehouses and on shelves for the Christmas rush. Neither dataset could show this on its own.<a class="fn" href="#note-lag">5</a></p>
+        </div>
+
+        <figure class="chart">
+          <div class="vis" id="c08"></div>
+          <figcaption><strong>Figure 11.</strong> October (outlined) is the darkest month in every complete year. Hover over a cell for its value. The dashed cells are September–December 2026, which have not been published yet.</figcaption>
+        </figure>
+
+        <figure class="chart">
+          <div class="vis" id="c09"></div>
+          <figcaption><strong>Figure 12.</strong> Inside each month, the dots run 2023 → 2026 from left to right; the flat bar is that month’s average, with October’s in black. Use the menu to check a single country: the same spring hump shows up for China, the biggest supplier.</figcaption>
+        </figure>
+
+        <figure class="chart chart-key">
+          <div class="vis" id="c12"></div>
+          <figcaption><strong>Figure 13.</strong> Follow the arrows from January. The loop swings far to the right in September and October (lots of toys arriving, ordinary spending), then climbs in November and December (heavy spending, imports already falling). The spending axis is all discretionary spending, because the ABS monthly figures don’t separate toys.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== CONCLUSION ===================== -->
+    <section class="beat" id="so-why">
+      <div class="wrap">
+        <p class="beat-number">So…</p>
+        <h2>Why are fewer of our toys coming from China?</h2>
+        <div class="prose">
+          <p>Strictly speaking, more toys than ever still come from China: A$3.84 billion worth in 2025, nearly three times the 2006 figure. What has fallen since 2020 is China’s <em>share</em>. The new growth is going elsewhere, most of all to Vietnam, whose toy exports to Australia rose from A$5 million to A$403 million in twenty years.</p>
+          <p>The trade figures can’t say why. But the pattern fits toy makers spreading production across more countries in South-East Asia. Whichever factory they come from, the toys still land in Melbourne and Sydney in October, ready for December.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== NOTES ===================== -->
+    <section class="notes" id="notes">
+      <div class="wrap">
+        <h2>Notes on the data</h2>
+        <ol class="note-list">
+          <li id="note-sitc"><strong>“Toys” means prams, toys, games and sporting goods.</strong> The trade figures use the United Nations category SITC 894 (“baby carriages, toys, games and sporting goods”), which can’t be split any finer at this level. A toys-only series exists in UN Comtrade (HS 9503) but is not used here.</li>
+          <li id="note-cpi"><strong>Price figures.</strong> The 28.5% rise is the ABS consumer price index for recreation and culture, 80.7 in 1993–94 → 103.7 in 2015–16, as published with the Household Expenditure Survey tables. The all-groups figure is the ABS consumer price index for all goods and services, averaged over the same two financial years: 42.66 → 75.21 on the current base (September 2025 = 100), a rise of 76.3%.</li>
+          <li id="note-ports"><strong>States are where goods were unloaded, not where people live.</strong> The ACT and Tasmania look tiny because their goods mostly arrive through other states. These figures should never be read per person or per child. Port locations come from each port’s Wikipedia article.</li>
+          <li id="note-uk"><strong>The UK blip in 2015 and 2016.</strong> The United Kingdom’s share jumped to 4.2% and 4.6% in those two calendar years, then fell back to about 1%. A short spike like this is almost certainly how a distributor routed or recorded goods, not a burst of British-made toys, so no argument here rests on it.</li>
+          <li id="note-lag"><strong>The lag chart compares toy imports with discretionary household spending, not toy spending.</strong> The ABS Monthly Household Spending Indicator has no toy category. Its seasonal index uses complete calendar years 2013–2025; the toy-import index uses 2023–2025, the only complete years in the monthly trade data.</li>
+          <li><strong>Calendar and financial years are never mixed on one axis.</strong> Country totals are calendar years (2006–2025); state figures are financial years (2015–16 to 2024–25), and every chart says which it uses.</li>
+          <li><strong>2026 is a partial year.</strong> Monthly figures end in August 2026, so 2026 is never shown as a full year.</li>
+          <li><strong>Maps.</strong> “Rest of world” is a mix of many countries with no single location, so it is left off every map. Values are in Australian dollars and are not adjusted for inflation.</li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="colophon">
+    <div class="wrap">
+      <h2>Sources, credits and AI use</h2>
+      <div class="colophon-grid">
+        <div>
+          <h3>Data</h3>
+          <ul class="sources">
+            <li>Department of Foreign Affairs and Trade (DFAT), <a href="https://www.dfat.gov.au/trade/trade-and-investment-data-information-and-publications/trade-statistics/merchandise-trade-statistical-pivot-tables">Merchandise trade statistical pivot tables</a> — SITC 894 total imports by country, by state and monthly. CC BY 4.0. Totals cross-checked against the <a href="https://dataexplorer.abs.gov.au/">ABS Data Explorer</a> (MERCH_IMP).</li>
+            <li>Australian Bureau of Statistics (ABS), <a href="https://www.abs.gov.au/statistics/economy/finance/monthly-household-spending-indicator/latest-release">Monthly Household Spending Indicator</a> (5682.0), original series. CC BY 4.0.</li>
+            <li>ABS, <a href="https://www.abs.gov.au/statistics/economy/finance/household-expenditure-survey-australia-summary-results/latest-release">Household Expenditure Survey, Australia</a> (6530.0), 1984 to 2015–16. CC BY 4.0.</li>
+            <li>ABS, <a href="https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/latest-release">Consumer Price Index, Australia</a> (6401.0), all groups, via the <a href="https://data.api.abs.gov.au/rest/data/ABS,CPI/1.10001.10.50.Q?startPeriod=1993-Q3&amp;endPeriod=2016-Q2">ABS Data API</a>. CC BY 4.0.</li>
+            <li>ABS, <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/digital-boundary-files">ASGS Edition 3 state and territory boundaries</a> (2021), simplified with mapshaper. CC BY 4.0.</li>
+            <li>Natural Earth 1:110m country boundaries (public domain) via <a href="https://github.com/topojson/world-atlas">world-atlas 2.0.2</a> (ISC licence).</li>
+            <li>Country centre points: Google, <a href="https://developers.google.com/public-data/docs/canonical/countries_csv">countries.csv (DSPL canonical dataset)</a>. CC BY 4.0.</li>
+            <li>Port locations: Wikipedia articles for <a href="https://en.wikipedia.org/wiki/Port_Botany">Port Botany</a>, <a href="https://en.wikipedia.org/wiki/Port_of_Melbourne">Port of Melbourne</a>, <a href="https://en.wikipedia.org/wiki/Port_of_Brisbane">Port of Brisbane</a>, <a href="https://en.wikipedia.org/wiki/Outer_Harbor,_South_Australia">Outer Harbor</a>, <a href="https://en.wikipedia.org/wiki/Fremantle_Harbour">Fremantle Harbour</a>, <a href="https://en.wikipedia.org/wiki/Burnie">Burnie</a>, <a href="https://en.wikipedia.org/wiki/Port_Darwin">Port Darwin</a> and <a href="https://en.wikipedia.org/wiki/Canberra_Airport">Canberra Airport</a>. CC BY-SA 4.0.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Made with</h3>
+          <p>Charts: <a href="https://vega.github.io/vega-lite/">Vega-Lite</a> 6.4.3 and <a href="https://vega.github.io/vega/">Vega</a> 6.4.0, embedded with Vega-Embed 7.2.0. Type: Fredoka and Figtree (SIL Open Font Licence). Each chart’s specification is a readable JSON file in the <code>charts/</code> folder.</p>
+          <h3>Author</h3>
+          <p>[Your name] · [Student ID] · FIT3179 Data Visualisation 2, Monash University · 25 October 2026.</p>
+          <h3>Use of AI</h3>
+          <p>This page was built with help from Claude, an AI assistant made by Anthropic. Under the author’s direction it wrote the chart specifications and page code, drafted the text, and checked figures against the source data. The research question, the choice of data and the final editing are the author’s own.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,851 @@
+month,category,spend_aud_millions
+2012-07,Total (Household Spending Categories),43472.1
+2012-07,Goods,24028.9
+2012-07,Services,19443.3
+2012-07,Discretionary,27837.6
+2012-07,Non Discretionary,15634.6
+2012-08,Total (Household Spending Categories),44537.9
+2012-08,Goods,24656.0
+2012-08,Services,19881.9
+2012-08,Discretionary,28264.9
+2012-08,Non Discretionary,16273.0
+2012-09,Total (Household Spending Categories),43376.5
+2012-09,Goods,24124.8
+2012-09,Services,19251.7
+2012-09,Discretionary,27879.8
+2012-09,Non Discretionary,15496.7
+2012-10,Total (Household Spending Categories),45158.5
+2012-10,Goods,25471.7
+2012-10,Services,19686.8
+2012-10,Discretionary,28598.5
+2012-10,Non Discretionary,16560.0
+2012-11,Total (Household Spending Categories),45437.2
+2012-11,Goods,26175.6
+2012-11,Services,19261.5
+2012-11,Discretionary,28970.9
+2012-11,Non Discretionary,16466.2
+2012-12,Total (Household Spending Categories),51149.1
+2012-12,Goods,31494.8
+2012-12,Services,19654.3
+2012-12,Discretionary,34462.7
+2012-12,Non Discretionary,16686.4
+2013-01,Total (Household Spending Categories),42819.2
+2013-01,Goods,24873.3
+2013-01,Services,17945.9
+2013-01,Discretionary,27272.7
+2013-01,Non Discretionary,15546.4
+2013-02,Total (Household Spending Categories),40959.2
+2013-02,Goods,22650.7
+2013-02,Services,18308.5
+2013-02,Discretionary,25542.7
+2013-02,Non Discretionary,15416.4
+2013-03,Total (Household Spending Categories),44486.9
+2013-03,Goods,24974.6
+2013-03,Services,19512.4
+2013-03,Discretionary,27578.2
+2013-03,Non Discretionary,16908.7
+2013-04,Total (Household Spending Categories),42225.7
+2013-04,Goods,23777.9
+2013-04,Services,18447.8
+2013-04,Discretionary,26636.6
+2013-04,Non Discretionary,15589.1
+2013-05,Total (Household Spending Categories),44741.0
+2013-05,Goods,25026.6
+2013-05,Services,19714.4
+2013-05,Discretionary,27998.5
+2013-05,Non Discretionary,16742.5
+2013-06,Total (Household Spending Categories),44450.8
+2013-06,Goods,24436.0
+2013-06,Services,20014.8
+2013-06,Discretionary,28680.7
+2013-06,Non Discretionary,15770.1
+2013-07,Total (Household Spending Categories),45383.2
+2013-07,Goods,25132.9
+2013-07,Services,20250.2
+2013-07,Discretionary,28644.3
+2013-07,Non Discretionary,16738.9
+2013-08,Total (Household Spending Categories),45729.5
+2013-08,Goods,25227.0
+2013-08,Services,20502.4
+2013-08,Discretionary,28963.1
+2013-08,Non Discretionary,16766.3
+2013-09,Total (Household Spending Categories),44836.2
+2013-09,Goods,24848.6
+2013-09,Services,19987.6
+2013-09,Discretionary,28632.8
+2013-09,Non Discretionary,16203.4
+2013-10,Total (Household Spending Categories),46399.1
+2013-10,Goods,26019.6
+2013-10,Services,20379.5
+2013-10,Discretionary,29682.8
+2013-10,Non Discretionary,16716.3
+2013-11,Total (Household Spending Categories),47136.9
+2013-11,Goods,27105.0
+2013-11,Services,20031.9
+2013-11,Discretionary,30212.2
+2013-11,Non Discretionary,16924.7
+2013-12,Total (Household Spending Categories),53446.9
+2013-12,Goods,33304.2
+2013-12,Services,20142.7
+2013-12,Discretionary,35540.1
+2013-12,Non Discretionary,17906.8
+2014-01,Total (Household Spending Categories),44806.1
+2014-01,Goods,26162.5
+2014-01,Services,18643.6
+2014-01,Discretionary,28481.4
+2014-01,Non Discretionary,16324.7
+2014-02,Total (Household Spending Categories),42182.6
+2014-02,Goods,23581.8
+2014-02,Services,18600.8
+2014-02,Discretionary,26215.1
+2014-02,Non Discretionary,15967.5
+2014-03,Total (Household Spending Categories),46299.3
+2014-03,Goods,25795.0
+2014-03,Services,20504.3
+2014-03,Discretionary,29087.1
+2014-03,Non Discretionary,17212.2
+2014-04,Total (Household Spending Categories),44270.0
+2014-04,Goods,24967.6
+2014-04,Services,19302.4
+2014-04,Discretionary,28100.7
+2014-04,Non Discretionary,16169.3
+2014-05,Total (Household Spending Categories),46225.8
+2014-05,Goods,25871.5
+2014-05,Services,20354.3
+2014-05,Discretionary,29210.3
+2014-05,Non Discretionary,17015.5
+2014-06,Total (Household Spending Categories),46350.5
+2014-06,Goods,25383.2
+2014-06,Services,20967.3
+2014-06,Discretionary,30093.1
+2014-06,Non Discretionary,16257.4
+2014-07,Total (Household Spending Categories),47460.1
+2014-07,Goods,25987.3
+2014-07,Services,21472.8
+2014-07,Discretionary,30295.4
+2014-07,Non Discretionary,17164.7
+2014-08,Total (Household Spending Categories),46710.5
+2014-08,Goods,25588.5
+2014-08,Services,21122.0
+2014-08,Discretionary,29568.4
+2014-08,Non Discretionary,17142.1
+2014-09,Total (Household Spending Categories),46809.3
+2014-09,Goods,25845.8
+2014-09,Services,20963.5
+2014-09,Discretionary,30111.4
+2014-09,Non Discretionary,16697.9
+2014-10,Total (Household Spending Categories),49042.6
+2014-10,Goods,27374.1
+2014-10,Services,21668.4
+2014-10,Discretionary,31463.9
+2014-10,Non Discretionary,17578.7
+2014-11,Total (Household Spending Categories),48584.2
+2014-11,Goods,27633.1
+2014-11,Services,20951.1
+2014-11,Discretionary,31399.4
+2014-11,Non Discretionary,17184.8
+2014-12,Total (Household Spending Categories),55180.5
+2014-12,Goods,33773.9
+2014-12,Services,21406.5
+2014-12,Discretionary,37514.7
+2014-12,Non Discretionary,17665.8
+2015-01,Total (Household Spending Categories),45643.4
+2015-01,Goods,26309.3
+2015-01,Services,19334.1
+2015-01,Discretionary,29566.6
+2015-01,Non Discretionary,16076.8
+2015-02,Total (Household Spending Categories),43974.3
+2015-02,Goods,23894.5
+2015-02,Services,20079.7
+2015-02,Discretionary,27957.5
+2015-02,Non Discretionary,16016.8
+2015-03,Total (Household Spending Categories),47930.0
+2015-03,Goods,26450.4
+2015-03,Services,21479.6
+2015-03,Discretionary,30517.8
+2015-03,Non Discretionary,17412.2
+2015-04,Total (Household Spending Categories),45720.4
+2015-04,Goods,25538.1
+2015-04,Services,20182.3
+2015-04,Discretionary,29273.8
+2015-04,Non Discretionary,16446.6
+2015-05,Total (Household Spending Categories),47511.7
+2015-05,Goods,26437.2
+2015-05,Services,21074.6
+2015-05,Discretionary,30225.5
+2015-05,Non Discretionary,17286.3
+2015-06,Total (Household Spending Categories),48711.0
+2015-06,Goods,26561.7
+2015-06,Services,22149.3
+2015-06,Discretionary,31852.6
+2015-06,Non Discretionary,16858.4
+2015-07,Total (Household Spending Categories),49459.5
+2015-07,Goods,26973.8
+2015-07,Services,22485.7
+2015-07,Discretionary,31930.5
+2015-07,Non Discretionary,17529.1
+2015-08,Total (Household Spending Categories),48673.0
+2015-08,Goods,26513.6
+2015-08,Services,22159.4
+2015-08,Discretionary,31285.2
+2015-08,Non Discretionary,17387.7
+2015-09,Total (Household Spending Categories),48625.7
+2015-09,Goods,26797.0
+2015-09,Services,21828.8
+2015-09,Discretionary,31442.1
+2015-09,Non Discretionary,17183.6
+2015-10,Total (Household Spending Categories),51124.9
+2015-10,Goods,28337.9
+2015-10,Services,22786.9
+2015-10,Discretionary,33370.9
+2015-10,Non Discretionary,17754.0
+2015-11,Total (Household Spending Categories),50636.6
+2015-11,Goods,28774.0
+2015-11,Services,21862.5
+2015-11,Discretionary,32975.8
+2015-11,Non Discretionary,17660.8
+2015-12,Total (Household Spending Categories),57507.5
+2015-12,Goods,35621.1
+2015-12,Services,21886.5
+2015-12,Discretionary,39207.9
+2015-12,Non Discretionary,18299.7
+2016-01,Total (Household Spending Categories),47306.6
+2016-01,Goods,27229.0
+2016-01,Services,20077.6
+2016-01,Discretionary,30963.8
+2016-01,Non Discretionary,16342.8
+2016-02,Total (Household Spending Categories),46526.6
+2016-02,Goods,25438.5
+2016-02,Services,21088.1
+2016-02,Discretionary,29903.2
+2016-02,Non Discretionary,16623.5
+2016-03,Total (Household Spending Categories),49349.9
+2016-03,Goods,27545.2
+2016-03,Services,21804.7
+2016-03,Discretionary,31439.4
+2016-03,Non Discretionary,17910.5
+2016-04,Total (Household Spending Categories),47635.3
+2016-04,Goods,26470.1
+2016-04,Services,21165.2
+2016-04,Discretionary,31003.6
+2016-04,Non Discretionary,16631.7
+2016-05,Total (Household Spending Categories),49402.8
+2016-05,Goods,26866.7
+2016-05,Services,22536.1
+2016-05,Discretionary,31635.9
+2016-05,Non Discretionary,17766.9
+2016-06,Total (Household Spending Categories),50587.5
+2016-06,Goods,27617.2
+2016-06,Services,22970.3
+2016-06,Discretionary,33227.7
+2016-06,Non Discretionary,17359.8
+2016-07,Total (Household Spending Categories),50115.0
+2016-07,Goods,27056.0
+2016-07,Services,23059.0
+2016-07,Discretionary,32723.5
+2016-07,Non Discretionary,17391.6
+2016-08,Total (Household Spending Categories),50498.4
+2016-08,Goods,27055.1
+2016-08,Services,23443.3
+2016-08,Discretionary,32530.7
+2016-08,Non Discretionary,17967.7
+2016-09,Total (Household Spending Categories),50262.4
+2016-09,Goods,27499.4
+2016-09,Services,22763.0
+2016-09,Discretionary,32721.2
+2016-09,Non Discretionary,17541.2
+2016-10,Total (Household Spending Categories),51837.5
+2016-10,Goods,28476.2
+2016-10,Services,23361.3
+2016-10,Discretionary,33860.9
+2016-10,Non Discretionary,17976.7
+2016-11,Total (Household Spending Categories),52621.6
+2016-11,Goods,29721.1
+2016-11,Services,22900.5
+2016-11,Discretionary,34256.0
+2016-11,Non Discretionary,18365.7
+2016-12,Total (Household Spending Categories),60132.8
+2016-12,Goods,36912.9
+2016-12,Services,23219.9
+2016-12,Discretionary,40821.2
+2016-12,Non Discretionary,19311.6
+2017-01,Total (Household Spending Categories),49314.5
+2017-01,Goods,28065.8
+2017-01,Services,21248.6
+2017-01,Discretionary,32035.5
+2017-01,Non Discretionary,17278.9
+2017-02,Total (Household Spending Categories),46752.9
+2017-02,Goods,25607.8
+2017-02,Services,21145.1
+2017-02,Discretionary,29549.8
+2017-02,Non Discretionary,17203.1
+2017-03,Total (Household Spending Categories),51381.3
+2017-03,Goods,28411.0
+2017-03,Services,22970.3
+2017-03,Discretionary,32474.8
+2017-03,Non Discretionary,18906.5
+2017-04,Total (Household Spending Categories),48601.2
+2017-04,Goods,26977.0
+2017-04,Services,21624.3
+2017-04,Discretionary,31252.5
+2017-04,Non Discretionary,17348.7
+2017-05,Total (Household Spending Categories),51350.2
+2017-05,Goods,28240.0
+2017-05,Services,23110.2
+2017-05,Discretionary,32805.5
+2017-05,Non Discretionary,18544.6
+2017-06,Total (Household Spending Categories),52159.1
+2017-06,Goods,28648.8
+2017-06,Services,23510.2
+2017-06,Discretionary,34079.4
+2017-06,Non Discretionary,18079.6
+2017-07,Total (Household Spending Categories),51451.3
+2017-07,Goods,27980.4
+2017-07,Services,23470.9
+2017-07,Discretionary,33314.1
+2017-07,Non Discretionary,18137.2
+2017-08,Total (Household Spending Categories),51858.3
+2017-08,Goods,28069.8
+2017-08,Services,23788.5
+2017-08,Discretionary,33124.6
+2017-08,Non Discretionary,18733.7
+2017-09,Total (Household Spending Categories),51726.0
+2017-09,Goods,28093.0
+2017-09,Services,23633.0
+2017-09,Discretionary,33619.2
+2017-09,Non Discretionary,18106.8
+2017-10,Total (Household Spending Categories),53740.8
+2017-10,Goods,29333.2
+2017-10,Services,24407.6
+2017-10,Discretionary,34845.8
+2017-10,Non Discretionary,18895.0
+2017-11,Total (Household Spending Categories),55551.2
+2017-11,Goods,31167.8
+2017-11,Services,24383.4
+2017-11,Discretionary,36357.7
+2017-11,Non Discretionary,19193.5
+2017-12,Total (Household Spending Categories),62061.7
+2017-12,Goods,37901.2
+2017-12,Services,24160.5
+2017-12,Discretionary,42186.0
+2017-12,Non Discretionary,19875.7
+2018-01,Total (Household Spending Categories),51166.7
+2018-01,Goods,29263.5
+2018-01,Services,21903.2
+2018-01,Discretionary,33137.8
+2018-01,Non Discretionary,18028.9
+2018-02,Total (Household Spending Categories),49116.4
+2018-02,Goods,26665.8
+2018-02,Services,22450.6
+2018-02,Discretionary,31228.2
+2018-02,Non Discretionary,17888.2
+2018-03,Total (Household Spending Categories),53634.0
+2018-03,Goods,29679.6
+2018-03,Services,23954.4
+2018-03,Discretionary,33980.8
+2018-03,Non Discretionary,19653.2
+2018-04,Total (Household Spending Categories),50918.7
+2018-04,Goods,27887.1
+2018-04,Services,23031.6
+2018-04,Discretionary,32769.1
+2018-04,Non Discretionary,18149.6
+2018-05,Total (Household Spending Categories),54294.3
+2018-05,Goods,29617.7
+2018-05,Services,24676.7
+2018-05,Discretionary,34691.6
+2018-05,Non Discretionary,19602.8
+2018-06,Total (Household Spending Categories),55059.5
+2018-06,Goods,29874.6
+2018-06,Services,25185.0
+2018-06,Discretionary,35851.1
+2018-06,Non Discretionary,19208.4
+2018-07,Total (Household Spending Categories),54371.6
+2018-07,Goods,29199.1
+2018-07,Services,25172.6
+2018-07,Discretionary,35021.4
+2018-07,Non Discretionary,19350.3
+2018-08,Total (Household Spending Categories),55495.7
+2018-08,Goods,29709.8
+2018-08,Services,25785.9
+2018-08,Discretionary,35613.2
+2018-08,Non Discretionary,19882.6
+2018-09,Total (Household Spending Categories),54206.8
+2018-09,Goods,29357.6
+2018-09,Services,24849.1
+2018-09,Discretionary,34952.7
+2018-09,Non Discretionary,19254.0
+2018-10,Total (Household Spending Categories),56977.7
+2018-10,Goods,31176.5
+2018-10,Services,25801.2
+2018-10,Discretionary,36683.3
+2018-10,Non Discretionary,20294.4
+2018-11,Total (Household Spending Categories),58640.9
+2018-11,Goods,32562.0
+2018-11,Services,26078.9
+2018-11,Discretionary,38216.8
+2018-11,Non Discretionary,20424.0
+2018-12,Total (Household Spending Categories),64315.7
+2018-12,Goods,38810.7
+2018-12,Services,25505.0
+2018-12,Discretionary,43585.4
+2018-12,Non Discretionary,20730.3
+2019-01,Total (Household Spending Categories),53169.3
+2019-01,Goods,29471.5
+2019-01,Services,23697.8
+2019-01,Discretionary,34280.2
+2019-01,Non Discretionary,18889.1
+2019-02,Total (Household Spending Categories),49771.1
+2019-02,Goods,27059.3
+2019-02,Services,22711.7
+2019-02,Discretionary,31303.9
+2019-02,Non Discretionary,18467.1
+2019-03,Total (Household Spending Categories),55440.2
+2019-03,Goods,30516.1
+2019-03,Services,24924.1
+2019-03,Discretionary,35250.8
+2019-03,Non Discretionary,20189.4
+2019-04,Total (Household Spending Categories),51888.6
+2019-04,Goods,28754.5
+2019-04,Services,23134.1
+2019-04,Discretionary,32772.4
+2019-04,Non Discretionary,19116.2
+2019-05,Total (Household Spending Categories),55128.6
+2019-05,Goods,30292.8
+2019-05,Services,24835.7
+2019-05,Discretionary,34848.8
+2019-05,Non Discretionary,20279.8
+2019-06,Total (Household Spending Categories),54354.9
+2019-06,Goods,30495.3
+2019-06,Services,23859.7
+2019-06,Discretionary,35577.2
+2019-06,Non Discretionary,18777.8
+2019-07,Total (Household Spending Categories),54943.9
+2019-07,Goods,29651.7
+2019-07,Services,25292.1
+2019-07,Discretionary,35008.9
+2019-07,Non Discretionary,19935.0
+2019-08,Total (Household Spending Categories),56143.2
+2019-08,Goods,30572.1
+2019-08,Services,25571.1
+2019-08,Discretionary,35732.1
+2019-08,Non Discretionary,20411.1
+2019-09,Total (Household Spending Categories),54136.3
+2019-09,Goods,29647.3
+2019-09,Services,24489.0
+2019-09,Discretionary,34794.0
+2019-09,Non Discretionary,19342.3
+2019-10,Total (Household Spending Categories),56581.2
+2019-10,Goods,31082.6
+2019-10,Services,25498.6
+2019-10,Discretionary,36064.5
+2019-10,Non Discretionary,20516.7
+2019-11,Total (Household Spending Categories),57800.1
+2019-11,Goods,32612.6
+2019-11,Services,25187.6
+2019-11,Discretionary,37496.3
+2019-11,Non Discretionary,20303.8
+2019-12,Total (Household Spending Categories),61504.7
+2019-12,Goods,37256.6
+2019-12,Services,24248.1
+2019-12,Discretionary,40882.6
+2019-12,Non Discretionary,20622.1
+2020-01,Total (Household Spending Categories),53072.9
+2020-01,Goods,29315.9
+2020-01,Services,23756.9
+2020-01,Discretionary,33920.8
+2020-01,Non Discretionary,19152.1
+2020-02,Total (Household Spending Categories),50070.7
+2020-02,Goods,27743.7
+2020-02,Services,22327.0
+2020-02,Discretionary,31174.3
+2020-02,Non Discretionary,18896.4
+2020-03,Total (Household Spending Categories),52055.9
+2020-03,Goods,32864.5
+2020-03,Services,19191.4
+2020-03,Discretionary,30365.7
+2020-03,Non Discretionary,21690.2
+2020-04,Total (Household Spending Categories),39758.4
+2020-04,Goods,27605.1
+2020-04,Services,12153.3
+2020-04,Discretionary,23957.9
+2020-04,Non Discretionary,15800.5
+2020-05,Total (Household Spending Categories),48688.9
+2020-05,Goods,32983.6
+2020-05,Services,15705.3
+2020-05,Discretionary,30255.9
+2020-05,Non Discretionary,18433.0
+2020-06,Total (Household Spending Categories),52186.7
+2020-06,Goods,33500.7
+2020-06,Services,18686.1
+2020-06,Discretionary,32990.9
+2020-06,Non Discretionary,19195.8
+2020-07,Total (Household Spending Categories),54815.4
+2020-07,Goods,34083.4
+2020-07,Services,20732.0
+2020-07,Discretionary,34096.9
+2020-07,Non Discretionary,20718.5
+2020-08,Total (Household Spending Categories),51828.5
+2020-08,Goods,32755.3
+2020-08,Services,19073.2
+2020-08,Discretionary,32040.7
+2020-08,Non Discretionary,19787.8
+2020-09,Total (Household Spending Categories),51173.6
+2020-09,Goods,31813.4
+2020-09,Services,19360.1
+2020-09,Discretionary,31854.3
+2020-09,Non Discretionary,19319.3
+2020-10,Total (Household Spending Categories),54349.0
+2020-10,Goods,33759.0
+2020-10,Services,20590.0
+2020-10,Discretionary,34121.2
+2020-10,Non Discretionary,20227.8
+2020-11,Total (Household Spending Categories),57689.8
+2020-11,Goods,36706.7
+2020-11,Services,20983.1
+2020-11,Discretionary,37368.4
+2020-11,Non Discretionary,20321.4
+2020-12,Total (Household Spending Categories),61881.5
+2020-12,Goods,40882.4
+2020-12,Services,20999.1
+2020-12,Discretionary,40725.5
+2020-12,Non Discretionary,21156.0
+2021-01,Total (Household Spending Categories),51670.1
+2021-01,Goods,32332.7
+2021-01,Services,19337.4
+2021-01,Discretionary,32765.3
+2021-01,Non Discretionary,18904.7
+2021-02,Total (Household Spending Categories),48224.6
+2021-02,Goods,29097.4
+2021-02,Services,19127.2
+2021-02,Discretionary,29787.9
+2021-02,Non Discretionary,18436.7
+2021-03,Total (Household Spending Categories),55061.2
+2021-03,Goods,32961.6
+2021-03,Services,22099.6
+2021-03,Discretionary,34022.8
+2021-03,Non Discretionary,21038.4
+2021-04,Total (Household Spending Categories),52815.5
+2021-04,Goods,31775.0
+2021-04,Services,21040.6
+2021-04,Discretionary,33476.5
+2021-04,Non Discretionary,19339.0
+2021-05,Total (Household Spending Categories),54971.4
+2021-05,Goods,33512.8
+2021-05,Services,21458.5
+2021-05,Discretionary,34653.1
+2021-05,Non Discretionary,20318.2
+2021-06,Total (Household Spending Categories),53980.6
+2021-06,Goods,33076.1
+2021-06,Services,20904.5
+2021-06,Discretionary,34243.3
+2021-06,Non Discretionary,19737.3
+2021-07,Total (Household Spending Categories),52763.7
+2021-07,Goods,32699.3
+2021-07,Services,20064.5
+2021-07,Discretionary,32524.3
+2021-07,Non Discretionary,20239.4
+2021-08,Total (Household Spending Categories),51764.2
+2021-08,Goods,32705.5
+2021-08,Services,19058.7
+2021-08,Discretionary,31482.4
+2021-08,Non Discretionary,20281.9
+2021-09,Total (Household Spending Categories),52656.9
+2021-09,Goods,32962.2
+2021-09,Services,19694.7
+2021-09,Discretionary,32749.2
+2021-09,Non Discretionary,19907.7
+2021-10,Total (Household Spending Categories),57441.6
+2021-10,Goods,35414.9
+2021-10,Services,22026.7
+2021-10,Discretionary,36588.7
+2021-10,Non Discretionary,20852.9
+2021-11,Total (Household Spending Categories),63031.7
+2021-11,Goods,38999.3
+2021-11,Services,24032.4
+2021-11,Discretionary,41281.9
+2021-11,Non Discretionary,21749.8
+2021-12,Total (Household Spending Categories),67022.4
+2021-12,Goods,43341.4
+2021-12,Services,23681.1
+2021-12,Discretionary,44338.2
+2021-12,Non Discretionary,22684.3
+2022-01,Total (Household Spending Categories),56355.7
+2022-01,Goods,35151.4
+2022-01,Services,21204.3
+2022-01,Discretionary,36115.5
+2022-01,Non Discretionary,20240.2
+2022-02,Total (Household Spending Categories),55566.6
+2022-02,Goods,32703.3
+2022-02,Services,22863.3
+2022-02,Discretionary,35196.3
+2022-02,Non Discretionary,20370.3
+2022-03,Total (Household Spending Categories),63107.3
+2022-03,Goods,36381.3
+2022-03,Services,26726.0
+2022-03,Discretionary,40163.0
+2022-03,Non Discretionary,22944.3
+2022-04,Total (Household Spending Categories),61571.4
+2022-04,Goods,35964.1
+2022-04,Services,25607.3
+2022-04,Discretionary,40217.8
+2022-04,Non Discretionary,21353.6
+2022-05,Total (Household Spending Categories),64817.8
+2022-05,Goods,37246.0
+2022-05,Services,27571.8
+2022-05,Discretionary,41884.7
+2022-05,Non Discretionary,22933.1
+2022-06,Total (Household Spending Categories),65469.6
+2022-06,Goods,37295.1
+2022-06,Services,28174.5
+2022-06,Discretionary,43007.1
+2022-06,Non Discretionary,22462.5
+2022-07,Total (Household Spending Categories),66755.4
+2022-07,Goods,37847.0
+2022-07,Services,28908.4
+2022-07,Discretionary,43619.6
+2022-07,Non Discretionary,23135.8
+2022-08,Total (Household Spending Categories),68273.3
+2022-08,Goods,37969.8
+2022-08,Services,30303.5
+2022-08,Discretionary,44280.6
+2022-08,Non Discretionary,23992.7
+2022-09,Total (Household Spending Categories),68697.3
+2022-09,Goods,38150.9
+2022-09,Services,30546.4
+2022-09,Discretionary,45569.1
+2022-09,Non Discretionary,23128.3
+2022-10,Total (Household Spending Categories),70959.3
+2022-10,Goods,39320.2
+2022-10,Services,31639.1
+2022-10,Discretionary,47096.0
+2022-10,Non Discretionary,23863.3
+2022-11,Total (Household Spending Categories),73600.5
+2022-11,Goods,42294.5
+2022-11,Services,31306.0
+2022-11,Discretionary,48989.4
+2022-11,Non Discretionary,24611.1
+2022-12,Total (Household Spending Categories),77315.9
+2022-12,Goods,46563.4
+2022-12,Services,30752.6
+2022-12,Discretionary,52481.6
+2022-12,Non Discretionary,24834.3
+2023-01,Total (Household Spending Categories),67352.1
+2023-01,Goods,37469.2
+2023-01,Services,29882.8
+2023-01,Discretionary,44560.2
+2023-01,Non Discretionary,22791.9
+2023-02,Total (Household Spending Categories),63653.4
+2023-02,Goods,34329.4
+2023-02,Services,29324.0
+2023-02,Discretionary,40943.6
+2023-02,Non Discretionary,22709.7
+2023-03,Total (Household Spending Categories),70732.2
+2023-03,Goods,37614.9
+2023-03,Services,33117.4
+2023-03,Discretionary,45718.1
+2023-03,Non Discretionary,25014.2
+2023-04,Total (Household Spending Categories),67296.0
+2023-04,Goods,37210.2
+2023-04,Services,30085.8
+2023-04,Discretionary,44270.9
+2023-04,Non Discretionary,23025.1
+2023-05,Total (Household Spending Categories),70856.7
+2023-05,Goods,38521.2
+2023-05,Services,32335.4
+2023-05,Discretionary,45734.5
+2023-05,Non Discretionary,25122.1
+2023-06,Total (Household Spending Categories),70967.0
+2023-06,Goods,38627.1
+2023-06,Services,32339.9
+2023-06,Discretionary,46943.5
+2023-06,Non Discretionary,24023.6
+2023-07,Total (Household Spending Categories),70523.1
+2023-07,Goods,37682.6
+2023-07,Services,32840.5
+2023-07,Discretionary,46158.1
+2023-07,Non Discretionary,24365.1
+2023-08,Total (Household Spending Categories),72788.5
+2023-08,Goods,38716.1
+2023-08,Services,34072.4
+2023-08,Discretionary,47059.5
+2023-08,Non Discretionary,25729.0
+2023-09,Total (Household Spending Categories),72658.4
+2023-09,Goods,39312.0
+2023-09,Services,33346.4
+2023-09,Discretionary,47834.3
+2023-09,Non Discretionary,24824.1
+2023-10,Total (Household Spending Categories),73591.5
+2023-10,Goods,39755.9
+2023-10,Services,33835.6
+2023-10,Discretionary,47747.9
+2023-10,Non Discretionary,25843.6
+2023-11,Total (Household Spending Categories),77378.3
+2023-11,Goods,43105.4
+2023-11,Services,34272.9
+2023-11,Discretionary,51280.3
+2023-11,Non Discretionary,26098.0
+2023-12,Total (Household Spending Categories),78827.7
+2023-12,Goods,45991.7
+2023-12,Services,32836.1
+2023-12,Discretionary,53027.2
+2023-12,Non Discretionary,25800.5
+2024-01,Total (Household Spending Categories),70476.5
+2024-01,Goods,37587.5
+2024-01,Services,32889.0
+2024-01,Discretionary,46043.0
+2024-01,Non Discretionary,24433.5
+2024-02,Total (Household Spending Categories),68675.2
+2024-02,Goods,35976.2
+2024-02,Services,32699.0
+2024-02,Discretionary,43722.8
+2024-02,Non Discretionary,24952.4
+2024-03,Total (Household Spending Categories),72472.7
+2024-03,Goods,38625.3
+2024-03,Services,33847.4
+2024-03,Discretionary,46473.2
+2024-03,Non Discretionary,25999.5
+2024-04,Total (Household Spending Categories),69627.8
+2024-04,Goods,36882.8
+2024-04,Services,32745.0
+2024-04,Discretionary,44792.9
+2024-04,Non Discretionary,24834.9
+2024-05,Total (Household Spending Categories),73342.1
+2024-05,Goods,38863.4
+2024-05,Services,34478.8
+2024-05,Discretionary,46886.7
+2024-05,Non Discretionary,26455.4
+2024-06,Total (Household Spending Categories),71741.9
+2024-06,Goods,38955.7
+2024-06,Services,32786.2
+2024-06,Discretionary,47231.1
+2024-06,Non Discretionary,24510.8
+2024-07,Total (Household Spending Categories),72687.4
+2024-07,Goods,37796.4
+2024-07,Services,34891.1
+2024-07,Discretionary,46600.8
+2024-07,Non Discretionary,26086.6
+2024-08,Total (Household Spending Categories),74850.7
+2024-08,Goods,39104.7
+2024-08,Services,35746.0
+2024-08,Discretionary,48073.0
+2024-08,Non Discretionary,26777.7
+2024-09,Total (Household Spending Categories),72705.9
+2024-09,Goods,38191.9
+2024-09,Services,34514.0
+2024-09,Discretionary,47200.0
+2024-09,Non Discretionary,25505.9
+2024-10,Total (Household Spending Categories),76331.9
+2024-10,Goods,39988.2
+2024-10,Services,36343.7
+2024-10,Discretionary,49254.2
+2024-10,Non Discretionary,27077.7
+2024-11,Total (Household Spending Categories),79787.6
+2024-11,Goods,43837.5
+2024-11,Services,35950.1
+2024-11,Discretionary,52738.2
+2024-11,Non Discretionary,27049.4
+2024-12,Total (Household Spending Categories),81956.1
+2024-12,Goods,47504.1
+2024-12,Services,34452.0
+2024-12,Discretionary,54965.9
+2024-12,Non Discretionary,26990.2
+2025-01,Total (Household Spending Categories),73092.3
+2025-01,Goods,38139.7
+2025-01,Services,34952.7
+2025-01,Discretionary,47270.8
+2025-01,Non Discretionary,25821.5
+2025-02,Total (Household Spending Categories),68402.9
+2025-02,Goods,35205.2
+2025-02,Services,33197.7
+2025-02,Discretionary,43250.8
+2025-02,Non Discretionary,25152.1
+2025-03,Total (Household Spending Categories),75208.7
+2025-03,Goods,39362.1
+2025-03,Services,35846.6
+2025-03,Discretionary,47935.3
+2025-03,Non Discretionary,27273.4
+2025-04,Total (Household Spending Categories),71955.2
+2025-04,Goods,37447.3
+2025-04,Services,34507.9
+2025-04,Discretionary,45897.1
+2025-04,Non Discretionary,26058.0
+2025-05,Total (Household Spending Categories),76785.6
+2025-05,Goods,39971.7
+2025-05,Services,36813.9
+2025-05,Discretionary,49131.3
+2025-05,Non Discretionary,27654.4
+2025-06,Total (Household Spending Categories),75534.2
+2025-06,Goods,40168.6
+2025-06,Services,35365.6
+2025-06,Discretionary,49314.8
+2025-06,Non Discretionary,26219.5
+2025-07,Total (Household Spending Categories),76889.6
+2025-07,Goods,39207.9
+2025-07,Services,37681.8
+2025-07,Discretionary,49193.7
+2025-07,Non Discretionary,27695.9
+2025-08,Total (Household Spending Categories),77355.8
+2025-08,Goods,39622.9
+2025-08,Services,37732.9
+2025-08,Discretionary,49610.1
+2025-08,Non Discretionary,27745.7
+2025-09,Total (Household Spending Categories),76931.7
+2025-09,Goods,39679.5
+2025-09,Services,37252.2
+2025-09,Discretionary,49487.1
+2025-09,Non Discretionary,27444.7
+2025-10,Total (Household Spending Categories),80781.2
+2025-10,Goods,41868.0
+2025-10,Services,38913.2
+2025-10,Discretionary,51937.5
+2025-10,Non Discretionary,28843.7
+2025-11,Total (Household Spending Categories),83867.6
+2025-11,Goods,46020.7
+2025-11,Services,37846.9
+2025-11,Discretionary,55543.4
+2025-11,Non Discretionary,28324.2
+2025-12,Total (Household Spending Categories),86203.1
+2025-12,Goods,49209.8
+2025-12,Services,36993.2
+2025-12,Discretionary,57377.1
+2025-12,Non Discretionary,28826.0
+2026-01,Total (Household Spending Categories),76489.5
+2026-01,Goods,39600.4
+2026-01,Services,36889.1
+2026-01,Discretionary,49608.4
+2026-01,Non Discretionary,26881.1
+2026-02,Total (Household Spending Categories),71613.1
+2026-02,Goods,36298.5
+2026-02,Services,35314.6
+2026-02,Discretionary,45296.2
+2026-02,Non Discretionary,26316.9
+2026-03,Total (Household Spending Categories),80303.3
+2026-03,Goods,41773.1
+2026-03,Services,38530.2
+2026-03,Discretionary,50375.6
+2026-03,Non Discretionary,29927.7
+2026-04,Total (Household Spending Categories),75657.7
+2026-04,Goods,39757.1
+2026-04,Services,35900.6
+2026-04,Discretionary,48190.1
+2026-04,Non Discretionary,27467.6
+2026-05,Total (Household Spending Categories),80080.3
+2026-05,Goods,42112.0
+2026-05,Services,37968.4
+2026-05,Discretionary,51445.5
+2026-05,Non Discretionary,28634.8
+2026-06,Total (Household Spending Categories),80787.9
+2026-06,Goods,42792.1
+2026-06,Services,37995.8
+2026-06,Discretionary,52961.8
+2026-06,Non Discretionary,27826.1
+2026-07,Total (Household Spending Categories),82642.2
+2026-07,Goods,42049.0
+2026-07,Services,40593.2
+2026-07,Discretionary,53361.5
+2026-07,Non Discretionary,29280.7
+2026-08,Total (Household Spending Categories),82453.7
+2026-08,Goods,42601.8
+2026-08,Services,39851.9
+2026-08,Discretionary,52998.2
+2026-08,Non Discretionary,29455.6

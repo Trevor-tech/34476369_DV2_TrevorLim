@@ -1,0 +1,310 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Cycle plot of monthly toy, game and sporting-goods imports, January 2023 to August 2026. Each calendar month has its own short line joining that month's value in 2023, 2024, 2025 and 2026 (left to right), and a horizontal bar marking the average for that month. A menu switches between all origins combined and single countries. For all origins, the October average is the highest and the March average the lowest.",
+  "title": {
+    "text": "Same shape, every year",
+    "subtitle": "Each month shows 2023 → 2026 from left to right; the flat bar is that month’s average. A$ million."
+  },
+  "width": "container",
+  "height": 360,
+  "params": [
+    {
+      "name": "origin_pick",
+      "value": "All origins",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All origins",
+          "China",
+          "Vietnam",
+          "Japan",
+          "United States",
+          "Taiwan",
+          "Rest of world"
+        ],
+        "name": "Show "
+      }
+    }
+  ],
+  "data": {
+    "url": "data/toys_imports_monthly.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "month": "string",
+        "value_k": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "origin_pick == 'All origins' || datum.origin == origin_pick"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "value_k",
+          "as": "total_k"
+        }
+      ],
+      "groupby": [
+        "month"
+      ]
+    },
+    {
+      "calculate": "datum.total_k / 1000",
+      "as": "total_m"
+    },
+    {
+      "calculate": "toNumber(substring(datum.month, 0, 4))",
+      "as": "yr"
+    },
+    {
+      "calculate": "toNumber(substring(datum.month, 5, 7))",
+      "as": "mo"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "mean",
+          "field": "total_m",
+          "as": "month_mean_m"
+        },
+        {
+          "op": "count",
+          "as": "n_years"
+        }
+      ],
+      "groupby": [
+        "mo"
+      ]
+    },
+    {
+      "calculate": "datum.mo - 1 + 0.16 + (datum.yr - 2023) * 0.227",
+      "as": "x_pos"
+    },
+    {
+      "calculate": "datum.mo - 1 + 0.1",
+      "as": "bar_start"
+    },
+    {
+      "calculate": "datum.mo - 1 + 0.9",
+      "as": "bar_end"
+    },
+    {
+      "calculate": "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][datum.mo - 1]",
+      "as": "month_name"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "x_pos",
+      "type": "quantitative",
+      "title": null,
+      "scale": {
+        "domain": [
+          0,
+          12
+        ],
+        "nice": false
+      },
+      "axis": {
+        "values": [
+          0.5,
+          1.5,
+          2.5,
+          3.5,
+          4.5,
+          5.5,
+          6.5,
+          7.5,
+          8.5,
+          9.5,
+          10.5,
+          11.5
+        ],
+        "labelExpr": "['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][floor(datum.value)]",
+        "grid": false,
+        "ticks": false,
+        "domain": false,
+        "labelFontSize": 13
+      }
+    }
+  },
+  "layer": [
+    {
+      "description": "Month average as a flat bar under each mini-series.",
+      "transform": [
+        {
+          "filter": "datum.yr == 2023"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 3,
+        "strokeCap": "round"
+      },
+      "encoding": {
+        "x": {
+          "field": "bar_start",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "bar_end"
+        },
+        "y": {
+          "type": "quantitative",
+          "title": "Imports (A$ million)",
+          "scale": {
+            "zero": true
+          },
+          "axis": {
+            "gridColor": "#EFEAE1",
+            "domain": false,
+            "ticks": false,
+            "format": ",.0f"
+          },
+          "field": "month_mean_m"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.mo == 10",
+            "value": "#1F1B16"
+          },
+          "value": "#B8B2A8"
+        },
+        "tooltip": [
+          {
+            "field": "month_name",
+            "type": "nominal",
+            "title": "Month"
+          },
+          {
+            "field": "month_mean_m",
+            "type": "quantitative",
+            "title": "Average (A$ million)",
+            "format": ",.1f"
+          },
+          {
+            "field": "n_years",
+            "type": "quantitative",
+            "title": "Years averaged"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Each month's values across the years, joined left to right.",
+      "mark": {
+        "type": "line",
+        "strokeWidth": 1.6,
+        "color": "#337F6F"
+      },
+      "encoding": {
+        "y": {
+          "field": "total_m",
+          "type": "quantitative"
+        },
+        "detail": {
+          "field": "mo",
+          "type": "ordinal"
+        }
+      }
+    },
+    {
+      "description": "One dot per month and year; later years are darker.",
+      "mark": {
+        "type": "circle",
+        "size": 34,
+        "opacity": 1,
+        "stroke": "#FBF8F3",
+        "strokeWidth": 0.8
+      },
+      "encoding": {
+        "y": {
+          "field": "total_m",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "yr",
+          "type": "ordinal",
+          "title": "Year",
+          "scale": {
+            "domain": [
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "range": [
+              "#A9D4C7",
+              "#55A08E",
+              "#1B6152",
+              "#0B4339"
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "direction": "horizontal",
+            "title": null,
+            "labelExpr": "datum.value == 2026 ? '2026 (to Aug)' : datum.value",
+            "symbolSize": 90
+          }
+        },
+        "tooltip": [
+          {
+            "field": "month_name",
+            "type": "nominal",
+            "title": "Month"
+          },
+          {
+            "field": "yr",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "total_m",
+            "type": "quantitative",
+            "title": "Imports (A$ million)",
+            "format": ",.1f"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Source line.",
+      "data": {
+        "values": [
+          {
+            "text": "Source: DFAT Merchandise Trade Statistical Pivot Tables, SITC 894 monthly imports (CC BY 4.0). Sep–Dec averages use 2023–2025 only; 2026 data end in August."
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 11,
+        "color": "#7A7268"
+      },
+      "encoding": {
+        "text": {
+          "field": "text",
+          "type": "nominal"
+        },
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": {
+            "expr": "height + 30"
+          }
+        }
+      }
+    }
+  ],
+  "usermeta": {
+    "source": "DFAT Merchandise Trade Statistical Pivot Tables, SITC 894, monthly imports by country of origin (CC BY 4.0)."
+  }
+}

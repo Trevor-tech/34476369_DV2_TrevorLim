@@ -1,0 +1,1031 @@
+year,state,origin,value_k
+2015-16,ACT,China,2
+2015-16,ACT,Republic of Korea,4
+2015-16,ACT,Rest of world,406
+2015-16,ACT,United States,16
+2015-16,NSW,China,797097
+2015-16,NSW,Czech Republic,57492
+2015-16,NSW,Germany,8026
+2015-16,NSW,Hungary,11713
+2015-16,NSW,India,5199
+2015-16,NSW,Indonesia,10369
+2015-16,NSW,Italy,8410
+2015-16,NSW,Japan,21474
+2015-16,NSW,Malaysia,15499
+2015-16,NSW,Republic of Korea,3511
+2015-16,NSW,Rest of world,125548
+2015-16,NSW,Taiwan,80705
+2015-16,NSW,Thailand,10501
+2015-16,NSW,United Kingdom,150458
+2015-16,NSW,United States,123195
+2015-16,NSW,Vietnam,8675
+2015-16,NT,China,1034
+2015-16,NT,India,9
+2015-16,NT,Indonesia,48
+2015-16,NT,Italy,57
+2015-16,NT,Japan,98
+2015-16,NT,Malaysia,16
+2015-16,NT,Republic of Korea,51
+2015-16,NT,Rest of world,268
+2015-16,NT,Taiwan,27
+2015-16,NT,Thailand,43
+2015-16,NT,United Kingdom,31
+2015-16,NT,United States,298
+2015-16,NT,Vietnam,28
+2015-16,Queensland,China,289245
+2015-16,Queensland,Czech Republic,5491
+2015-16,Queensland,Germany,9393
+2015-16,Queensland,Hungary,813
+2015-16,Queensland,India,4873
+2015-16,Queensland,Indonesia,6426
+2015-16,Queensland,Italy,2761
+2015-16,Queensland,Japan,3752
+2015-16,Queensland,Malaysia,1436
+2015-16,Queensland,Republic of Korea,3501
+2015-16,Queensland,Rest of world,27145
+2015-16,Queensland,Taiwan,17182
+2015-16,Queensland,Thailand,7745
+2015-16,Queensland,United Kingdom,24727
+2015-16,Queensland,United States,21350
+2015-16,Queensland,Vietnam,3099
+2015-16,SA,China,66827
+2015-16,SA,Czech Republic,80
+2015-16,SA,Germany,627
+2015-16,SA,Hungary,24
+2015-16,SA,India,1094
+2015-16,SA,Indonesia,246
+2015-16,SA,Italy,336
+2015-16,SA,Japan,1025
+2015-16,SA,Malaysia,78
+2015-16,SA,Republic of Korea,321
+2015-16,SA,Rest of world,4068
+2015-16,SA,Taiwan,2289
+2015-16,SA,Thailand,437
+2015-16,SA,United Kingdom,1644
+2015-16,SA,United States,6035
+2015-16,SA,Vietnam,542
+2015-16,Tasmania,China,1425
+2015-16,Tasmania,Germany,17
+2015-16,Tasmania,Indonesia,5
+2015-16,Tasmania,Italy,2
+2015-16,Tasmania,Malaysia,2
+2015-16,Tasmania,Rest of world,68
+2015-16,Tasmania,Taiwan,5
+2015-16,Tasmania,Thailand,14
+2015-16,Tasmania,United Kingdom,22
+2015-16,Tasmania,United States,147
+2015-16,Victoria,China,820539
+2015-16,Victoria,Czech Republic,1180
+2015-16,Victoria,Germany,5031
+2015-16,Victoria,Hungary,3897
+2015-16,Victoria,India,19196
+2015-16,Victoria,Indonesia,12818
+2015-16,Victoria,Italy,4572
+2015-16,Victoria,Japan,6004
+2015-16,Victoria,Malaysia,4355
+2015-16,Victoria,Republic of Korea,4222
+2015-16,Victoria,Rest of world,59036
+2015-16,Victoria,Taiwan,31643
+2015-16,Victoria,Thailand,25265
+2015-16,Victoria,United Kingdom,8021
+2015-16,Victoria,United States,73250
+2015-16,Victoria,Vietnam,15516
+2015-16,WA,China,109045
+2015-16,WA,Czech Republic,23
+2015-16,WA,Germany,2050
+2015-16,WA,Hungary,3
+2015-16,WA,India,1524
+2015-16,WA,Indonesia,1894
+2015-16,WA,Italy,792
+2015-16,WA,Japan,1826
+2015-16,WA,Malaysia,588
+2015-16,WA,Republic of Korea,547
+2015-16,WA,Rest of world,6094
+2015-16,WA,Taiwan,3758
+2015-16,WA,Thailand,2993
+2015-16,WA,United Kingdom,1206
+2015-16,WA,United States,3539
+2015-16,WA,Vietnam,912
+2016-17,ACT,India,2
+2016-17,ACT,Japan,7
+2016-17,ACT,Rest of world,13
+2016-17,ACT,United States,141
+2016-17,NSW,China,911330
+2016-17,NSW,Czech Republic,16341
+2016-17,NSW,Germany,8629
+2016-17,NSW,Hungary,10432
+2016-17,NSW,India,6391
+2016-17,NSW,Indonesia,11978
+2016-17,NSW,Italy,10077
+2016-17,NSW,Japan,22758
+2016-17,NSW,Malaysia,16486
+2016-17,NSW,Republic of Korea,4375
+2016-17,NSW,Rest of world,90246
+2016-17,NSW,Taiwan,69919
+2016-17,NSW,Thailand,9872
+2016-17,NSW,United Kingdom,75958
+2016-17,NSW,United States,133544
+2016-17,NSW,Vietnam,12928
+2016-17,NT,China,642
+2016-17,NT,India,3
+2016-17,NT,Italy,360
+2016-17,NT,Japan,71
+2016-17,NT,Malaysia,4
+2016-17,NT,Republic of Korea,29
+2016-17,NT,Rest of world,166
+2016-17,NT,Taiwan,26
+2016-17,NT,Thailand,32
+2016-17,NT,United Kingdom,14
+2016-17,NT,United States,48
+2016-17,NT,Vietnam,55
+2016-17,Queensland,China,306831
+2016-17,Queensland,Czech Republic,4975
+2016-17,Queensland,Germany,18753
+2016-17,Queensland,Hungary,202
+2016-17,Queensland,India,4614
+2016-17,Queensland,Indonesia,7339
+2016-17,Queensland,Italy,4304
+2016-17,Queensland,Japan,4247
+2016-17,Queensland,Malaysia,1189
+2016-17,Queensland,Republic of Korea,2110
+2016-17,Queensland,Rest of world,17789
+2016-17,Queensland,Taiwan,16654
+2016-17,Queensland,Thailand,8143
+2016-17,Queensland,United Kingdom,3783
+2016-17,Queensland,United States,16411
+2016-17,Queensland,Vietnam,3405
+2016-17,SA,China,57364
+2016-17,SA,Czech Republic,116
+2016-17,SA,Germany,611
+2016-17,SA,Hungary,27
+2016-17,SA,India,710
+2016-17,SA,Indonesia,210
+2016-17,SA,Italy,863
+2016-17,SA,Japan,1177
+2016-17,SA,Malaysia,117
+2016-17,SA,Republic of Korea,837
+2016-17,SA,Rest of world,5763
+2016-17,SA,Taiwan,2470
+2016-17,SA,Thailand,637
+2016-17,SA,United Kingdom,1190
+2016-17,SA,United States,8203
+2016-17,SA,Vietnam,372
+2016-17,Tasmania,China,1260
+2016-17,Tasmania,Germany,238
+2016-17,Tasmania,India,2
+2016-17,Tasmania,Indonesia,1
+2016-17,Tasmania,Japan,4
+2016-17,Tasmania,Malaysia,6
+2016-17,Tasmania,Republic of Korea,29
+2016-17,Tasmania,Rest of world,207
+2016-17,Tasmania,Taiwan,2
+2016-17,Tasmania,Thailand,13
+2016-17,Tasmania,United Kingdom,151
+2016-17,Tasmania,United States,112
+2016-17,Tasmania,Vietnam,20
+2016-17,Victoria,China,890810
+2016-17,Victoria,Czech Republic,909
+2016-17,Victoria,Germany,7502
+2016-17,Victoria,Hungary,5006
+2016-17,Victoria,India,19257
+2016-17,Victoria,Indonesia,10801
+2016-17,Victoria,Italy,5343
+2016-17,Victoria,Japan,6513
+2016-17,Victoria,Malaysia,8050
+2016-17,Victoria,Republic of Korea,4376
+2016-17,Victoria,Rest of world,51985
+2016-17,Victoria,Taiwan,29746
+2016-17,Victoria,Thailand,24217
+2016-17,Victoria,United Kingdom,5739
+2016-17,Victoria,United States,64742
+2016-17,Victoria,Vietnam,27483
+2016-17,WA,China,92987
+2016-17,WA,Czech Republic,55
+2016-17,WA,Germany,2275
+2016-17,WA,Hungary,71
+2016-17,WA,India,1525
+2016-17,WA,Indonesia,1501
+2016-17,WA,Italy,2311
+2016-17,WA,Japan,1006
+2016-17,WA,Malaysia,650
+2016-17,WA,Republic of Korea,852
+2016-17,WA,Rest of world,7018
+2016-17,WA,Taiwan,4225
+2016-17,WA,Thailand,2669
+2016-17,WA,United Kingdom,1234
+2016-17,WA,United States,8599
+2016-17,WA,Vietnam,855
+2017-18,ACT,Japan,10
+2017-18,ACT,Rest of world,27
+2017-18,ACT,United States,9
+2017-18,NSW,China,998119
+2017-18,NSW,Czech Republic,7805
+2017-18,NSW,Germany,7205
+2017-18,NSW,Hungary,8312
+2017-18,NSW,India,6633
+2017-18,NSW,Indonesia,12595
+2017-18,NSW,Italy,8094
+2017-18,NSW,Japan,24444
+2017-18,NSW,Malaysia,13923
+2017-18,NSW,Republic of Korea,4576
+2017-18,NSW,Rest of world,82073
+2017-18,NSW,Taiwan,40396
+2017-18,NSW,Thailand,8496
+2017-18,NSW,United Kingdom,31728
+2017-18,NSW,United States,108171
+2017-18,NSW,Vietnam,20373
+2017-18,NT,China,685
+2017-18,NT,Italy,2
+2017-18,NT,Japan,74
+2017-18,NT,Malaysia,15
+2017-18,NT,Republic of Korea,6
+2017-18,NT,Rest of world,396
+2017-18,NT,Taiwan,87
+2017-18,NT,Thailand,4
+2017-18,NT,United Kingdom,35
+2017-18,NT,United States,294
+2017-18,NT,Vietnam,2
+2017-18,Queensland,China,306966
+2017-18,Queensland,Czech Republic,6570
+2017-18,Queensland,Germany,15637
+2017-18,Queensland,Hungary,269
+2017-18,Queensland,India,3678
+2017-18,Queensland,Indonesia,7426
+2017-18,Queensland,Italy,3970
+2017-18,Queensland,Japan,5123
+2017-18,Queensland,Malaysia,1209
+2017-18,Queensland,Republic of Korea,1744
+2017-18,Queensland,Rest of world,24167
+2017-18,Queensland,Taiwan,15358
+2017-18,Queensland,Thailand,8625
+2017-18,Queensland,United Kingdom,4796
+2017-18,Queensland,United States,24988
+2017-18,Queensland,Vietnam,4907
+2017-18,SA,China,60541
+2017-18,SA,Czech Republic,179
+2017-18,SA,Germany,871
+2017-18,SA,Hungary,27
+2017-18,SA,India,539
+2017-18,SA,Indonesia,243
+2017-18,SA,Italy,1169
+2017-18,SA,Japan,1385
+2017-18,SA,Malaysia,82
+2017-18,SA,Republic of Korea,1059
+2017-18,SA,Rest of world,5268
+2017-18,SA,Taiwan,2853
+2017-18,SA,Thailand,424
+2017-18,SA,United Kingdom,862
+2017-18,SA,United States,9028
+2017-18,SA,Vietnam,662
+2017-18,Tasmania,China,1328
+2017-18,Tasmania,Germany,517
+2017-18,Tasmania,India,2
+2017-18,Tasmania,Indonesia,30
+2017-18,Tasmania,Italy,10
+2017-18,Tasmania,Malaysia,12
+2017-18,Tasmania,Republic of Korea,1
+2017-18,Tasmania,Rest of world,104
+2017-18,Tasmania,Taiwan,31
+2017-18,Tasmania,Thailand,20
+2017-18,Tasmania,United Kingdom,26
+2017-18,Tasmania,United States,162
+2017-18,Victoria,China,1007372
+2017-18,Victoria,Czech Republic,1003
+2017-18,Victoria,Germany,7785
+2017-18,Victoria,Hungary,5381
+2017-18,Victoria,India,17595
+2017-18,Victoria,Indonesia,12214
+2017-18,Victoria,Italy,5240
+2017-18,Victoria,Japan,9544
+2017-18,Victoria,Malaysia,6619
+2017-18,Victoria,Republic of Korea,5804
+2017-18,Victoria,Rest of world,59934
+2017-18,Victoria,Taiwan,32790
+2017-18,Victoria,Thailand,22772
+2017-18,Victoria,United Kingdom,6524
+2017-18,Victoria,United States,65951
+2017-18,Victoria,Vietnam,26287
+2017-18,WA,China,93984
+2017-18,WA,Czech Republic,58
+2017-18,WA,Germany,1570
+2017-18,WA,Hungary,81
+2017-18,WA,India,1729
+2017-18,WA,Indonesia,1590
+2017-18,WA,Italy,1373
+2017-18,WA,Japan,1183
+2017-18,WA,Malaysia,131
+2017-18,WA,Republic of Korea,818
+2017-18,WA,Rest of world,6623
+2017-18,WA,Taiwan,3233
+2017-18,WA,Thailand,2379
+2017-18,WA,United Kingdom,779
+2017-18,WA,United States,3879
+2017-18,WA,Vietnam,1493
+2018-19,ACT,China,2
+2018-19,ACT,Rest of world,7
+2018-19,ACT,United Kingdom,6
+2018-19,ACT,United States,13
+2018-19,NSW,China,1091019
+2018-19,NSW,Czech Republic,9522
+2018-19,NSW,Germany,7664
+2018-19,NSW,Hungary,5390
+2018-19,NSW,India,7762
+2018-19,NSW,Indonesia,11740
+2018-19,NSW,Italy,14142
+2018-19,NSW,Japan,27066
+2018-19,NSW,Malaysia,18746
+2018-19,NSW,Republic of Korea,6122
+2018-19,NSW,Rest of world,82873
+2018-19,NSW,Taiwan,35145
+2018-19,NSW,Thailand,10481
+2018-19,NSW,United Kingdom,25281
+2018-19,NSW,United States,135309
+2018-19,NSW,Vietnam,23865
+2018-19,NT,China,832
+2018-19,NT,Germany,44
+2018-19,NT,India,2
+2018-19,NT,Indonesia,10
+2018-19,NT,Italy,1
+2018-19,NT,Japan,10
+2018-19,NT,Republic of Korea,36
+2018-19,NT,Rest of world,25
+2018-19,NT,Taiwan,11
+2018-19,NT,Thailand,13
+2018-19,NT,United Kingdom,7
+2018-19,NT,United States,75
+2018-19,Queensland,China,349255
+2018-19,Queensland,Czech Republic,6500
+2018-19,Queensland,Germany,11779
+2018-19,Queensland,Hungary,226
+2018-19,Queensland,India,4484
+2018-19,Queensland,Indonesia,6253
+2018-19,Queensland,Italy,2964
+2018-19,Queensland,Japan,4663
+2018-19,Queensland,Malaysia,1775
+2018-19,Queensland,Republic of Korea,2004
+2018-19,Queensland,Rest of world,25809
+2018-19,Queensland,Taiwan,18141
+2018-19,Queensland,Thailand,7319
+2018-19,Queensland,United Kingdom,4208
+2018-19,Queensland,United States,22260
+2018-19,Queensland,Vietnam,9875
+2018-19,SA,China,73330
+2018-19,SA,Czech Republic,39
+2018-19,SA,Germany,946
+2018-19,SA,Hungary,183
+2018-19,SA,India,994
+2018-19,SA,Indonesia,205
+2018-19,SA,Italy,1523
+2018-19,SA,Japan,1770
+2018-19,SA,Malaysia,69
+2018-19,SA,Republic of Korea,253
+2018-19,SA,Rest of world,5424
+2018-19,SA,Taiwan,3437
+2018-19,SA,Thailand,736
+2018-19,SA,United Kingdom,1235
+2018-19,SA,United States,7037
+2018-19,SA,Vietnam,582
+2018-19,Tasmania,China,1039
+2018-19,Tasmania,Czech Republic,53
+2018-19,Tasmania,Germany,44
+2018-19,Tasmania,India,7
+2018-19,Tasmania,Japan,1
+2018-19,Tasmania,Rest of world,225
+2018-19,Tasmania,Taiwan,60
+2018-19,Tasmania,Thailand,19
+2018-19,Tasmania,United Kingdom,63
+2018-19,Tasmania,United States,77
+2018-19,Tasmania,Vietnam,16
+2018-19,Victoria,China,981848
+2018-19,Victoria,Czech Republic,880
+2018-19,Victoria,Germany,8918
+2018-19,Victoria,Hungary,5865
+2018-19,Victoria,India,18016
+2018-19,Victoria,Indonesia,14622
+2018-19,Victoria,Italy,5571
+2018-19,Victoria,Japan,5003
+2018-19,Victoria,Malaysia,4565
+2018-19,Victoria,Republic of Korea,4124
+2018-19,Victoria,Rest of world,59298
+2018-19,Victoria,Taiwan,39701
+2018-19,Victoria,Thailand,22393
+2018-19,Victoria,United Kingdom,7577
+2018-19,Victoria,United States,67752
+2018-19,Victoria,Vietnam,41269
+2018-19,WA,China,111181
+2018-19,WA,Czech Republic,73
+2018-19,WA,Germany,1184
+2018-19,WA,Hungary,226
+2018-19,WA,India,1545
+2018-19,WA,Indonesia,1873
+2018-19,WA,Italy,2658
+2018-19,WA,Japan,644
+2018-19,WA,Malaysia,229
+2018-19,WA,Republic of Korea,236
+2018-19,WA,Rest of world,7239
+2018-19,WA,Taiwan,3830
+2018-19,WA,Thailand,2089
+2018-19,WA,United Kingdom,1446
+2018-19,WA,United States,3417
+2018-19,WA,Vietnam,1318
+2019-20,ACT,China,2
+2019-20,ACT,Japan,11
+2019-20,ACT,United States,13
+2019-20,NSW,China,1000701
+2019-20,NSW,Czech Republic,10636
+2019-20,NSW,Germany,8402
+2019-20,NSW,Hungary,9202
+2019-20,NSW,India,7663
+2019-20,NSW,Indonesia,8479
+2019-20,NSW,Italy,10580
+2019-20,NSW,Japan,33307
+2019-20,NSW,Malaysia,15840
+2019-20,NSW,Republic of Korea,12387
+2019-20,NSW,Rest of world,84347
+2019-20,NSW,Taiwan,30565
+2019-20,NSW,Thailand,7279
+2019-20,NSW,United Kingdom,16508
+2019-20,NSW,United States,101407
+2019-20,NSW,Vietnam,25842
+2019-20,NT,China,1109
+2019-20,NT,Czech Republic,38
+2019-20,NT,Germany,49
+2019-20,NT,Italy,36
+2019-20,NT,Japan,160
+2019-20,NT,Rest of world,157
+2019-20,NT,Taiwan,1
+2019-20,NT,Thailand,15
+2019-20,NT,United Kingdom,1
+2019-20,NT,United States,70
+2019-20,Queensland,China,362396
+2019-20,Queensland,Czech Republic,5071
+2019-20,Queensland,Germany,17686
+2019-20,Queensland,Hungary,114
+2019-20,Queensland,India,4110
+2019-20,Queensland,Indonesia,4731
+2019-20,Queensland,Italy,3093
+2019-20,Queensland,Japan,3425
+2019-20,Queensland,Malaysia,1250
+2019-20,Queensland,Republic of Korea,4349
+2019-20,Queensland,Rest of world,27882
+2019-20,Queensland,Taiwan,11194
+2019-20,Queensland,Thailand,10010
+2019-20,Queensland,United Kingdom,5031
+2019-20,Queensland,United States,21735
+2019-20,Queensland,Vietnam,9580
+2019-20,SA,China,77901
+2019-20,SA,Czech Republic,249
+2019-20,SA,Germany,1234
+2019-20,SA,Hungary,375
+2019-20,SA,India,614
+2019-20,SA,Indonesia,334
+2019-20,SA,Italy,1219
+2019-20,SA,Japan,1402
+2019-20,SA,Malaysia,143
+2019-20,SA,Republic of Korea,246
+2019-20,SA,Rest of world,4774
+2019-20,SA,Taiwan,2967
+2019-20,SA,Thailand,436
+2019-20,SA,United Kingdom,1486
+2019-20,SA,United States,6753
+2019-20,SA,Vietnam,1174
+2019-20,Tasmania,China,645
+2019-20,Tasmania,Germany,193
+2019-20,Tasmania,India,9
+2019-20,Tasmania,Indonesia,50
+2019-20,Tasmania,Italy,42
+2019-20,Tasmania,Malaysia,80
+2019-20,Tasmania,Rest of world,65
+2019-20,Tasmania,Taiwan,45
+2019-20,Tasmania,Thailand,44
+2019-20,Tasmania,United Kingdom,79
+2019-20,Tasmania,United States,22
+2019-20,Victoria,China,1045893
+2019-20,Victoria,Czech Republic,1628
+2019-20,Victoria,Germany,8323
+2019-20,Victoria,Hungary,6634
+2019-20,Victoria,India,14319
+2019-20,Victoria,Indonesia,15170
+2019-20,Victoria,Italy,8654
+2019-20,Victoria,Japan,22262
+2019-20,Victoria,Malaysia,5734
+2019-20,Victoria,Republic of Korea,4620
+2019-20,Victoria,Rest of world,54921
+2019-20,Victoria,Taiwan,43696
+2019-20,Victoria,Thailand,32342
+2019-20,Victoria,United Kingdom,6175
+2019-20,Victoria,United States,69783
+2019-20,Victoria,Vietnam,55690
+2019-20,WA,China,116813
+2019-20,WA,Czech Republic,170
+2019-20,WA,Germany,798
+2019-20,WA,Hungary,109
+2019-20,WA,India,1543
+2019-20,WA,Indonesia,2121
+2019-20,WA,Italy,1702
+2019-20,WA,Japan,411
+2019-20,WA,Malaysia,490
+2019-20,WA,Republic of Korea,154
+2019-20,WA,Rest of world,7094
+2019-20,WA,Taiwan,3331
+2019-20,WA,Thailand,1548
+2019-20,WA,United Kingdom,881
+2019-20,WA,United States,3856
+2019-20,WA,Vietnam,1722
+2020-21,ACT,Germany,7
+2020-21,ACT,Rest of world,3
+2020-21,ACT,Thailand,6
+2020-21,ACT,United States,14
+2020-21,NSW,China,1307188
+2020-21,NSW,Czech Republic,9508
+2020-21,NSW,Germany,11125
+2020-21,NSW,Hungary,3788
+2020-21,NSW,India,10200
+2020-21,NSW,Indonesia,8906
+2020-21,NSW,Italy,18642
+2020-21,NSW,Japan,47707
+2020-21,NSW,Malaysia,20424
+2020-21,NSW,Republic of Korea,16582
+2020-21,NSW,Rest of world,94178
+2020-21,NSW,Taiwan,39398
+2020-21,NSW,Thailand,9251
+2020-21,NSW,United Kingdom,38303
+2020-21,NSW,United States,107147
+2020-21,NSW,Vietnam,37941
+2020-21,NT,China,1036
+2020-21,NT,Germany,32
+2020-21,NT,Italy,218
+2020-21,NT,Japan,26
+2020-21,NT,Malaysia,153
+2020-21,NT,Republic of Korea,6
+2020-21,NT,Rest of world,190
+2020-21,NT,Thailand,10
+2020-21,NT,United Kingdom,16
+2020-21,NT,United States,44
+2020-21,Queensland,China,473715
+2020-21,Queensland,Czech Republic,6419
+2020-21,Queensland,Germany,21777
+2020-21,Queensland,Hungary,23
+2020-21,Queensland,India,5277
+2020-21,Queensland,Indonesia,4618
+2020-21,Queensland,Italy,2971
+2020-21,Queensland,Japan,3394
+2020-21,Queensland,Malaysia,2008
+2020-21,Queensland,Republic of Korea,2721
+2020-21,Queensland,Rest of world,32472
+2020-21,Queensland,Taiwan,16902
+2020-21,Queensland,Thailand,12453
+2020-21,Queensland,United Kingdom,5049
+2020-21,Queensland,United States,28168
+2020-21,Queensland,Vietnam,11443
+2020-21,SA,China,87246
+2020-21,SA,Czech Republic,586
+2020-21,SA,Germany,1441
+2020-21,SA,Hungary,41
+2020-21,SA,India,826
+2020-21,SA,Indonesia,232
+2020-21,SA,Italy,1896
+2020-21,SA,Japan,2058
+2020-21,SA,Malaysia,97
+2020-21,SA,Republic of Korea,437
+2020-21,SA,Rest of world,8935
+2020-21,SA,Taiwan,4823
+2020-21,SA,Thailand,855
+2020-21,SA,United Kingdom,1926
+2020-21,SA,United States,7352
+2020-21,SA,Vietnam,1744
+2020-21,Tasmania,China,738
+2020-21,Tasmania,Germany,47
+2020-21,Tasmania,Malaysia,105
+2020-21,Tasmania,Rest of world,746
+2020-21,Tasmania,Taiwan,93
+2020-21,Tasmania,Thailand,4
+2020-21,Tasmania,United Kingdom,107
+2020-21,Tasmania,United States,333
+2020-21,Tasmania,Vietnam,3
+2020-21,Victoria,China,1381040
+2020-21,Victoria,Czech Republic,3507
+2020-21,Victoria,Germany,9818
+2020-21,Victoria,Hungary,10255
+2020-21,Victoria,India,19313
+2020-21,Victoria,Indonesia,22010
+2020-21,Victoria,Italy,7907
+2020-21,Victoria,Japan,6197
+2020-21,Victoria,Malaysia,9233
+2020-21,Victoria,Republic of Korea,3337
+2020-21,Victoria,Rest of world,57594
+2020-21,Victoria,Taiwan,52855
+2020-21,Victoria,Thailand,40523
+2020-21,Victoria,United Kingdom,6385
+2020-21,Victoria,United States,61255
+2020-21,Victoria,Vietnam,115800
+2020-21,WA,China,140934
+2020-21,WA,Czech Republic,192
+2020-21,WA,Germany,920
+2020-21,WA,Hungary,310
+2020-21,WA,India,2021
+2020-21,WA,Indonesia,2525
+2020-21,WA,Italy,2334
+2020-21,WA,Japan,1114
+2020-21,WA,Malaysia,341
+2020-21,WA,Republic of Korea,562
+2020-21,WA,Rest of world,6665
+2020-21,WA,Taiwan,3796
+2020-21,WA,Thailand,2158
+2020-21,WA,United Kingdom,938
+2020-21,WA,United States,3420
+2020-21,WA,Vietnam,3164
+2021-22,ACT,United States,5
+2021-22,NSW,China,1154690
+2021-22,NSW,Czech Republic,2543
+2021-22,NSW,Germany,15967
+2021-22,NSW,Hungary,1271
+2021-22,NSW,India,10971
+2021-22,NSW,Indonesia,8119
+2021-22,NSW,Italy,14909
+2021-22,NSW,Japan,43458
+2021-22,NSW,Malaysia,21975
+2021-22,NSW,Republic of Korea,23670
+2021-22,NSW,Rest of world,110360
+2021-22,NSW,Taiwan,50852
+2021-22,NSW,Thailand,10897
+2021-22,NSW,United Kingdom,28027
+2021-22,NSW,United States,133274
+2021-22,NSW,Vietnam,41491
+2021-22,NT,China,1417
+2021-22,NT,India,2
+2021-22,NT,Italy,118
+2021-22,NT,Japan,95
+2021-22,NT,Malaysia,39
+2021-22,NT,Rest of world,543
+2021-22,NT,Thailand,5
+2021-22,NT,United Kingdom,3
+2021-22,NT,United States,43
+2021-22,NT,Vietnam,50
+2021-22,Queensland,China,483882
+2021-22,Queensland,Czech Republic,10552
+2021-22,Queensland,Germany,17833
+2021-22,Queensland,Hungary,38
+2021-22,Queensland,India,6046
+2021-22,Queensland,Indonesia,4809
+2021-22,Queensland,Italy,7444
+2021-22,Queensland,Japan,4929
+2021-22,Queensland,Malaysia,886
+2021-22,Queensland,Republic of Korea,3489
+2021-22,Queensland,Rest of world,29098
+2021-22,Queensland,Taiwan,15636
+2021-22,Queensland,Thailand,11206
+2021-22,Queensland,United Kingdom,6257
+2021-22,Queensland,United States,23940
+2021-22,Queensland,Vietnam,13464
+2021-22,SA,China,55790
+2021-22,SA,Czech Republic,674
+2021-22,SA,Germany,1481
+2021-22,SA,Hungary,53
+2021-22,SA,India,944
+2021-22,SA,Indonesia,45
+2021-22,SA,Italy,1369
+2021-22,SA,Japan,2212
+2021-22,SA,Malaysia,31
+2021-22,SA,Republic of Korea,372
+2021-22,SA,Rest of world,8514
+2021-22,SA,Taiwan,5075
+2021-22,SA,Thailand,1261
+2021-22,SA,United Kingdom,966
+2021-22,SA,United States,6464
+2021-22,SA,Vietnam,613
+2021-22,Tasmania,China,624
+2021-22,Tasmania,Germany,5
+2021-22,Tasmania,Rest of world,146
+2021-22,Tasmania,Taiwan,19
+2021-22,Tasmania,United Kingdom,7
+2021-22,Tasmania,United States,111
+2021-22,Victoria,China,1733778
+2021-22,Victoria,Czech Republic,9696
+2021-22,Victoria,Germany,8036
+2021-22,Victoria,Hungary,12754
+2021-22,Victoria,India,24363
+2021-22,Victoria,Indonesia,25142
+2021-22,Victoria,Italy,7771
+2021-22,Victoria,Japan,9301
+2021-22,Victoria,Malaysia,6091
+2021-22,Victoria,Republic of Korea,4933
+2021-22,Victoria,Rest of world,73525
+2021-22,Victoria,Taiwan,53843
+2021-22,Victoria,Thailand,39102
+2021-22,Victoria,United Kingdom,6919
+2021-22,Victoria,United States,108929
+2021-22,Victoria,Vietnam,108060
+2021-22,WA,China,167397
+2021-22,WA,Czech Republic,88
+2021-22,WA,Germany,780
+2021-22,WA,Hungary,280
+2021-22,WA,India,2296
+2021-22,WA,Indonesia,2352
+2021-22,WA,Italy,3903
+2021-22,WA,Japan,734
+2021-22,WA,Malaysia,383
+2021-22,WA,Republic of Korea,590
+2021-22,WA,Rest of world,8425
+2021-22,WA,Taiwan,5275
+2021-22,WA,Thailand,2609
+2021-22,WA,United Kingdom,993
+2021-22,WA,United States,4474
+2021-22,WA,Vietnam,3280
+2022-23,ACT,India,2
+2022-23,ACT,Thailand,10
+2022-23,NSW,China,1364302
+2022-23,NSW,Czech Republic,1485
+2022-23,NSW,Germany,25695
+2022-23,NSW,Hungary,697
+2022-23,NSW,India,10339
+2022-23,NSW,Indonesia,10156
+2022-23,NSW,Italy,12143
+2022-23,NSW,Japan,47341
+2022-23,NSW,Malaysia,21459
+2022-23,NSW,Republic of Korea,21536
+2022-23,NSW,Rest of world,149911
+2022-23,NSW,Taiwan,54699
+2022-23,NSW,Thailand,11688
+2022-23,NSW,United Kingdom,32953
+2022-23,NSW,United States,120007
+2022-23,NSW,Vietnam,44145
+2022-23,NT,China,997
+2022-23,NT,Czech Republic,2
+2022-23,NT,Germany,53
+2022-23,NT,Italy,733
+2022-23,NT,Japan,1
+2022-23,NT,Malaysia,4
+2022-23,NT,Rest of world,393
+2022-23,NT,Thailand,6
+2022-23,NT,United Kingdom,8
+2022-23,Queensland,China,468630
+2022-23,Queensland,Czech Republic,10467
+2022-23,Queensland,Germany,10602
+2022-23,Queensland,Hungary,336
+2022-23,Queensland,India,6901
+2022-23,Queensland,Indonesia,5697
+2022-23,Queensland,Italy,5625
+2022-23,Queensland,Japan,3673
+2022-23,Queensland,Malaysia,1177
+2022-23,Queensland,Republic of Korea,2578
+2022-23,Queensland,Rest of world,34147
+2022-23,Queensland,Taiwan,15654
+2022-23,Queensland,Thailand,10754
+2022-23,Queensland,United Kingdom,6193
+2022-23,Queensland,United States,20127
+2022-23,Queensland,Vietnam,16353
+2022-23,SA,China,55128
+2022-23,SA,Czech Republic,731
+2022-23,SA,Germany,1059
+2022-23,SA,Hungary,384
+2022-23,SA,India,947
+2022-23,SA,Indonesia,903
+2022-23,SA,Italy,780
+2022-23,SA,Japan,1022
+2022-23,SA,Malaysia,47
+2022-23,SA,Republic of Korea,402
+2022-23,SA,Rest of world,6303
+2022-23,SA,Taiwan,2630
+2022-23,SA,Thailand,1242
+2022-23,SA,United Kingdom,1093
+2022-23,SA,United States,6925
+2022-23,SA,Vietnam,887
+2022-23,Tasmania,China,418
+2022-23,Tasmania,Italy,120
+2022-23,Tasmania,Rest of world,219
+2022-23,Tasmania,Taiwan,9
+2022-23,Tasmania,Thailand,7
+2022-23,Tasmania,United States,170
+2022-23,Victoria,China,1674136
+2022-23,Victoria,Czech Republic,5450
+2022-23,Victoria,Germany,7342
+2022-23,Victoria,Hungary,22080
+2022-23,Victoria,India,26898
+2022-23,Victoria,Indonesia,28879
+2022-23,Victoria,Italy,9965
+2022-23,Victoria,Japan,6963
+2022-23,Victoria,Malaysia,10212
+2022-23,Victoria,Republic of Korea,6246
+2022-23,Victoria,Rest of world,76209
+2022-23,Victoria,Taiwan,65097
+2022-23,Victoria,Thailand,48105
+2022-23,Victoria,United Kingdom,6948
+2022-23,Victoria,United States,129242
+2022-23,Victoria,Vietnam,124900
+2022-23,WA,China,159564
+2022-23,WA,Czech Republic,486
+2022-23,WA,Germany,1308
+2022-23,WA,Hungary,557
+2022-23,WA,India,3050
+2022-23,WA,Indonesia,2730
+2022-23,WA,Italy,3600
+2022-23,WA,Japan,544
+2022-23,WA,Malaysia,247
+2022-23,WA,Republic of Korea,452
+2022-23,WA,Rest of world,9688
+2022-23,WA,Taiwan,3650
+2022-23,WA,Thailand,1679
+2022-23,WA,United Kingdom,1115
+2022-23,WA,United States,5404
+2022-23,WA,Vietnam,3551
+2023-24,ACT,China,7
+2023-24,ACT,Thailand,1
+2023-24,NSW,China,1126411
+2023-24,NSW,Czech Republic,1312
+2023-24,NSW,Germany,28253
+2023-24,NSW,Hungary,765
+2023-24,NSW,India,12306
+2023-24,NSW,Indonesia,13455
+2023-24,NSW,Italy,15302
+2023-24,NSW,Japan,55676
+2023-24,NSW,Malaysia,20428
+2023-24,NSW,Republic of Korea,23599
+2023-24,NSW,Rest of world,112504
+2023-24,NSW,Taiwan,51078
+2023-24,NSW,Thailand,14254
+2023-24,NSW,United Kingdom,38347
+2023-24,NSW,United States,111540
+2023-24,NSW,Vietnam,47288
+2023-24,NT,China,2386
+2023-24,NT,Czech Republic,5
+2023-24,NT,Indonesia,11
+2023-24,NT,Italy,1123
+2023-24,NT,Japan,15
+2023-24,NT,Republic of Korea,227
+2023-24,NT,Rest of world,250
+2023-24,NT,United States,27
+2023-24,Queensland,China,443211
+2023-24,Queensland,Czech Republic,8698
+2023-24,Queensland,Germany,6614
+2023-24,Queensland,Hungary,414
+2023-24,Queensland,India,7830
+2023-24,Queensland,Indonesia,5898
+2023-24,Queensland,Italy,6987
+2023-24,Queensland,Japan,9444
+2023-24,Queensland,Malaysia,1598
+2023-24,Queensland,Republic of Korea,2524
+2023-24,Queensland,Rest of world,35540
+2023-24,Queensland,Taiwan,13339
+2023-24,Queensland,Thailand,9822
+2023-24,Queensland,United Kingdom,3383
+2023-24,Queensland,United States,15599
+2023-24,Queensland,Vietnam,19687
+2023-24,SA,China,50895
+2023-24,SA,Czech Republic,688
+2023-24,SA,Germany,1316
+2023-24,SA,Hungary,568
+2023-24,SA,India,1076
+2023-24,SA,Indonesia,1533
+2023-24,SA,Italy,1285
+2023-24,SA,Japan,2572
+2023-24,SA,Malaysia,160
+2023-24,SA,Republic of Korea,527
+2023-24,SA,Rest of world,5186
+2023-24,SA,Taiwan,1130
+2023-24,SA,Thailand,866
+2023-24,SA,United Kingdom,757
+2023-24,SA,United States,7139
+2023-24,SA,Vietnam,655
+2023-24,Tasmania,China,609
+2023-24,Tasmania,Japan,1
+2023-24,Tasmania,Republic of Korea,225
+2023-24,Tasmania,Rest of world,1593
+2023-24,Tasmania,Taiwan,41
+2023-24,Tasmania,Thailand,47
+2023-24,Tasmania,United Kingdom,37
+2023-24,Tasmania,United States,73
+2023-24,Victoria,China,1492987
+2023-24,Victoria,Czech Republic,5779
+2023-24,Victoria,Germany,8750
+2023-24,Victoria,Hungary,23173
+2023-24,Victoria,India,24430
+2023-24,Victoria,Indonesia,30905
+2023-24,Victoria,Italy,10424
+2023-24,Victoria,Japan,8371
+2023-24,Victoria,Malaysia,10338
+2023-24,Victoria,Republic of Korea,6384
+2023-24,Victoria,Rest of world,64368
+2023-24,Victoria,Taiwan,52744
+2023-24,Victoria,Thailand,48878
+2023-24,Victoria,United Kingdom,9331
+2023-24,Victoria,United States,143797
+2023-24,Victoria,Vietnam,124739
+2023-24,WA,China,163817
+2023-24,WA,Czech Republic,323
+2023-24,WA,Germany,399
+2023-24,WA,Hungary,874
+2023-24,WA,India,3168
+2023-24,WA,Indonesia,2755
+2023-24,WA,Italy,3056
+2023-24,WA,Japan,1183
+2023-24,WA,Malaysia,274
+2023-24,WA,Republic of Korea,1028
+2023-24,WA,Rest of world,8805
+2023-24,WA,Taiwan,3730
+2023-24,WA,Thailand,1556
+2023-24,WA,United Kingdom,1822
+2023-24,WA,United States,4751
+2023-24,WA,Vietnam,4138
+2024-25,ACT,Japan,2
+2024-25,ACT,United States,11
+2024-25,NSW,China,1306655
+2024-25,NSW,Czech Republic,1707
+2024-25,NSW,Germany,22895
+2024-25,NSW,Hungary,1545
+2024-25,NSW,India,12542
+2024-25,NSW,Indonesia,13953
+2024-25,NSW,Italy,18082
+2024-25,NSW,Japan,70206
+2024-25,NSW,Malaysia,23641
+2024-25,NSW,Republic of Korea,7795
+2024-25,NSW,Rest of world,88468
+2024-25,NSW,Taiwan,50057
+2024-25,NSW,Thailand,13369
+2024-25,NSW,United Kingdom,41404
+2024-25,NSW,United States,130602
+2024-25,NSW,Vietnam,75768
+2024-25,NT,China,1631
+2024-25,NT,Czech Republic,24
+2024-25,NT,Germany,1
+2024-25,NT,India,1
+2024-25,NT,Italy,7
+2024-25,NT,Japan,6
+2024-25,NT,Malaysia,2
+2024-25,NT,Republic of Korea,3
+2024-25,NT,Rest of world,562
+2024-25,NT,Thailand,7
+2024-25,NT,United Kingdom,33
+2024-25,NT,United States,66
+2024-25,NT,Vietnam,83
+2024-25,Queensland,China,463451
+2024-25,Queensland,Czech Republic,6782
+2024-25,Queensland,Germany,13276
+2024-25,Queensland,Hungary,2699
+2024-25,Queensland,India,8885
+2024-25,Queensland,Indonesia,8883
+2024-25,Queensland,Italy,3311
+2024-25,Queensland,Japan,4376
+2024-25,Queensland,Malaysia,1777
+2024-25,Queensland,Republic of Korea,3835
+2024-25,Queensland,Rest of world,29604
+2024-25,Queensland,Taiwan,13753
+2024-25,Queensland,Thailand,11588
+2024-25,Queensland,United Kingdom,3611
+2024-25,Queensland,United States,18127
+2024-25,Queensland,Vietnam,22878
+2024-25,SA,China,55725
+2024-25,SA,Czech Republic,120
+2024-25,SA,Germany,1589
+2024-25,SA,Hungary,343
+2024-25,SA,India,703
+2024-25,SA,Indonesia,1481
+2024-25,SA,Italy,1672
+2024-25,SA,Japan,1756
+2024-25,SA,Malaysia,109
+2024-25,SA,Republic of Korea,306
+2024-25,SA,Rest of world,7331
+2024-25,SA,Taiwan,2130
+2024-25,SA,Thailand,1025
+2024-25,SA,United Kingdom,827
+2024-25,SA,United States,9815
+2024-25,SA,Vietnam,2160
+2024-25,Tasmania,China,579
+2024-25,Tasmania,Czech Republic,51
+2024-25,Tasmania,Japan,21
+2024-25,Tasmania,Malaysia,6
+2024-25,Tasmania,Rest of world,173
+2024-25,Tasmania,United Kingdom,5
+2024-25,Tasmania,United States,236
+2024-25,Victoria,China,1658984
+2024-25,Victoria,Czech Republic,8156
+2024-25,Victoria,Germany,10914
+2024-25,Victoria,Hungary,27422
+2024-25,Victoria,India,28283
+2024-25,Victoria,Indonesia,36207
+2024-25,Victoria,Italy,8733
+2024-25,Victoria,Japan,27621
+2024-25,Victoria,Malaysia,12610
+2024-25,Victoria,Republic of Korea,6710
+2024-25,Victoria,Rest of world,76999
+2024-25,Victoria,Taiwan,64847
+2024-25,Victoria,Thailand,56193
+2024-25,Victoria,United Kingdom,6837
+2024-25,Victoria,United States,150262
+2024-25,Victoria,Vietnam,151759
+2024-25,WA,China,169847
+2024-25,WA,Czech Republic,329
+2024-25,WA,Germany,1475
+2024-25,WA,Hungary,637
+2024-25,WA,India,3003
+2024-25,WA,Indonesia,3816
+2024-25,WA,Italy,3395
+2024-25,WA,Japan,1571
+2024-25,WA,Malaysia,236
+2024-25,WA,Republic of Korea,572
+2024-25,WA,Rest of world,11871
+2024-25,WA,Taiwan,2846
+2024-25,WA,Thailand,1326
+2024-25,WA,United Kingdom,1275
+2024-25,WA,United States,6837
+2024-25,WA,Vietnam,7043

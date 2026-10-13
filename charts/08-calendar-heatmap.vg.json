@@ -1,0 +1,254 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Calendar heatmap of the monthly value of Australia's toy, game and sporting-goods imports, all origins combined, January 2023 to August 2026. Columns are months, rows are calendar years; darker cells mean more imports. October is the darkest month in 2023, 2024 and 2025; February and March are the lightest. 2026 is a partial year (to August).",
+  "title": {
+    "text": "Toys arrive in spring, every year",
+    "subtitle": "Value of toy imports each month, all countries combined (A$ million). Darker = more."
+  },
+  "width": "container",
+  "height": 220,
+  "data": {
+    "url": "data/toys_imports_monthly.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "month": "string",
+        "value_k": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "value_k",
+          "as": "total_k"
+        }
+      ],
+      "groupby": [
+        "month"
+      ]
+    },
+    {
+      "calculate": "toNumber(substring(datum.month, 0, 4))",
+      "as": "yr"
+    },
+    {
+      "calculate": "toNumber(substring(datum.month, 5, 7))",
+      "as": "mo"
+    },
+    {
+      "calculate": "datum.total_k / 1000",
+      "as": "total_m"
+    },
+    {
+      "calculate": "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][datum.mo - 1] + ' ' + datum.yr",
+      "as": "month_name"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "mo",
+      "type": "ordinal",
+      "title": null,
+      "scale": {
+        "domain": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "paddingInner": 0.06
+      },
+      "axis": {
+        "labelExpr": "['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][datum.value - 1]",
+        "orient": "top",
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 13,
+        "labelPadding": 6,
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "yr",
+      "type": "ordinal",
+      "title": null,
+      "scale": {
+        "domain": [
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "paddingInner": 0.08
+      },
+      "axis": {
+        "labelExpr": "datum.value == 2026 ? '2026 (to Aug)' : datum.value",
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 13,
+        "labelPadding": 8
+      }
+    }
+  },
+  "layer": [
+    {
+      "description": "Placeholder cells for September–December 2026, not yet published.",
+      "data": {
+        "values": [
+          {
+            "mo": 9,
+            "yr": 2026
+          },
+          {
+            "mo": 10,
+            "yr": 2026
+          },
+          {
+            "mo": 11,
+            "yr": 2026
+          },
+          {
+            "mo": 12,
+            "yr": 2026
+          }
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "fill": null,
+        "stroke": "#D9D3C8",
+        "strokeDash": [
+          3,
+          3
+        ],
+        "strokeWidth": 1,
+        "cornerRadius": 3
+      }
+    },
+    {
+      "description": "One cell per month, coloured by the value of imports.",
+      "mark": {
+        "type": "rect",
+        "cornerRadius": 3
+      },
+      "encoding": {
+        "color": {
+          "field": "total_m",
+          "type": "quantitative",
+          "scale": {
+            "range": [
+              "#D6EBE4",
+              "#A9D4C7",
+              "#7FBCAB",
+              "#55A08E",
+              "#337F6F",
+              "#1B6152",
+              "#0B4339"
+            ],
+            "zero": false
+          },
+          "legend": {
+            "title": "A$ million",
+            "orient": "right",
+            "gradientLength": 160,
+            "format": ",.0f"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "month_name",
+            "type": "nominal",
+            "title": "Month"
+          },
+          {
+            "field": "total_m",
+            "type": "quantitative",
+            "title": "Imports (A$ million)",
+            "format": ",.1f"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Values printed in the October cells (the peak) only.",
+      "transform": [
+        {
+          "filter": "datum.mo == 10"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "color": "#FFFFFF"
+      },
+      "encoding": {
+        "text": {
+          "field": "total_m",
+          "type": "quantitative",
+          "format": ",.0f"
+        }
+      }
+    },
+    {
+      "description": "October cells outlined: the peak month in every complete year.",
+      "transform": [
+        {
+          "filter": "datum.mo == 10"
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "fill": null,
+        "stroke": "#1F1B16",
+        "strokeWidth": 2,
+        "cornerRadius": 3
+      }
+    },
+    {
+      "description": "Source line.",
+      "data": {
+        "values": [
+          {
+            "text": "Source: DFAT Merchandise Trade Statistical Pivot Tables, SITC 894 monthly imports, all origins summed (CC BY 4.0). Dashed cells: Sep–Dec 2026 not yet published."
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 11,
+        "color": "#7A7268"
+      },
+      "encoding": {
+        "text": {
+          "field": "text",
+          "type": "nominal"
+        },
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": {
+            "expr": "height + 12"
+          }
+        }
+      }
+    }
+  ],
+  "usermeta": {
+    "source": "DFAT Merchandise Trade Statistical Pivot Tables, SITC 894, monthly imports by country of origin (CC BY 4.0)."
+  }
+}

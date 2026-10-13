@@ -1,0 +1,485 @@
+month,origin,value_k
+2023-01,China,335504
+2023-01,Germany,3291
+2023-01,India,3594
+2023-01,Indonesia,3967
+2023-01,Japan,3531
+2023-01,Rest of world,27250
+2023-01,Taiwan,12950
+2023-01,Thailand,5662
+2023-01,United Kingdom,3002
+2023-01,United States,20794
+2023-01,Vietnam,15754
+2023-02,China,209701
+2023-02,Germany,3354
+2023-02,India,2834
+2023-02,Indonesia,2510
+2023-02,Japan,5077
+2023-02,Rest of world,29829
+2023-02,Taiwan,9175
+2023-02,Thailand,4505
+2023-02,United Kingdom,3440
+2023-02,United States,27325
+2023-02,Vietnam,11025
+2023-03,China,197788
+2023-03,Germany,4935
+2023-03,India,3143
+2023-03,Indonesia,5822
+2023-03,Japan,5843
+2023-03,Rest of world,30448
+2023-03,Taiwan,10240
+2023-03,Thailand,5826
+2023-03,United Kingdom,2977
+2023-03,United States,20264
+2023-03,Vietnam,17007
+2023-04,China,197341
+2023-04,Germany,3757
+2023-04,India,2653
+2023-04,Indonesia,4097
+2023-04,Japan,3731
+2023-04,Rest of world,40473
+2023-04,Taiwan,11998
+2023-04,Thailand,3489
+2023-04,United Kingdom,3350
+2023-04,United States,18794
+2023-04,Vietnam,9207
+2023-05,China,245156
+2023-05,Germany,5186
+2023-05,India,3681
+2023-05,Indonesia,3349
+2023-05,Japan,7014
+2023-05,Rest of world,41285
+2023-05,Taiwan,11642
+2023-05,Thailand,5949
+2023-05,United Kingdom,2382
+2023-05,United States,27671
+2023-05,Vietnam,15212
+2023-06,China,201834
+2023-06,Germany,1821
+2023-06,India,2942
+2023-06,Indonesia,4262
+2023-06,Japan,4505
+2023-06,Rest of world,39913
+2023-06,Taiwan,13677
+2023-06,Thailand,5060
+2023-06,United Kingdom,4366
+2023-06,United States,18576
+2023-06,Vietnam,12281
+2023-07,China,224947
+2023-07,Germany,4603
+2023-07,India,5278
+2023-07,Indonesia,4728
+2023-07,Japan,7143
+2023-07,Rest of world,33897
+2023-07,Taiwan,11617
+2023-07,Thailand,4535
+2023-07,United Kingdom,5132
+2023-07,United States,24241
+2023-07,Vietnam,14347
+2023-08,China,320789
+2023-08,Germany,3069
+2023-08,India,5348
+2023-08,Indonesia,5051
+2023-08,Japan,4378
+2023-08,Rest of world,35410
+2023-08,Taiwan,11910
+2023-08,Thailand,8322
+2023-08,United Kingdom,3872
+2023-08,United States,22111
+2023-08,Vietnam,18353
+2023-09,China,423642
+2023-09,Germany,4297
+2023-09,India,5030
+2023-09,Indonesia,6296
+2023-09,Japan,5773
+2023-09,Rest of world,36450
+2023-09,Taiwan,10298
+2023-09,Thailand,6107
+2023-09,United Kingdom,2424
+2023-09,United States,21588
+2023-09,Vietnam,20138
+2023-10,China,402462
+2023-10,Germany,6292
+2023-10,India,5476
+2023-10,Indonesia,6460
+2023-10,Japan,6830
+2023-10,Rest of world,34163
+2023-10,Taiwan,11287
+2023-10,Thailand,8204
+2023-10,United Kingdom,5326
+2023-10,United States,32117
+2023-10,Vietnam,15273
+2023-11,China,321986
+2023-11,Germany,2909
+2023-11,India,4504
+2023-11,Indonesia,5731
+2023-11,Japan,4308
+2023-11,Rest of world,30411
+2023-11,Taiwan,11660
+2023-11,Thailand,6516
+2023-11,United Kingdom,4292
+2023-11,United States,17513
+2023-11,Vietnam,21292
+2023-12,China,243129
+2023-12,Germany,2892
+2023-12,India,2444
+2023-12,Indonesia,3904
+2023-12,Japan,2719
+2023-12,Rest of world,28189
+2023-12,Taiwan,11355
+2023-12,Thailand,4554
+2023-12,United Kingdom,3470
+2023-12,United States,21704
+2023-12,Vietnam,12360
+2024-01,China,242030
+2024-01,Germany,2157
+2024-01,India,3488
+2024-01,Indonesia,3132
+2024-01,Japan,6442
+2024-01,Rest of world,30472
+2024-01,Taiwan,9989
+2024-01,Thailand,6693
+2024-01,United Kingdom,6397
+2024-01,United States,25806
+2024-01,Vietnam,12410
+2024-02,China,230210
+2024-02,Germany,4637
+2024-02,India,2936
+2024-02,Indonesia,3598
+2024-02,Japan,4084
+2024-02,Rest of world,28780
+2024-02,Taiwan,7984
+2024-02,Thailand,5873
+2024-02,United Kingdom,4476
+2024-02,United States,25741
+2024-02,Vietnam,13367
+2024-03,China,172710
+2024-03,Germany,2947
+2024-03,India,3540
+2024-03,Indonesia,5123
+2024-03,Japan,5112
+2024-03,Rest of world,28611
+2024-03,Taiwan,7351
+2024-03,Thailand,9983
+2024-03,United Kingdom,4943
+2024-03,United States,21864
+2024-03,Vietnam,16111
+2024-04,China,204703
+2024-04,Germany,3903
+2024-04,India,3531
+2024-04,Indonesia,3830
+2024-04,Japan,8800
+2024-04,Rest of world,32000
+2024-04,Taiwan,12469
+2024-04,Thailand,4510
+2024-04,United Kingdom,6430
+2024-04,United States,25502
+2024-04,Vietnam,16698
+2024-05,China,252654
+2024-05,Germany,4531
+2024-05,India,4256
+2024-05,Indonesia,3679
+2024-05,Japan,9419
+2024-05,Rest of world,30912
+2024-05,Taiwan,7184
+2024-05,Thailand,5000
+2024-05,United Kingdom,3128
+2024-05,United States,26972
+2024-05,Vietnam,21373
+2024-06,China,241060
+2024-06,Germany,3095
+2024-06,India,2980
+2024-06,Indonesia,3024
+2024-06,Japan,12254
+2024-06,Rest of world,27037
+2024-06,Taiwan,8957
+2024-06,Thailand,5125
+2024-06,United Kingdom,3788
+2024-06,United States,17768
+2024-06,Vietnam,14785
+2024-07,China,291435
+2024-07,Germany,3523
+2024-07,India,5966
+2024-07,Indonesia,4056
+2024-07,Japan,8435
+2024-07,Rest of world,37110
+2024-07,Taiwan,6966
+2024-07,Thailand,7527
+2024-07,United Kingdom,3262
+2024-07,United States,20401
+2024-07,Vietnam,23375
+2024-08,China,327193
+2024-08,Germany,1988
+2024-08,India,5169
+2024-08,Indonesia,4285
+2024-08,Japan,8064
+2024-08,Rest of world,29531
+2024-08,Taiwan,7825
+2024-08,Thailand,6710
+2024-08,United Kingdom,4681
+2024-08,United States,22373
+2024-08,Vietnam,25169
+2024-09,China,416118
+2024-09,Germany,3693
+2024-09,India,7037
+2024-09,Indonesia,7523
+2024-09,Japan,12293
+2024-09,Rest of world,32162
+2024-09,Taiwan,7943
+2024-09,Thailand,6536
+2024-09,United Kingdom,5216
+2024-09,United States,15174
+2024-09,Vietnam,21333
+2024-10,China,497064
+2024-10,Germany,4561
+2024-10,India,5003
+2024-10,Indonesia,7447
+2024-10,Japan,6200
+2024-10,Rest of world,33415
+2024-10,Taiwan,7036
+2024-10,Thailand,10471
+2024-10,United Kingdom,4475
+2024-10,United States,28413
+2024-10,Vietnam,25717
+2024-11,China,365001
+2024-11,Germany,4808
+2024-11,India,4675
+2024-11,Indonesia,5527
+2024-11,Japan,8571
+2024-11,Rest of world,32899
+2024-11,Taiwan,12554
+2024-11,Thailand,6760
+2024-11,United Kingdom,5193
+2024-11,United States,19023
+2024-11,Vietnam,24605
+2024-12,China,265338
+2024-12,Germany,3457
+2024-12,India,3614
+2024-12,Indonesia,3530
+2024-12,Japan,6766
+2024-12,Rest of world,23702
+2024-12,Taiwan,16719
+2024-12,Thailand,5670
+2024-12,United Kingdom,3642
+2024-12,United States,29912
+2024-12,Vietnam,18994
+2025-01,China,266979
+2025-01,Germany,4001
+2025-01,India,3125
+2025-01,Indonesia,4600
+2025-01,Japan,7641
+2025-01,Rest of world,24706
+2025-01,Taiwan,9174
+2025-01,Thailand,6625
+2025-01,United Kingdom,3870
+2025-01,United States,26691
+2025-01,Vietnam,15618
+2025-02,China,213492
+2025-02,Germany,2230
+2025-02,India,2974
+2025-02,Indonesia,5623
+2025-02,Japan,4892
+2025-02,Rest of world,21091
+2025-02,Taiwan,8362
+2025-02,Thailand,6596
+2025-02,United Kingdom,6244
+2025-02,United States,27602
+2025-02,Vietnam,20183
+2025-03,China,207619
+2025-03,Germany,1689
+2025-03,India,3807
+2025-03,Indonesia,6072
+2025-03,Japan,8624
+2025-03,Rest of world,24311
+2025-03,Taiwan,12409
+2025-03,Thailand,9455
+2025-03,United Kingdom,3047
+2025-03,United States,28760
+2025-03,Vietnam,17705
+2025-04,China,273029
+2025-04,Germany,8771
+2025-04,India,4259
+2025-04,Indonesia,5929
+2025-04,Japan,10541
+2025-04,Rest of world,29089
+2025-04,Taiwan,16158
+2025-04,Thailand,6647
+2025-04,United Kingdom,3903
+2025-04,United States,28486
+2025-04,Vietnam,20976
+2025-05,China,277737
+2025-05,Germany,5468
+2025-05,India,3997
+2025-05,Indonesia,7856
+2025-05,Japan,13884
+2025-05,Rest of world,38929
+2025-05,Taiwan,13584
+2025-05,Thailand,4574
+2025-05,United Kingdom,5837
+2025-05,United States,33367
+2025-05,Vietnam,24495
+2025-06,China,255867
+2025-06,Germany,5962
+2025-06,India,3791
+2025-06,Indonesia,1892
+2025-06,Japan,9648
+2025-06,Rest of world,30676
+2025-06,Taiwan,14901
+2025-06,Thailand,5937
+2025-06,United Kingdom,4621
+2025-06,United States,35755
+2025-06,Vietnam,21519
+2025-07,China,305023
+2025-07,Germany,2314
+2025-07,India,5900
+2025-07,Indonesia,3235
+2025-07,Japan,10443
+2025-07,Rest of world,33075
+2025-07,Taiwan,19788
+2025-07,Thailand,7149
+2025-07,United Kingdom,4163
+2025-07,United States,33324
+2025-07,Vietnam,28129
+2025-08,China,372390
+2025-08,Germany,4114
+2025-08,India,6039
+2025-08,Indonesia,5709
+2025-08,Japan,16956
+2025-08,Rest of world,34740
+2025-08,Taiwan,15927
+2025-08,Thailand,9394
+2025-08,United Kingdom,5080
+2025-08,United States,32284
+2025-08,Vietnam,47205
+2025-09,China,443962
+2025-09,Germany,5643
+2025-09,India,6339
+2025-09,Indonesia,4017
+2025-09,Japan,35653
+2025-09,Rest of world,31854
+2025-09,Taiwan,13191
+2025-09,Thailand,7069
+2025-09,United Kingdom,4679
+2025-09,United States,23628
+2025-09,Vietnam,44155
+2025-10,China,509844
+2025-10,Germany,4556
+2025-10,India,6490
+2025-10,Indonesia,5721
+2025-10,Japan,16478
+2025-10,Rest of world,36940
+2025-10,Taiwan,17779
+2025-10,Thailand,13070
+2025-10,United Kingdom,7045
+2025-10,United States,43034
+2025-10,Vietnam,55594
+2025-11,China,427556
+2025-11,Germany,2657
+2025-11,India,6678
+2025-11,Indonesia,4681
+2025-11,Japan,7542
+2025-11,Rest of world,31054
+2025-11,Taiwan,17294
+2025-11,Thailand,7831
+2025-11,United Kingdom,4420
+2025-11,United States,27063
+2025-11,Vietnam,38149
+2025-12,China,286413
+2025-12,Germany,3331
+2025-12,India,4151
+2025-12,Indonesia,5833
+2025-12,Japan,14496
+2025-12,Rest of world,30724
+2025-12,Taiwan,15527
+2025-12,Thailand,7236
+2025-12,United Kingdom,7014
+2025-12,United States,23770
+2025-12,Vietnam,69248
+2026-01,China,239474
+2026-01,Germany,3247
+2026-01,India,5004
+2026-01,Indonesia,2186
+2026-01,Japan,9936
+2026-01,Rest of world,25287
+2026-01,Taiwan,14619
+2026-01,Thailand,7537
+2026-01,United Kingdom,2577
+2026-01,United States,25491
+2026-01,Vietnam,63559
+2026-02,China,193987
+2026-02,Germany,1037
+2026-02,India,4545
+2026-02,Indonesia,5374
+2026-02,Japan,12525
+2026-02,Rest of world,28455
+2026-02,Taiwan,16718
+2026-02,Thailand,4248
+2026-02,United Kingdom,3452
+2026-02,United States,39822
+2026-02,Vietnam,43805
+2026-03,China,189916
+2026-03,Germany,1589
+2026-03,India,4398
+2026-03,Indonesia,4657
+2026-03,Japan,12621
+2026-03,Rest of world,27385
+2026-03,Taiwan,12795
+2026-03,Thailand,9749
+2026-03,United Kingdom,8871
+2026-03,United States,27472
+2026-03,Vietnam,45547
+2026-04,China,178516
+2026-04,Germany,3333
+2026-04,India,4351
+2026-04,Indonesia,4810
+2026-04,Japan,13178
+2026-04,Rest of world,34028
+2026-04,Taiwan,12378
+2026-04,Thailand,7706
+2026-04,United Kingdom,4831
+2026-04,United States,49074
+2026-04,Vietnam,48190
+2026-05,China,217181
+2026-05,Germany,2427
+2026-05,India,3664
+2026-05,Indonesia,4299
+2026-05,Japan,15894
+2026-05,Rest of world,27201
+2026-05,Taiwan,18567
+2026-05,Thailand,6144
+2026-05,United Kingdom,4154
+2026-05,United States,23869
+2026-05,Vietnam,39019
+2026-06,China,249885
+2026-06,Germany,1618
+2026-06,India,4416
+2026-06,Indonesia,3377
+2026-06,Japan,14278
+2026-06,Rest of world,27790
+2026-06,Taiwan,10890
+2026-06,Thailand,7475
+2026-06,United Kingdom,3541
+2026-06,United States,47368
+2026-06,Vietnam,45427
+2026-07,China,250346
+2026-07,Germany,3990
+2026-07,India,4765
+2026-07,Indonesia,3417
+2026-07,Japan,14071
+2026-07,Rest of world,30768
+2026-07,Taiwan,12100
+2026-07,Thailand,9919
+2026-07,United Kingdom,5474
+2026-07,United States,28045
+2026-07,Vietnam,51772
+2026-08,China,327548
+2026-08,Germany,1539
+2026-08,India,7441
+2026-08,Indonesia,3116
+2026-08,Japan,13667
+2026-08,Rest of world,31925
+2026-08,Taiwan,11277
+2026-08,Thailand,11237
+2026-08,United Kingdom,6434
+2026-08,United States,34979
+2026-08,Vietnam,59958

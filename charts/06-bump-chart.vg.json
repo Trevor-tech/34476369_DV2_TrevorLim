@@ -1,0 +1,329 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Bump chart of the rank of each named country of origin by the value of Australia's toy, game and sporting-goods imports, calendar years 2006 to 2025 (1 = biggest supplier). China is first every year. Vietnam climbs from 17th in 2006 to 2nd in 2025, passing the United States. Japan is 5th in 2025. 'Rest of world' is not a country and is left out of the ranking.",
+  "title": {
+    "text": "Vietnam’s climb to number two",
+    "subtitle": "Rank of each country by the value of toys Australia imported from it, each calendar year (1 = biggest supplier)"
+  },
+  "width": "container",
+  "height": 460,
+  "data": {
+    "url": "data/toys_imports_country_year.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "value_k": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.origin != 'Rest of world'"
+    },
+    {
+      "window": [
+        {
+          "op": "rank",
+          "as": "rank"
+        }
+      ],
+      "groupby": [
+        "year"
+      ],
+      "sort": [
+        {
+          "field": "value_k",
+          "order": "descending"
+        }
+      ]
+    },
+    {
+      "calculate": "datum.value_k / 1000",
+      "as": "value_m"
+    },
+    {
+      "calculate": "datum.origin == 'Vietnam' ? 'Vietnam' : datum.origin == 'Japan' ? 'Japan' : datum.origin == 'China' ? 'China' : 'Other named countries'",
+      "as": "group"
+    },
+    {
+      "calculate": "datum.origin == 'Hong Kong (SAR of China)' ? 'Hong Kong' : datum.origin",
+      "as": "origin_short"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "title": null,
+      "scale": {
+        "domain": [
+          2006,
+          2025
+        ]
+      },
+      "axis": {
+        "format": "d",
+        "values": [
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022,
+          2025
+        ],
+        "grid": false
+      }
+    },
+    "y": {
+      "field": "rank",
+      "type": "quantitative",
+      "title": "Rank (1 = biggest supplier)",
+      "scale": {
+        "domain": [
+          1,
+          20
+        ],
+        "reverse": true,
+        "nice": false
+      },
+      "axis": {
+        "values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          10,
+          15,
+          20
+        ],
+        "grid": true,
+        "gridColor": "#EFEAE1",
+        "domain": false,
+        "ticks": false
+      }
+    }
+  },
+  "layer": [
+    {
+      "description": "Grey lines for every other country, drawn first.",
+      "transform": [
+        {
+          "filter": "datum.group == 'Other named countries'"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 1.5,
+        "interpolate": "monotone"
+      },
+      "encoding": {
+        "detail": {
+          "field": "origin",
+          "type": "nominal"
+        },
+        "color": {
+          "value": "#CFCAC1"
+        },
+        "opacity": {
+          "condition": {
+            "param": "hover",
+            "empty": true,
+            "value": 1
+          },
+          "value": 0.25
+        }
+      }
+    },
+    {
+      "description": "Story lines: China, Japan and Vietnam drawn on top.",
+      "transform": [
+        {
+          "filter": "datum.group != 'Other named countries'"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3.5,
+        "interpolate": "monotone",
+        "strokeCap": "round"
+      },
+      "encoding": {
+        "detail": {
+          "field": "origin",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "China",
+              "Vietnam",
+              "Japan",
+              "Other named countries"
+            ],
+            "range": [
+              "#8C8279",
+              "#E0442B",
+              "#2E6DB4",
+              "#CFCAC1"
+            ]
+          },
+          "legend": null
+        },
+        "opacity": {
+          "condition": {
+            "param": "hover",
+            "empty": true,
+            "value": 1
+          },
+          "value": 0.25
+        }
+      }
+    },
+    {
+      "description": "A point for every country-year; hover highlights that country and shows a tooltip.",
+      "params": [
+        {
+          "name": "hover",
+          "select": {
+            "type": "point",
+            "fields": [
+              "origin"
+            ],
+            "on": "pointerover",
+            "clear": "pointerout"
+          }
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 34,
+        "stroke": "#FBF8F3",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "color": {
+          "field": "group",
+          "type": "nominal"
+        },
+        "opacity": {
+          "condition": {
+            "param": "hover",
+            "empty": true,
+            "value": 1
+          },
+          "value": 0.2
+        },
+        "tooltip": [
+          {
+            "field": "origin_short",
+            "type": "nominal",
+            "title": "Origin"
+          },
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Calendar year"
+          },
+          {
+            "field": "rank",
+            "type": "quantitative",
+            "title": "Rank"
+          },
+          {
+            "field": "value_m",
+            "type": "quantitative",
+            "title": "Value (A$ million)",
+            "format": ",.1f"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Labels at the 2025 end for the top five.",
+      "transform": [
+        {
+          "filter": "datum.year == 2025 && datum.rank <= 5"
+        },
+        {
+          "calculate": "datum.origin_short",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 9,
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "color": "#1F1B16"
+      },
+      "encoding": {
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "Vietnam's starting point, labelled at the 2006 end.",
+      "transform": [
+        {
+          "filter": "datum.year == 2006 && datum.origin == 'Vietnam'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 0,
+        "dy": 16,
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "color": "#C2381F",
+        "text": "Vietnam, 17th in 2006"
+      },
+      "encoding": {}
+    },
+    {
+      "description": "Source line.",
+      "data": {
+        "values": [
+          {
+            "text": "Source: DFAT Merchandise Trade Statistical Pivot Tables, SITC 894 total imports by country of origin, calendar years (CC BY 4.0). 20 named countries ranked; “Rest of world” left out."
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 11,
+        "color": "#7A7268"
+      },
+      "encoding": {
+        "text": {
+          "field": "text",
+          "type": "nominal"
+        },
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": {
+            "expr": "height + 30"
+          }
+        }
+      }
+    }
+  ],
+  "usermeta": {
+    "source": "DFAT Merchandise Trade Statistical Pivot Tables, SITC 894 total imports by country of origin, calendar years (CC BY 4.0)."
+  }
+}

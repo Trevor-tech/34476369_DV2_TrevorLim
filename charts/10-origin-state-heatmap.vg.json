@@ -1,0 +1,236 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Heatmap matrix of the value of toy, game and sporting-goods imports by country of origin (rows) and the Australian state or territory where they were unloaded (columns), financial year 2024–25. Rows and columns are sorted largest first. Colour classes run from under A$100 thousand to A$1 billion or more; blank cells mean nothing was recorded. China to Victoria (A$1.66 billion) and China to New South Wales (A$1.31 billion) are the only cells over A$1 billion.",
+  "title": {
+    "text": "Which countries’ toys land in which state, 2024–25",
+    "subtitle": "Value of imports by country of origin and state of unloading, financial year 2024–25. Blank = none recorded."
+  },
+  "width": "container",
+  "height": 440,
+  "data": {
+    "url": "data/toys_imports_state_country.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "string",
+        "value_k": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.year == '2024-25'"
+    },
+    {
+      "calculate": "datum.value_k / 1000",
+      "as": "value_m"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "value_k",
+          "as": "origin_total_k"
+        }
+      ],
+      "groupby": [
+        "origin"
+      ]
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "value_k",
+          "as": "state_total_k"
+        }
+      ],
+      "groupby": [
+        "state"
+      ]
+    },
+    {
+      "calculate": "datum.value_k / datum.state_total_k",
+      "as": "share_of_state"
+    },
+    {
+      "calculate": "datum.value_k / datum.origin_total_k",
+      "as": "share_of_origin"
+    },
+    {
+      "calculate": "datum.origin == 'Hong Kong (SAR of China)' ? 'Hong Kong' : datum.origin",
+      "as": "origin_short"
+    },
+    {
+      "calculate": "datum.value_k >= 1e6 ? 'A$1bn or more' : datum.value_k >= 1e5 ? 'A$100m–1bn' : datum.value_k >= 1e4 ? 'A$10–100m' : datum.value_k >= 1e3 ? 'A$1–10m' : datum.value_k >= 100 ? 'A$100k–1m' : 'Under A$100k'",
+      "as": "value_class"
+    },
+    {
+      "calculate": "datum.value_k >= 1e6 ? 'A$' + format(datum.value_k / 1e6, '.2f') + 'bn' : datum.value_k >= 1e4 ? format(datum.value_k / 1000, ',.0f') : ''",
+      "as": "cell_label"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "state",
+      "type": "nominal",
+      "title": "State or territory where the goods were unloaded",
+      "sort": {
+        "field": "state_total_k",
+        "op": "max",
+        "order": "descending"
+      },
+      "axis": {
+        "orient": "top",
+        "labelAngle": 0,
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 13,
+        "labelPadding": 6,
+        "titleFontSize": 12,
+        "titlePadding": 10
+      }
+    },
+    "y": {
+      "field": "origin_short",
+      "type": "nominal",
+      "title": null,
+      "sort": {
+        "field": "origin_total_k",
+        "op": "max",
+        "order": "descending"
+      },
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 13,
+        "labelPadding": 8
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "cornerRadius": 2,
+        "stroke": "#FBF8F3",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "color": {
+          "field": "value_class",
+          "type": "ordinal",
+          "scale": {
+            "domain": [
+              "A$1bn or more",
+              "A$100m–1bn",
+              "A$10–100m",
+              "A$1–10m",
+              "A$100k–1m",
+              "Under A$100k"
+            ],
+            "range": [
+              "#0B4339",
+              "#1B6152",
+              "#337F6F",
+              "#7FBCAB",
+              "#A9D4C7",
+              "#D6EBE4"
+            ]
+          },
+          "legend": {
+            "title": "Import value",
+            "orient": "right",
+            "symbolType": "square",
+            "symbolSize": 160,
+            "symbolStrokeWidth": 0
+          }
+        },
+        "tooltip": [
+          {
+            "field": "origin_short",
+            "type": "nominal",
+            "title": "From"
+          },
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "Unloaded in"
+          },
+          {
+            "field": "value_m",
+            "type": "quantitative",
+            "title": "Value (A$ million)",
+            "format": ",.2f"
+          },
+          {
+            "field": "share_of_state",
+            "type": "quantitative",
+            "title": "Share of that state’s toy imports",
+            "format": ".1%"
+          },
+          {
+            "field": "share_of_origin",
+            "type": "quantitative",
+            "title": "Share of that country’s toys to Australia",
+            "format": ".1%"
+          }
+        ]
+      }
+    },
+    {
+      "description": "A$ million printed in cells of A$10 million or more (bn for the two biggest).",
+      "mark": {
+        "type": "text",
+        "fontSize": 11.5
+      },
+      "encoding": {
+        "text": {
+          "field": "cell_label",
+          "type": "nominal"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.value_k >= 1e4",
+            "value": "#FFFFFF"
+          },
+          "value": "#1F1B16"
+        }
+      }
+    },
+    {
+      "description": "Source line.",
+      "data": {
+        "values": [
+          {
+            "text": "Source: DFAT Merchandise Trade Statistical Pivot Tables, SITC 894 imports by state of destination and origin (CC BY 4.0). Numbers in cells are A$ million."
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 11,
+        "color": "#7A7268"
+      },
+      "encoding": {
+        "text": {
+          "field": "text",
+          "type": "nominal"
+        },
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": {
+            "expr": "height + 12"
+          }
+        }
+      }
+    }
+  ],
+  "usermeta": {
+    "source": "DFAT Merchandise Trade Statistical Pivot Tables, SITC 894, imports by state of destination and country of origin, financial years (CC BY 4.0)."
+  }
+}

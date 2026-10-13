@@ -1,0 +1,453 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Proportional-symbol map of Australia in an Albers equal-area conic projection (standard parallels 18°S and 36°S, central meridian 132°E). A circle sits at the main container port of each state or territory, its area proportional to the value of toy, game and sporting-goods imports unloaded there in the chosen financial year (default 2024–25). This shows where goods enter the country, not where children live; state areas are deliberately not shaded.",
+  "title": {
+    "text": {
+      "expr": "'Where toys enter Australia, financial year ' + fy"
+    },
+    "subtitle": "Circle area = value of imports unloaded in each state. These are ports and warehouses, not where children live."
+  },
+  "width": "container",
+  "height": 520,
+  "params": [
+    {
+      "name": "fy",
+      "value": "2024-25",
+      "bind": {
+        "input": "select",
+        "options": [
+          "2015-16",
+          "2016-17",
+          "2017-18",
+          "2018-19",
+          "2019-20",
+          "2020-21",
+          "2021-22",
+          "2022-23",
+          "2023-24",
+          "2024-25"
+        ],
+        "name": "Financial year "
+      }
+    }
+  ],
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -132,
+      0,
+      0
+    ]
+  },
+  "layer": [
+    {
+      "description": "State and territory outlines (ABS ASGS 2021, simplified). Not filled with data on purpose.",
+      "data": {
+        "url": "data/au_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "states"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#EDE8DF",
+        "stroke": "#FBF8F3",
+        "strokeWidth": 1.5
+      }
+    },
+    {
+      "description": "Circles at each state's main port, area proportional to import value.",
+      "data": {
+        "url": "data/toys_imports_state_country.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "year": "string",
+            "value_k": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.year == fy"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "value_k",
+              "as": "total_k"
+            }
+          ],
+          "groupby": [
+            "state"
+          ]
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "sum",
+              "field": "total_k",
+              "as": "national_k"
+            }
+          ]
+        },
+        {
+          "calculate": "datum.total_k / 1000",
+          "as": "total_m"
+        },
+        {
+          "calculate": "datum.total_k / datum.national_k",
+          "as": "share"
+        },
+        {
+          "lookup": "state",
+          "from": {
+            "data": {
+              "url": "data/state_ports.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "lat": "number",
+                  "lon": "number"
+                }
+              }
+            },
+            "key": "state",
+            "fields": [
+              "port",
+              "lat",
+              "lon"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "color": "#337F6F",
+        "opacity": 0.78,
+        "stroke": "#FBF8F3",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "total_m",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "zero": true,
+            "domain": [
+              0,
+              2500
+            ],
+            "range": [
+              0,
+              7000
+            ]
+          },
+          "legend": {
+            "title": "Import value (A$ million)",
+            "values": [
+              100,
+              500,
+              1000,
+              2000
+            ],
+            "orient": "bottom-left",
+            "symbolFillColor": "#337F6F",
+            "symbolOpacity": 0.6,
+            "symbolStrokeColor": "#FBF8F3",
+            "labelFontSize": 12
+          }
+        },
+        "order": {
+          "field": "total_m",
+          "type": "quantitative",
+          "sort": "descending"
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State or territory"
+          },
+          {
+            "field": "port",
+            "type": "nominal",
+            "title": "Symbol placed at"
+          },
+          {
+            "field": "year",
+            "type": "nominal",
+            "title": "Financial year"
+          },
+          {
+            "field": "total_m",
+            "type": "quantitative",
+            "title": "Value (A$ million)",
+            "format": ",.2f"
+          },
+          {
+            "field": "share",
+            "type": "quantitative",
+            "title": "Share of national imports",
+            "format": ".1%"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Port dot, so even the tiniest totals (ACT, Tasmania) have a visible location.",
+      "data": {
+        "url": "data/state_ports.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "lat": "number",
+            "lon": "number"
+          }
+        }
+      },
+      "mark": {
+        "type": "circle",
+        "size": 14,
+        "color": "#1F1B16",
+        "opacity": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "description": "Leader line from Canberra out to the ACT label in the Tasman Sea (label point chosen to clear the NSW circle).",
+      "data": {
+        "url": "data/state_ports.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "lat": "number",
+            "lon": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.state == 'ACT'"
+        },
+        {
+          "calculate": "152.6",
+          "as": "label_lon"
+        },
+        {
+          "calculate": "-37.6",
+          "as": "label_lat"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#5A534A",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "label_lon"
+        },
+        "latitude2": {
+          "field": "label_lat"
+        }
+      }
+    },
+    {
+      "description": "Direct labels: state, value and share. Offsets keep the south-east labels apart.",
+      "data": {
+        "url": "data/toys_imports_state_country.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "year": "string",
+            "value_k": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.year == fy"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "value_k",
+              "as": "total_k"
+            }
+          ],
+          "groupby": [
+            "state"
+          ]
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "sum",
+              "field": "total_k",
+              "as": "national_k"
+            }
+          ]
+        },
+        {
+          "calculate": "datum.total_k / datum.national_k",
+          "as": "share"
+        },
+        {
+          "lookup": "state",
+          "from": {
+            "data": {
+              "url": "data/state_ports.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "lat": "number",
+                  "lon": "number"
+                }
+              }
+            },
+            "key": "state",
+            "fields": [
+              "port",
+              "lat",
+              "lon"
+            ]
+          }
+        },
+        {
+          "calculate": "datum.total_k >= 1e6 ? 'A$' + format(datum.total_k / 1e6, '.2f') + 'bn' : datum.total_k >= 1000 ? 'A$' + format(datum.total_k / 1000, ',.1f') + 'm' : 'A$' + format(datum.total_k, ',.0f') + 'k'",
+          "as": "value_text"
+        },
+        {
+          "calculate": "datum.share >= 0.01 ? ' · ' + format(datum.share, '.0%') : ''",
+          "as": "share_text"
+        },
+        {
+          "calculate": "[datum.state + (datum.state == 'ACT' ? ' (no seaport)' : ''), datum.value_text + datum.share_text]",
+          "as": "label"
+        },
+        {
+          "calculate": "{'Victoria': 'right', 'NSW': 'left', 'Queensland': 'left', 'SA': 'right', 'WA': 'right', 'Tasmania': 'left', 'NT': 'left', 'ACT': 'left'}[datum.state]",
+          "as": "align"
+        },
+        {
+          "calculate": "{'Victoria': -46, 'NSW': 44, 'Queensland': 22, 'SA': -14, 'WA': -14, 'Tasmania': 12, 'NT': 10, 'ACT': 4}[datum.state]",
+          "as": "dx"
+        },
+        {
+          "calculate": "{'Victoria': 30, 'NSW': -6, 'Queensland': -4, 'SA': 18, 'WA': 0, 'Tasmania': 8, 'NT': -6, 'ACT': 14}[datum.state]",
+          "as": "dy"
+        },
+        {
+          "calculate": "datum.state == 'ACT' ? 152.6 : datum.lon",
+          "as": "text_lon"
+        },
+        {
+          "calculate": "datum.state == 'ACT' ? -37.6 : datum.lat",
+          "as": "text_lat"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "lineHeight": 16,
+        "baseline": "middle",
+        "color": "#1F1B16",
+        "align": {
+          "expr": "datum.align"
+        },
+        "dx": {
+          "expr": "datum.dx"
+        },
+        "dy": {
+          "expr": "datum.dy"
+        }
+      },
+      "encoding": {
+        "longitude": {
+          "field": "text_lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "text_lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "Source line.",
+      "data": {
+        "values": [
+          {
+            "text": [
+              "Source: DFAT Merchandise Trade Statistical Pivot Tables, SITC 894 imports by state of destination (CC BY 4.0). Boundaries: ABS ASGS 2021 (CC BY 4.0),",
+              "simplified. Circles sit at each state’s main container port (ACT: Canberra Airport). Albers equal-area projection for Australia."
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 11,
+        "lineHeight": 15,
+        "color": "#7A7268"
+      },
+      "encoding": {
+        "text": {
+          "field": "text",
+          "type": "nominal"
+        },
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": {
+            "expr": "height + 10"
+          }
+        }
+      }
+    }
+  ],
+  "usermeta": {
+    "source": "DFAT Merchandise Trade Statistical Pivot Tables, SITC 894, imports by state of destination, financial years (CC BY 4.0). ABS ASGS Edition 3 state boundaries (CC BY 4.0)."
+  }
+}

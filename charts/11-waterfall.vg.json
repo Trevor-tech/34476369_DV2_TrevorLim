@@ -1,0 +1,330 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Waterfall chart of how Australia's toy, game and sporting-goods imports grew from A$2.07 billion in calendar year 2006 to A$5.63 billion in 2025, an increase of A$3.56 billion. Each floating bar is one country's change: China added A$2.49 billion, Vietnam A$398 million, the United States A$157 million, Japan A$119 million, Thailand A$68 million, Taiwan A$60 million and Indonesia A$50 million; all other countries together added A$258 million; Hong Kong fell by A$38 million.",
+  "title": {
+    "text": "Who added the extra A$3.56 billion?",
+    "subtitle": "Change in the value of toy imports from each country, calendar year 2006 to 2025 (A$ million)"
+  },
+  "width": "container",
+  "height": 400,
+  "data": {
+    "url": "data/toys_imports_country_year.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "value_k": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.year == 2006 || datum.year == 2025"
+    },
+    {
+      "calculate": "datum.value_k",
+      "as": "copy_k"
+    },
+    {
+      "fold": [
+        "value_k",
+        "copy_k"
+      ],
+      "as": [
+        "role",
+        "amount_k"
+      ]
+    },
+    {
+      "calculate": "datum.role == 'copy_k' ? (datum.year == 2006 ? '2006 total' : '2025 total') : (indexof(['China', 'Vietnam', 'United States', 'Japan', 'Thailand', 'Taiwan', 'Indonesia', 'Hong Kong (SAR of China)'], datum.origin) >= 0 ? datum.origin : 'Everyone else')",
+      "as": "bar"
+    },
+    {
+      "calculate": "datum.role == 'copy_k' ? datum.amount_k : (datum.year == 2025 ? datum.amount_k : -datum.amount_k)",
+      "as": "signed_k"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "signed_k",
+          "as": "change_k"
+        }
+      ],
+      "groupby": [
+        "bar",
+        "role"
+      ]
+    },
+    {
+      "calculate": "datum.change_k / 1000",
+      "as": "amount_m"
+    },
+    {
+      "calculate": "datum.bar == '2006 total' ? -1e12 : datum.bar == '2025 total' ? 1e12 : datum.bar == 'Everyone else' ? 0 : -datum.amount_m",
+      "as": "ord"
+    },
+    {
+      "calculate": "datum.bar == '2025 total' ? 0 : datum.amount_m",
+      "as": "flow_m"
+    },
+    {
+      "window": [
+        {
+          "op": "sum",
+          "field": "flow_m",
+          "as": "running_m"
+        }
+      ],
+      "sort": [
+        {
+          "field": "ord",
+          "order": "ascending"
+        }
+      ],
+      "frame": [
+        null,
+        0
+      ]
+    },
+    {
+      "calculate": "datum.role == 'copy_k' ? 0 : datum.running_m - datum.amount_m",
+      "as": "start_m"
+    },
+    {
+      "calculate": "datum.bar == '2025 total' ? datum.amount_m : datum.running_m",
+      "as": "end_m"
+    },
+    {
+      "calculate": "max(datum.start_m, datum.end_m)",
+      "as": "label_y"
+    },
+    {
+      "window": [
+        {
+          "op": "lead",
+          "field": "bar",
+          "as": "next_bar"
+        }
+      ],
+      "sort": [
+        {
+          "field": "ord",
+          "order": "ascending"
+        }
+      ]
+    },
+    {
+      "calculate": "datum.bar == 'Hong Kong (SAR of China)' ? 'Hong Kong' : datum.bar",
+      "as": "bar_label"
+    },
+    {
+      "calculate": "datum.next_bar == 'Hong Kong (SAR of China)' ? 'Hong Kong' : datum.next_bar",
+      "as": "next_label"
+    },
+    {
+      "calculate": "datum.role == 'copy_k' ? 'Total' : indexof(['China', 'Vietnam', 'Japan'], datum.bar) >= 0 ? datum.bar : 'Other'",
+      "as": "group"
+    },
+    {
+      "calculate": "datum.role == 'copy_k' ? 'A$' + format(datum.amount_m / 1000, '.2f') + 'bn' : (datum.amount_m >= 0 ? '+' : '−') + format(abs(datum.amount_m), ',.0f')",
+      "as": "label"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "bar_label",
+      "type": "nominal",
+      "title": null,
+      "sort": {
+        "field": "ord",
+        "op": "min",
+        "order": "ascending"
+      },
+      "scale": {
+        "paddingInner": 0.28
+      },
+      "axis": {
+        "labelAngle": 0,
+        "labelExpr": "split(datum.label, ' ')",
+        "labelFontSize": 12,
+        "labelLineHeight": 14,
+        "domain": true,
+        "ticks": false,
+        "labelPadding": 8
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadius": 2
+      },
+      "encoding": {
+        "y": {
+          "field": "start_m",
+          "type": "quantitative",
+          "title": "A$ million",
+          "scale": {
+            "domain": [
+              0,
+              6000
+            ]
+          },
+          "axis": {
+            "format": ",.0f",
+            "gridColor": "#EFEAE1",
+            "domain": false,
+            "ticks": false,
+            "values": [
+              0,
+              1000,
+              2000,
+              3000,
+              4000,
+              5000,
+              6000
+            ]
+          }
+        },
+        "y2": {
+          "field": "end_m"
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Total",
+              "China",
+              "Vietnam",
+              "Japan",
+              "Other"
+            ],
+            "range": [
+              "#4A443D",
+              "#8C8279",
+              "#E0442B",
+              "#2E6DB4",
+              "#C9C4BB"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "bar_label",
+            "type": "nominal",
+            "title": "Bar"
+          },
+          {
+            "field": "amount_m",
+            "type": "quantitative",
+            "title": "A$ million (change, or total)",
+            "format": ",.1f"
+          },
+          {
+            "field": "start_m",
+            "type": "quantitative",
+            "title": "Running total before (A$m)",
+            "format": ",.0f"
+          },
+          {
+            "field": "end_m",
+            "type": "quantitative",
+            "title": "Running total after (A$m)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Connector lines from the end of each bar to the start of the next.",
+      "transform": [
+        {
+          "filter": "isValid(datum.next_label)"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#8F897F",
+        "strokeWidth": 1,
+        "strokeDash": [
+          2,
+          2
+        ],
+        "xOffset": {
+          "expr": "bandwidth('x') / 2"
+        },
+        "x2Offset": {
+          "expr": "-bandwidth('x') / 2"
+        }
+      },
+      "encoding": {
+        "x2": {
+          "field": "next_label"
+        },
+        "y": {
+          "field": "end_m",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "description": "Value labels above each bar.",
+      "mark": {
+        "type": "text",
+        "baseline": "bottom",
+        "dy": -5,
+        "fontSize": 12.5,
+        "fontWeight": "bold",
+        "color": "#1F1B16"
+      },
+      "encoding": {
+        "y": {
+          "field": "label_y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "Source line.",
+      "data": {
+        "values": [
+          {
+            "text": "Source: DFAT Merchandise Trade Statistical Pivot Tables, SITC 894 total imports by country of origin, calendar years (CC BY 4.0). Not adjusted for inflation."
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 11,
+        "color": "#7A7268"
+      },
+      "encoding": {
+        "text": {
+          "field": "text",
+          "type": "nominal"
+        },
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": {
+            "expr": "height + 46"
+          }
+        }
+      }
+    }
+  ],
+  "usermeta": {
+    "source": "DFAT Merchandise Trade Statistical Pivot Tables, SITC 894 total imports by country of origin, calendar years (CC BY 4.0)."
+  }
+}

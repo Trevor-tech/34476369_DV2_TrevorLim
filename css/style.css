@@ -1,0 +1,401 @@
+/* The Great Toy Reroute — FIT3179 DV2
+   Hand-rolled layout: one centred column, charts span its full width. */
+
+:root {
+  --paper: #fbf8f3;
+  --paper-deep: #f3eee5;
+  --ink: #1f1b16;
+  --ink-2: #5a534a;
+  --ink-3: #7a7268;
+  --rule: #e2dccf;
+
+  --vietnam: #e0442b;
+  --japan: #2e6db4;
+  --china: #8c8279;
+  --other: #c9c4bb;
+
+  --display: "Fredoka", "Trebuchet MS", system-ui, sans-serif;
+  --text: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --measure: 68ch;
+  --page: 1120px;
+  --gutter: clamp(16px, 4vw, 40px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 18px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.wrap {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  padding: 72px 0 40px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.kicker {
+  font-family: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 0 0 12px;
+}
+
+h1 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(44px, 7vw, 84px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin: 0 0 20px;
+}
+
+h1 .accent {
+  color: var(--vietnam);
+}
+
+.standfirst {
+  font-size: 22px;
+  line-height: 1.45;
+  max-width: 34em;
+  margin: 0 0 24px;
+  color: var(--ink-2);
+}
+
+.byline {
+  font-size: 15px;
+  color: var(--ink-3);
+  margin: 0;
+}
+
+/* ---------- sections ---------- */
+
+.beat {
+  padding: 56px 0 24px;
+}
+
+.beat + .beat {
+  border-top: 1px solid var(--rule);
+}
+
+.beat-number {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--vietnam);
+  margin: 0 0 4px;
+}
+
+h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.1;
+  margin: 0 0 16px;
+  max-width: 22em;
+}
+
+.prose {
+  max-width: var(--measure);
+}
+
+.prose p {
+  margin: 0 0 1em;
+}
+
+/* inline colour keys that tie the prose to the palette */
+.k {
+  font-weight: 700;
+  white-space: nowrap;
+}
+.k::before {
+  content: "";
+  display: inline-block;
+  width: 0.62em;
+  height: 0.62em;
+  border-radius: 50%;
+  margin-right: 0.3em;
+  vertical-align: 0.06em;
+  background: currentColor;
+}
+.k-vietnam { color: var(--vietnam); }
+.k-japan { color: var(--japan); }
+.k-china { color: var(--china); }
+
+/* ---------- figures ---------- */
+
+figure.chart {
+  margin: 32px 0 40px;
+  padding: 0;
+}
+
+.vis {
+  width: 100%;
+  min-height: 120px;
+}
+
+/* vega-embed wraps the view; keep it in the column */
+.vis.vega-embed {
+  display: block;
+  width: 100%;
+}
+
+.vis .vega-bindings {
+  font-family: var(--text);
+  font-size: 15px;
+  color: var(--ink-2);
+  margin-top: 8px;
+}
+
+.vis .vega-bind {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vis .vega-bind input[type="range"] {
+  width: min(320px, 60vw);
+  accent-color: #337f6f;
+}
+
+figcaption {
+  max-width: var(--measure);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  margin-top: 10px;
+}
+
+figcaption strong {
+  color: var(--ink);
+}
+
+/* ---------- tooltip (vega-tooltip) ---------- */
+
+#vg-tooltip-element.vg-tooltip {
+  font-family: var(--text);
+  font-size: 14px;
+  background: #fffdf9;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(31, 27, 22, 0.12);
+  padding: 8px 10px;
+}
+
+#vg-tooltip-element.vg-tooltip td.key {
+  color: var(--ink-3);
+}
+
+/* ---------- masthead extras ---------- */
+
+.stats {
+  list-style: none;
+  margin: 36px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.stats li {
+  border-top: 3px solid var(--ink);
+  padding-top: 12px;
+}
+
+.stat-num {
+  display: block;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  display: block;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+.k-china-text { color: #6f665d; }
+.k-vietnam-text { color: #c2381f; }
+
+.legend-line {
+  margin: 32px 0 0;
+  font-size: 15px;
+  color: var(--ink-2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  align-items: center;
+}
+
+.k-other { color: #a39d93; }
+
+/* ---------- body extras ---------- */
+
+h3.sub {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.2;
+  margin: 40px 0 12px;
+}
+
+.note-inline {
+  font-size: 16px;
+  background: var(--paper-deep);
+  border-left: 3px solid var(--ink-3);
+  padding: 10px 14px;
+}
+
+a.fn {
+  font-size: 0.7em;
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 1px;
+  text-decoration: none;
+  color: var(--vietnam);
+  font-weight: 700;
+}
+
+.callout {
+  max-width: var(--measure);
+  background: var(--paper-deep);
+  border-radius: 10px;
+  padding: 22px 26px 8px;
+  margin: 8px 0 32px;
+}
+
+.callout h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 22px;
+  margin: 0 0 10px;
+}
+
+.callout p {
+  margin: 0 0 14px;
+}
+
+/* Small multiples have a fixed width; scroll inside the figure on very narrow screens, never the page. */
+.chart-fixed .vis {
+  overflow-x: auto;
+}
+
+.chart-key {
+  background: #fffdf8;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 24px 24px 16px;
+}
+
+/* ---------- notes ---------- */
+
+.notes {
+  padding: 48px 0 8px;
+  border-top: 1px solid var(--rule);
+}
+
+.notes h2 {
+  font-size: 28px;
+}
+
+.note-list {
+  max-width: var(--measure);
+  padding-left: 1.3em;
+  font-size: 16px;
+  color: var(--ink-2);
+}
+
+.note-list li {
+  margin-bottom: 12px;
+}
+
+.note-list li:target {
+  background: #fff3d6;
+  outline: 6px solid #fff3d6;
+}
+
+.note-list strong {
+  color: var(--ink);
+}
+
+/* ---------- footer ---------- */
+
+.colophon {
+  margin-top: 48px;
+  padding: 40px 0 72px;
+  border-top: 1px solid var(--rule);
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+.colophon h2 {
+  font-size: 28px;
+}
+
+.colophon h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ink);
+  margin: 20px 0 6px;
+}
+
+.colophon-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 40px;
+}
+
+.sources {
+  padding-left: 1.1em;
+  margin: 0;
+}
+
+.sources li {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 860px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .colophon-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--ink-3);
+  text-underline-offset: 2px;
+}

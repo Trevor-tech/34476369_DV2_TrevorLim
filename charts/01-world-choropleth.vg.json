@@ -1,0 +1,646 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "World map in the Equal Earth projection. Each country is shaded by its share of the value of Australia's imports of prams, toys, games and sporting goods (SITC 894) in one calendar year, chosen with a slider from 2006 to 2025. In 2025 China supplied 68.3%, Vietnam 7.2%, the United States 6.5% and Japan 2.8%. Countries not reported separately are grey; Hong Kong and Singapore are drawn as dots because they are too small to show at this scale. 'Rest of world' has no single location and is not drawn.",
+  "title": {
+    "text": {
+      "expr": "'Where Australia’s toys came from, ' + year"
+    },
+    "subtitle": "Share of the value of Australia’s toy, game and sporting-goods imports, by country of origin (calendar year)"
+  },
+  "width": "container",
+  "height": 470,
+  "params": [
+    {
+      "name": "year",
+      "value": 2025,
+      "bind": {
+        "input": "range",
+        "min": 2006,
+        "max": 2025,
+        "step": 1,
+        "name": "Year "
+      }
+    }
+  ],
+  "projection": {
+    "type": "equalEarth"
+  },
+  "layer": [
+    {
+      "description": "Base layer: every country, grey unless it is named in the trade data.",
+      "data": {
+        "url": "data/world-110m.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.id != '010'"
+        },
+        {
+          "calculate": "'Not named separately in the data (counted in “Rest of world”)'",
+          "as": "note"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#FBF8F3",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "type": "nominal",
+            "title": "Country"
+          },
+          {
+            "field": "note",
+            "type": "nominal",
+            "title": "Note"
+          }
+        ],
+        "color": {
+          "datum": "Not named separately",
+          "type": "ordinal",
+          "scale": {
+            "domain": [
+              "10% or more",
+              "5–10%",
+              "2–5%",
+              "1–2%",
+              "0.5–1%",
+              "Under 0.5%",
+              "Not named separately"
+            ],
+            "range": [
+              "#0B4339",
+              "#1B6152",
+              "#337F6F",
+              "#55A08E",
+              "#7FBCAB",
+              "#A9D4C7",
+              "#E6E1D8"
+            ]
+          },
+          "legend": {
+            "title": "Share of import value",
+            "orient": "bottom-left",
+            "direction": "vertical",
+            "offset": 0,
+            "symbolType": "square",
+            "symbolSize": 150,
+            "symbolStrokeWidth": 0,
+            "labelFontSize": 12,
+            "rowPadding": 3
+          }
+        }
+      }
+    },
+    {
+      "description": "Country shares for the selected year, joined to country shapes by ISO numeric code.",
+      "data": {
+        "url": "data/toys_imports_country_year.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "year": "number",
+            "value_k": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.year == year"
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "sum",
+              "field": "value_k",
+              "as": "total_k"
+            }
+          ]
+        },
+        {
+          "calculate": "datum.value_k / datum.total_k",
+          "as": "share"
+        },
+        {
+          "calculate": "datum.value_k / 1000",
+          "as": "value_m"
+        },
+        {
+          "calculate": "datum.share >= 0.1 ? '10% or more' : datum.share >= 0.05 ? '5–10%' : datum.share >= 0.02 ? '2–5%' : datum.share >= 0.01 ? '1–2%' : datum.share >= 0.005 ? '0.5–1%' : 'Under 0.5%'",
+          "as": "share_class"
+        },
+        {
+          "lookup": "origin",
+          "from": {
+            "data": {
+              "url": "data/origin_iso.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "iso_numeric": "string",
+                  "lat": "number",
+                  "lon": "number"
+                }
+              }
+            },
+            "key": "origin",
+            "fields": [
+              "iso_numeric"
+            ]
+          }
+        },
+        {
+          "lookup": "iso_numeric",
+          "from": {
+            "data": {
+              "url": "data/world-110m.topojson",
+              "format": {
+                "type": "topojson",
+                "feature": "countries"
+              }
+            },
+            "key": "id"
+          },
+          "as": "geo"
+        },
+        {
+          "filter": "isValid(datum.geo)"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#FBF8F3",
+        "strokeWidth": 0.6
+      },
+      "encoding": {
+        "shape": {
+          "field": "geo",
+          "type": "geojson"
+        },
+        "color": {
+          "field": "share_class",
+          "type": "ordinal",
+          "scale": {
+            "domain": [
+              "10% or more",
+              "5–10%",
+              "2–5%",
+              "1–2%",
+              "0.5–1%",
+              "Under 0.5%",
+              "Not named separately"
+            ],
+            "range": [
+              "#0B4339",
+              "#1B6152",
+              "#337F6F",
+              "#55A08E",
+              "#7FBCAB",
+              "#A9D4C7",
+              "#E6E1D8"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "origin",
+            "type": "nominal",
+            "title": "Origin"
+          },
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Calendar year"
+          },
+          {
+            "field": "share",
+            "type": "quantitative",
+            "title": "Share of imports",
+            "format": ".1%"
+          },
+          {
+            "field": "value_m",
+            "type": "quantitative",
+            "title": "Value (A$ million)",
+            "format": ",.1f"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Hong Kong and Singapore have no shape at this map scale, so they are drawn as dots in the same colour scale.",
+      "data": {
+        "url": "data/toys_imports_country_year.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "year": "number",
+            "value_k": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.year == year"
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "sum",
+              "field": "value_k",
+              "as": "total_k"
+            }
+          ]
+        },
+        {
+          "calculate": "datum.value_k / datum.total_k",
+          "as": "share"
+        },
+        {
+          "calculate": "datum.value_k / 1000",
+          "as": "value_m"
+        },
+        {
+          "calculate": "datum.share >= 0.1 ? '10% or more' : datum.share >= 0.05 ? '5–10%' : datum.share >= 0.02 ? '2–5%' : datum.share >= 0.01 ? '1–2%' : datum.share >= 0.005 ? '0.5–1%' : 'Under 0.5%'",
+          "as": "share_class"
+        },
+        {
+          "lookup": "origin",
+          "from": {
+            "data": {
+              "url": "data/origin_iso.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "iso_numeric": "string",
+                  "lat": "number",
+                  "lon": "number"
+                }
+              }
+            },
+            "key": "origin",
+            "fields": [
+              "iso_numeric",
+              "lat",
+              "lon"
+            ]
+          }
+        },
+        {
+          "filter": "datum.origin == 'Hong Kong (SAR of China)' || datum.origin == 'Singapore'"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 46,
+        "opacity": 1,
+        "stroke": "#FBF8F3",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "share_class",
+          "type": "ordinal",
+          "scale": {
+            "domain": [
+              "10% or more",
+              "5–10%",
+              "2–5%",
+              "1–2%",
+              "0.5–1%",
+              "Under 0.5%",
+              "Not named separately"
+            ],
+            "range": [
+              "#0B4339",
+              "#1B6152",
+              "#337F6F",
+              "#55A08E",
+              "#7FBCAB",
+              "#A9D4C7",
+              "#E6E1D8"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "origin",
+            "type": "nominal",
+            "title": "Origin"
+          },
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Calendar year"
+          },
+          {
+            "field": "share",
+            "type": "quantitative",
+            "title": "Share of imports",
+            "format": ".1%"
+          },
+          {
+            "field": "value_m",
+            "type": "quantitative",
+            "title": "Value (A$ million)",
+            "format": ",.1f"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Story accents: Vietnam outlined in the page's accent red, Japan in the secondary blue.",
+      "data": {
+        "url": "data/world-110m.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.id == '704' || datum.id == '392'"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "strokeWidth": 1.5,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "stroke": {
+          "field": "id",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "704",
+              "392"
+            ],
+            "range": [
+              "#E0442B",
+              "#2E6DB4"
+            ]
+          },
+          "legend": null
+        }
+      }
+    },
+    {
+      "description": "Leader lines from Vietnam and Japan out to their labels in open ocean.",
+      "data": {
+        "values": [
+          {
+            "origin": "Vietnam",
+            "lat": 15.2,
+            "lon": 109.6,
+            "lat2": 17.5,
+            "lon2": 131
+          },
+          {
+            "origin": "Japan",
+            "lat": 37.8,
+            "lon": 141.2,
+            "lat2": 42.5,
+            "lon2": 151
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 1,
+        "color": "#5A534A"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "lon2"
+        },
+        "latitude2": {
+          "field": "lat2"
+        }
+      }
+    },
+    {
+      "description": "Direct label for China, white on the darkest class; value follows the year slider.",
+      "data": {
+        "url": "data/toys_imports_country_year.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "year": "number",
+            "value_k": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.year == year"
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "sum",
+              "field": "value_k",
+              "as": "total_k"
+            }
+          ]
+        },
+        {
+          "calculate": "datum.value_k / datum.total_k",
+          "as": "share"
+        },
+        {
+          "filter": "datum.origin == 'China'"
+        },
+        {
+          "filter": "indexof(['China', 'Vietnam', 'Japan'], datum.origin) >= 0"
+        },
+        {
+          "calculate": "datum.origin + ' ' + format(datum.share, '.1%')",
+          "as": "label"
+        },
+        {
+          "calculate": "{'China': 33, 'Vietnam': 17.5, 'Japan': 42.5}[datum.origin]",
+          "as": "label_lat"
+        },
+        {
+          "calculate": "{'China': 99, 'Vietnam': 132, 'Japan': 152}[datum.origin]",
+          "as": "label_lon"
+        },
+        {
+          "calculate": "datum.origin == 'China' ? 'center' : 'left'",
+          "as": "label_align"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "align": {
+          "expr": "datum.label_align"
+        },
+        "baseline": "middle",
+        "color": "#FFFFFF"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "label_lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "label_lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "Direct labels for Vietnam and Japan at the end of their leader lines; values follow the year slider.",
+      "data": {
+        "url": "data/toys_imports_country_year.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "year": "number",
+            "value_k": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.year == year"
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "sum",
+              "field": "value_k",
+              "as": "total_k"
+            }
+          ]
+        },
+        {
+          "calculate": "datum.value_k / datum.total_k",
+          "as": "share"
+        },
+        {
+          "filter": "datum.origin != 'China'"
+        },
+        {
+          "filter": "indexof(['China', 'Vietnam', 'Japan'], datum.origin) >= 0"
+        },
+        {
+          "calculate": "datum.origin + ' ' + format(datum.share, '.1%')",
+          "as": "label"
+        },
+        {
+          "calculate": "{'China': 33, 'Vietnam': 17.5, 'Japan': 42.5}[datum.origin]",
+          "as": "label_lat"
+        },
+        {
+          "calculate": "{'China': 99, 'Vietnam': 132, 'Japan': 152}[datum.origin]",
+          "as": "label_lon"
+        },
+        {
+          "calculate": "datum.origin == 'China' ? 'center' : 'left'",
+          "as": "label_align"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "align": {
+          "expr": "datum.label_align"
+        },
+        "baseline": "middle",
+        "color": "#1F1B16"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "label_lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "label_lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "Source line.",
+      "data": {
+        "values": [
+          {
+            "text": [
+              "Source: DFAT Merchandise Trade Statistical Pivot Tables, SITC 894 total imports by country of origin (CC BY 4.0).",
+              "Map: Natural Earth 1:110m via world-atlas, Equal Earth projection. “Rest of world” has no single location, so it is not drawn."
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 11,
+        "color": "#7A7268",
+        "lineHeight": 15
+      },
+      "encoding": {
+        "text": {
+          "field": "text",
+          "type": "nominal"
+        },
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": {
+            "expr": "height + 10"
+          }
+        }
+      }
+    }
+  ],
+  "config": {
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "symbolSize": 140
+    }
+  },
+  "usermeta": {
+    "source": "DFAT Merchandise Trade Statistical Pivot Tables, SITC 894, total imports by country of origin (CC BY 4.0). Boundaries: Natural Earth 1:110m via world-atlas 2.0.2."
+  }
+}
