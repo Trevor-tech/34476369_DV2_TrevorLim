@@ -6,7 +6,7 @@ A single-page data story for FIT3179 Data Visualisation 2 (Monash University), b
 Vega-Lite (12 charts) and Vega (1 chart).
 
 - **Author:** Trevor Lim Yong Guan · 34476369
-- **Date:** 25 October 2026
+- **Date:** 27 October 2026
 - **AI use:** see [Acknowledgement of AI use](#acknowledgement-of-ai-use)
 
 ## Run it locally
@@ -77,4 +77,5 @@ specs** with `transform`s; the source CSVs are exactly as extracted.
 Each CDN URL was checked to return HTTP 200 with a UMD build before use.
 
 ## Acknowledgement of AI use
-(to be done)
+This project was built with help from Claude Opus (Anthropic). It was used to teach me about Vega-Lite and Vega specifications, HTML, CSS, JavaScript, and boundary-file processing, and drafted the narrative text and documentation; it also checked every figure quoted on the page against the source CSVs. The extraction of the five datasets, writing and editing of code and the final review and narrative text were done by me.
+https://claude.ai/
